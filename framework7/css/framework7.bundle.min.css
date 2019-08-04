@@ -9,74 +9,9 @@
  *
  * Released on: February 7, 2019
  */
-/* Custom color theme properties */
-:root {
-    --f7-theme-color: #673ab7;
-    --f7-theme-color-rgb: 103, 58, 183;
-    --f7-theme-color-shade: #563098;
-    --f7-theme-color-tint: #7c52c8;
-  }
-  
-  /* Invert navigation bars to fill style */
-  :root,
-  :root.theme-dark,
-  :root .theme-dark {
-    --f7-bars-bg-color: var(--f7-theme-color);
-    --f7-bars-text-color: #fff;
-    --f7-bars-link-color: #fff;
-    --f7-navbar-subtitle-text-color: rgba(255,255,255,0.85);
-    --f7-bars-border-color: transparent;
-    --f7-tabbar-link-active-color: #fff;
-    --f7-tabbar-link-inactive-color: rgba(255,255,255,0.54);
-    --f7-searchbar-bg-color: var(--f7-bars-bg-color);
-    --f7-searchbar-input-bg-color: #fff;
-    --f7-searchbar-input-text-color: #000;
-    --f7-sheet-border-color: transparent;
-    --f7-tabbar-link-active-border-color: #fff;
-  }
-  .appbar,
-  .navbar,
-  .toolbar,
-  .subnavbar,
-  .calendar-header,
-  .calendar-footer {
-    --f7-touch-ripple-color: var(--f7-touch-ripple-white);
-    --f7-link-highlight-color: var(--f7-link-highlight-white);
-    --f7-button-text-color: #fff;
-    --f7-button-pressed-bg-color: rgba(255,255,255,0.1);
-  }
-  
-  /* Left Panel right border when it is visible by breakpoint */
-  .panel-left.panel-visible-by-breakpoint:before {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background: rgba(0,0,0,0.1);
-    content: '';
-    z-index: 6000;
-  }
-  
-  /* Hide navbar link which opens left panel when it is visible by breakpoint */
-  .panel-left.panel-visible-by-breakpoint ~ .view .navbar .panel-open[data-panel="left"] {
-    display: none;
-  }
-  
-  /*
-    Extra borders for main view and left panel for iOS theme when it behaves as panel (before breakpoint size)
-  */
-  .ios .panel-left:not(.panel-visible-by-breakpoint).panel-active ~ .view-main:before,
-  .ios .panel-left:not(.panel-visible-by-breakpoint).panel-closing ~ .view-main:before {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 1px;
-    background: rgba(0,0,0,0.1);
-    content: '';
-    z-index: 6000;
-  }
+ :root {
+    --f7-theme-color:#673ab7;--f7-theme-color-rgb:0,122,255;--f7-theme-color-shade:#673ab7;--f7-theme-color-tint:#673ab7;--f7-safe-area-left:0px;--f7-safe-area-right:0px;--f7-safe-area-top:0px;--f7-safe-area-bottom:0px;--f7-safe-area-outer-left:0px;--f7-safe-area-outer-right:0px;--f7-device-pixel-ratio:1}
+
 @supports (left: env(safe-area-inset-left)) {
     :root {
         --f7-safe-area-top:env(safe-area-inset-top);
@@ -174,7 +109,7 @@
     --f7-theme-color:#673ab7;--f7-theme-color-rgb:103,58,183;--f7-theme-color-shade:#563098;--f7-theme-color-tint:#7c52c8}
 
 .color-theme-lightblue {
-    --f7-theme-color:#563098;--f7-theme-color-rgb:90,200,250;--f7-theme-color-shade:#563098;--f7-theme-color-tint:#82d5fb}
+    --f7-theme-color:#5ac8fa;--f7-theme-color-rgb:90,200,250;--f7-theme-color-shade:#32bbf9;--f7-theme-color-tint:#82d5fb}
 
 .color-theme-teal {
     --f7-theme-color:#009688;--f7-theme-color-rgb:0,150,136;--f7-theme-color-shade:#006d63;--f7-theme-color-tint:#00bfad}
@@ -225,7 +160,7 @@
     --f7-theme-color-ripple-color:rgba(76, 217, 100, 0.3)}
 
 .color-blue {
-    --f7-theme-color:#563098;--f7-theme-color-rgb:33,150,243;--f7-theme-color-shade:#563098;--f7-theme-color-tint:#48a8f5}
+    --f7-theme-color:#2196f3;--f7-theme-color-rgb:33,150,243;--f7-theme-color-shade:#0c82df;--f7-theme-color-tint:#48a8f5}
 
 .text-color-blue {
     --f7-theme-color-text-color:#2196f3}
@@ -983,7 +918,7 @@ html.device-full-viewport,html.device-full-viewport body {
     transform: translate3d(0,0,0);
     height: var(--f7-navbar-height);
     background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
-    background-color: var(--f7-navbar-bg-color,var(--f7-bars-bg-color,var(--f7-theme-color)));
+    background-color: #563098;
     color: var(--f7-navbar-text-color,var(--f7-bars-text-color));
     font-size: var(--f7-navbar-font-size)
 }
@@ -1001,7 +936,7 @@ html.device-full-viewport,html.device-full-viewport body {
 }
 
 .navbar a {
-    color: var(--f7-navbar-link-color,var(--f7-bars-link-color,var(--f7-theme-color)))
+    color: white;
 }
 
 .navbar a.link {
