@@ -919,7 +919,7 @@ html.device-full-viewport,html.device-full-viewport body {
     height: var(--f7-navbar-height);
     background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
     background-color: #563098;
-    color: var(--f7-navbar-text-color,var(--f7-bars-text-color));
+    color: white;
     font-size: var(--f7-navbar-font-size)
 }
 
