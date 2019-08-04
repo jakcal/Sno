@@ -28,28 +28,34 @@
 <body>
   <div id="app">
     <!-- Status bar overlay for fullscreen mode-->
-    <div id="mainnav-menu-wrap">
-      <div class="nano has-scrollbar">
-          <div class="nano-content" tabindex="0" style="right: -17px;">
-
-              <!--Profile Widget-->
-              <!--================================-->
-              <div id="mainnav-profile" class="mainnav-profile">
-                  <div class="profile-wrap text-center">
-                      <div class="pad-btm">
-                          <img class="img-circle img-md" src="https://snoanime.com/app_icon.png" alt="Profile Picture">
-                      </div>
-                      <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
-                          <p class="mnp-name">SnoAnime X</p>
-                      </a>
-                  </div>
-              </div>
-              <div style="background-color: white;padding-bottom: 100%;height: 100%;">
-                  
-                </div>
+    <div class="statusbar"></div>
+    <!-- Left panel with cover effect-->
+    <div class="panel panel-left panel-cover theme-dark">
+      <div class="view">
+        <div class="page">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="title">Left Panel</div>
+            </div>
           </div>
-      <div class="nano-pane" style="display: none;"><div class="nano-slider" style="height: 5967px; transform: translate(0px, 0px);"></div></div></div>
-  </div>
+          <div class="page-content">
+            <div id="mainnav-profile" class="mainnav-profile">
+              <div class="profile-wrap text-center">
+                  <div class="pad-btm">
+                      <img class="img-circle img-md" src="https://snoanime.com/app_icon.png" alt="Profile Picture">
+                  </div>
+                  <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                      <p class="mnp-name">SnoAnime X</p>
+                  </a>
+              </div>
+          </div>
+          <div style="background-color: white;padding-bottom: 100%;height: 100%;">
+              
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Your main view, should have "view-main" class -->
     <div class="view view-main safe-areas">
