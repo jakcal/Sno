@@ -918,7 +918,7 @@ html.device-full-viewport,html.device-full-viewport body {
     transform: translate3d(0,0,0);
     height: var(--f7-navbar-height);
     background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
-    background-color: #563098;
+    background-color: #692fce;
     color: white;
     font-size: var(--f7-navbar-font-size)
 }
