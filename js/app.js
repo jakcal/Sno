@@ -87,8 +87,8 @@ function createitem(img,name,title) {
   div6.appendChild(div7);
   div5.appendChild(div6);
   div5.appendChild(div8);
-  li.appendChild(div5);
   li.appendChild(div4);
+  li.appendChild(div5);
   ul.appendChild(li);
   div3.appendChild(ul);
   div2.appendChild(div3);
