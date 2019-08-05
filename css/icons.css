@@ -3,19 +3,18 @@
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: url(../fonts/MaterialIcons-Regular.eot);
   src: local('Material Icons'),
        local('MaterialIcons-Regular'),
        url(../fonts/MaterialIcons-Regular.woff2) format('woff2'),
        url(../fonts/MaterialIcons-Regular.woff) format('woff'),
        url(../fonts/MaterialIcons-Regular.ttf) format('truetype');
 }
-
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px;
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -23,16 +22,9 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
-
-  /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
   text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
   -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
   font-feature-settings: 'liga';
 }
 
@@ -46,12 +38,11 @@
        url("../fonts/Framework7Icons-Regular.woff") format("woff"),
        url("../fonts/Framework7Icons-Regular.ttf") format("truetype");
 }
-
 .f7-icons {
   font-family: 'Framework7 Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 25px;
+  font-size: 28px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;

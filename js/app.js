@@ -1,11 +1,20 @@
-// Dom7
-var $$ = Dom7;
+import $$ from 'dom7';
+import Framework7 from 'framework7/framework7.esm.bundle.js';
 
-// Framework7 App main instance
-var app  = new Framework7({
+// Import F7 Styles
+import 'framework7/css/framework7.bundle.css';
+
+// Import Icons and App Custom Styles
+import '../css/icons.css';
+import '../css/app.less';
+
+// Import Routes
+import routes from './routes.js';
+
+var app = new Framework7({
   root: '#app', // App root element
-  id: 'com.snoanimex.iq', // App bundle ID
-  name: 'SnoAnimeX', // App name
+
+  name: 'SnoAnime X', // App name
   theme: 'auto', // Automatic theme detection
   // App root data
   data: function () {
@@ -14,6 +23,7 @@ var app  = new Framework7({
         firstName: 'John',
         lastName: 'Doe',
       },
+
     };
   },
   // App root methods
@@ -24,11 +34,14 @@ var app  = new Framework7({
   },
   // App routes
   routes: routes,
-});
-
-// Init/Create main view
-var mainView = app.views.create('.view-main', {
-  url: '/'
+  // Enable panel left visibility breakpoint
+  panel: {
+    leftBreakpoint: 960,
+  },
+  // Register service worker
+  serviceWorker: {
+    path: '/service-worker.js',
+  },
 });
 
 // Login Screen Demo
