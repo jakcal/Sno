@@ -2822,9 +2822,7 @@
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    align-items: center;
     min-height: var(--f7-list-item-min-height);
-    padding-left: calc(var(--f7-list-item-padding-horizontal) + var(--f7-safe-area-left))
   }
   
   .list .item-subtitle {
