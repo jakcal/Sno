@@ -42,13 +42,10 @@ $$('#my-login-screen .login-button').on('click', function () {
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
-
-$$('.open-preloader-indicator').on('click', function () {
-  app.preloader.show();
-  setTimeout(function () {
-    app.preloader.hide();
-  }, 3000);
-});
+app.preloader.show();
+setTimeout(function () {
+app.preloader.hide();
+}, 3000);
 
 var i;
 for (i = 0; i < 1; i++) {
