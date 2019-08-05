@@ -919,7 +919,7 @@
     transform: translate3d(0,0,0);
     height: var(--f7-navbar-height);
     background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
-    background-color: blueviolet;
+    background-color: rgb(103, 58, 183);;
     color: white;
     font-size: var(--f7-navbar-font-size);
   }
