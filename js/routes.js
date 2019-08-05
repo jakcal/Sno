@@ -1,24 +1,39 @@
-routes = [
+
+import HomePage from '../pages/home.f7.html';
+import AboutPage from '../pages/about.f7.html';
+import FormPage from '../pages/form.f7.html';
+
+import LeftPage1 from '../pages/left-page-1.f7.html';
+import LeftPage2 from '../pages/left-page-2.f7.html';
+import DynamicRoutePage from '../pages/dynamic-route.f7.html';
+import RequestAndLoad from '../pages/request-and-load.f7.html';
+import NotFoundPage from '../pages/404.f7.html';
+
+var routes = [
   {
     path: '/',
-    url: './index.html',
+    component: HomePage,
   },
   {
     path: '/about/',
-    url: './pages/about.html',
+    component: AboutPage,
   },
   {
     path: '/form/',
-    url: './pages/form.html',
+    component: FormPage,
   },
-  // Page Loaders & Router
+
   {
-    path: '/page-loader-template7/:user/:userId/:posts/:postId/',
-    templateUrl: './pages/page-loader-template7.html',
+    path: '/left-page-1/',
+    component: LeftPage1,
   },
   {
-    path: '/page-loader-component/:user/:userId/:posts/:postId/',
-    componentUrl: './pages/page-loader-component.html',
+    path: '/left-page-2/',
+    component: LeftPage2,
+  },
+  {
+    path: '/dynamic-route/blog/:blogId/post/:postId/',
+    component: DynamicRoutePage,
   },
   {
     path: '/request-and-load/user/:userId/',
@@ -59,7 +74,7 @@ routes = [
         // Resolve route to load page
         resolve(
           {
-            componentUrl: './pages/request-and-load.html',
+            component: RequestAndLoad,
           },
           {
             context: {
@@ -70,9 +85,10 @@ routes = [
       }, 1000);
     },
   },
-  // Default route (404 page). MUST BE THE LAST
   {
     path: '(.*)',
-    url: './pages/404.html',
+    component: NotFoundPage,
   },
 ];
+
+export default routes;
