@@ -50,15 +50,19 @@ var xhttp = new XMLHttpRequest();
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].tag+".jpg";
-        createitem(oimg,obj[i].name,obj[i].total_videos);
+        createitem(oimg,obj[i].name,obj[i].total_videos,id[i].id);
       }
       app.preloader.hide();
     }
   };
   xhttp.open("GET", "https://snoanime.com/new.php", true);
   xhttp.send();
-function createitem(img,name,title) {
+function createitem(img,name,title,id) {
   var content = document.getElementById("snoanime");
+  //info 
+    var infos = document.createElement("a");
+    infos.className = "";
+    infos.href = "/request-and-load/user/"+id;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
@@ -100,7 +104,8 @@ function createitem(img,name,title) {
   ul.appendChild(li);
   div3.appendChild(ul);
   div2.appendChild(div3);
-  div1.appendChild(div2);
+  infos.appendChild(div2)
+  div1.appendChild(infos);
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
