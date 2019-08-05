@@ -83,10 +83,10 @@ function createitem(img,name,title) {
    image.height = "160";
   //Image
   //Append
+  div4.appendChild(image);
   div6.appendChild(div7);
   div5.appendChild(div6);
   div5.appendChild(div8);
-  div4.appendChild(image);
   li.appendChild(div5);
   li.appendChild(div4);
   ul.appendChild(li);
