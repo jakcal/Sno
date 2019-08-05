@@ -2727,7 +2727,7 @@
   
   .list .item-media+.item-inner {
     margin-top: 18px;
-    margin-left: var(--f7-list-item-media-margin)
+    margin-left: 10px;
   }
   .list .item-media i+i,.list .item-media i+img {
     margin-left: var(--f7-list-item-media-icons-margin)
@@ -2826,16 +2826,14 @@
     background: var(--f7-card-bg-color);
     position: relative;
     max-width: 100%;
-    color: #000;
-    padding: 4px;
+    color: #000000ba;
+    padding: 7px;
     line-height: var(--f7-list-item-subtitle-line-height);
     font-weight: bold;
     border-radius: 2px;
-    font-size: 20px;
+    font-size: 17px;
     margin-top: var(--f7-card-margin-vertical);
     margin-bottom: var(--f7-card-margin-vertical);
-    margin-left: calc(var(--f7-card-margin-horizontal) + var(--f7-safe-area-left));
-    margin-right: calc(var(--f7-card-margin-horizontal) + var(--f7-safe-area-right));
     box-shadow: var(--f7-card-box-shadow);
 }
   .list .item-text {
