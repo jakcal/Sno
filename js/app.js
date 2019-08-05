@@ -1,8 +1,7 @@
-import $$ from 'dom7';
-import Framework7 from 'framework7/framework7.esm.bundle.js';
+var $$ = Dom7;
 
 // Import F7 Styles
-import 'framework7/css/framework7.bundle.css';
+import 'https://abrahem.github.io/Sno/framework7/css/framework7.bundle.css';
 
 // Import Icons and App Custom Styles
 import 'https://abrahem.github.io/Sno/css/icons.css';
@@ -11,21 +10,23 @@ import 'https://abrahem.github.io/Sno/css/app.less';
 // Import Routes
 import routes from './routes.js';
 
-var app = new Framework7({
-  root: '#app', // App root element
 
-  name: 'SnoAnime X', // App name
-  theme: 'auto', // Automatic theme detection
-  // App root data
-  data: function () {
-    return {
-      user: {
-        firstName: 'John',
-        lastName: 'Doe',
-      },
-
-    };
-  },
+// Framework7 App main instance
+  var app = new Framework7({
+    root: '#app', // App root element
+    id: "com.snoanimex.iq",
+    name: 'SnoAnime X', // App name
+    theme: 'auto', // Automatic theme detection
+    // App root data
+    data: function () {
+      return {
+        user: {
+          firstName: 'John',
+          lastName: 'Doe',
+        },
+  
+      };
+    },
   // App root methods
   methods: {
     helloWorld: function () {
@@ -34,14 +35,11 @@ var app = new Framework7({
   },
   // App routes
   routes: routes,
-  // Enable panel left visibility breakpoint
-  panel: {
-    leftBreakpoint: 960,
-  },
-  // Register service worker
-  serviceWorker: {
-    path: 'https://abrahem.github.io/Sno/service-worker.js',
-  },
+});
+
+// Init/Create main view
+var mainView = app.views.create('.view-main', {
+  url: '/'
 });
 
 // Login Screen Demo
