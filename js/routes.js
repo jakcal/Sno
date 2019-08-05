@@ -1,24 +1,24 @@
 routes = [
   {
     path: '/',
-    url: './index.html',
+    url: './index.f7.html',
   },
   {
     path: '/about/',
-    url: './pages/about.html',
+    url: './pages/about.f7.html',
   },
   {
     path: '/form/',
-    url: './pages/form.html',
+    url: './pages/form.f7.html',
   },
   // Page Loaders & Router
   {
     path: '/page-loader-template7/:user/:userId/:posts/:postId/',
-    templateUrl: './pages/page-loader-template7.html',
+    templateUrl: './pages/page-loader-template7.f7.html',
   },
   {
     path: '/page-loader-component/:user/:userId/:posts/:postId/',
-    componentUrl: './pages/page-loader-component.html',
+    componentUrl: './pages/page-loader-component.f7.html',
   },
   {
     path: '/request-and-load/user/:userId/',
@@ -59,7 +59,7 @@ routes = [
         // Resolve route to load page
         resolve(
           {
-            componentUrl: './pages/request-and-load.html',
+            componentUrl: './pages/request-and-load.f7.html',
           },
           {
             context: {
@@ -73,6 +73,6 @@ routes = [
   // Default route (404 page). MUST BE THE LAST
   {
     path: '(.*)',
-    url: './pages/404.html',
+    url: './pages/404.f7.f7.html',
   },
 ];
