@@ -7,9 +7,6 @@ var app  = new Framework7({
   id: 'com.snoanimex.iq', // App bundle ID
   name: 'SnoAnimeX', // App name
   theme: 'auto',
-  card: {
-    backrop: false
-  },
   // App root data
   data: function () {
     return {
