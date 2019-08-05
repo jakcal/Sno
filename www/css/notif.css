@@ -5790,13 +5790,13 @@ body .note-editable.panel-body {
 
 a {
     text-decoration: none;
-    color: #7a878e;
+    color: white;
     outline: 0
 }
 
 a:hover,a:focus {
     text-decoration: none;
-    color: #6e7a81;
+    color: white;
     outline: 0 !important
 }
 
