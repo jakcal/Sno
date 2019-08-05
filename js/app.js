@@ -60,8 +60,8 @@ var xhttp = new XMLHttpRequest();
 function createitem(img,name,title,id) {
   var content = document.getElementById("snoanime");
   //info 
-    var li = document.createElement("li");
-    li.style.display = "inherit";
+    var lid = document.createElement("li");
+    lid.style.display = "inherit";
     var infos = document.createElement("a");
     infos.className = "";
     infos.href = "/request-and-load/user/"+id;
