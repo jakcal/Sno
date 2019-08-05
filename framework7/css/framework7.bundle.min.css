@@ -1780,7 +1780,7 @@
     left: 0;
     height: var(--f7-toolbar-height);
     background-image: var(--f7-toolbar-bg-image,var(--f7-bars-bg-image));
-    background-color: var(--f7-toolbar-bg-color,var(--f7-bars-bg-color,var(--f7-theme-color)));
+    background-color: var(#512DA8,#512DA8,#512DA8);
     color: var(--f7-toolbar-text-color,var(--f7-bars-text-color));
     font-size: var(--f7-toolbar-font-size)
   }
