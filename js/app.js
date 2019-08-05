@@ -49,8 +49,8 @@ var xhttp = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
-        var oimg = "http://www.animestarz.com/animeonline/templates/starzstyle/anime-cover/"+obj.tag+".jpg";
-        createitem(oimg,obj.name,obj.total_videos);
+        var oimg = "http://www.animestarz.com/animeonline/templates/starzstyle/anime-cover/"+obj[i].tag+".jpg";
+        createitem(oimg,obj[i].name,obj[i].total_videos);
       }
       app.preloader.hide();
     }
