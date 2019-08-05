@@ -55,7 +55,7 @@ var xhttp = new XMLHttpRequest();
       app.preloader.hide();
     }
   };
-  xhttp.open("GET", "http://api.snoanime.com/api/new.php", true);
+  xhttp.open("GET", "/new.js", true);
   xhttp.send();
 function createitem(img,name,title) {
   var content = document.getElementById("snoanime");
