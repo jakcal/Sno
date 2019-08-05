@@ -1,7 +1,7 @@
 routes = [
   {
     path: '/',
-    url: './index.f7.html',
+    url: './index.html',
   },
   {
     path: '/about/',
