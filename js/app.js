@@ -77,7 +77,7 @@ function createitem(img,name,title) {
    var image = document.createElement("img"); 
    image.className = "";
    image.src = img;
-   image.width = "130";
+   image.width = "125";
    image.height = "160";
   //Image
   //Append
