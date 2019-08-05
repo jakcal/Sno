@@ -43,11 +43,11 @@ $$('#my-login-screen .login-button').on('click', function () {
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
 var i;
-for (i = 0; i < 10; i++) {
+for (i = 0; i < 100; i++) {
   createitem();
 }
 function createitem(img,name,title) {
   var content = document.getElementById("snoanime");
-  content.innerHTML = '<div class="card" style="height: 160;"><div class="card-content"><div class="list media-list no-ios-edges"><ul><li class="item-content"><div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="130" height="160" class=""></div><div class="item-inner"><div class="item-title-row"><div class="item-title">Yellow Submarine</div></div><div class="item-subtitle">Beatles</div></div></li></ul></div></div></div><br>'
-console.log("created item");
+  content.prepend('<div class="card" style="height: 160;"><div class="card-content"><div class="list media-list no-ios-edges"><ul><li class="item-content"><div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="130" height="160" class=""></div><div class="item-inner"><div class="item-title-row"><div class="item-title">Yellow Submarine</div></div><div class="item-subtitle">Beatles</div></div></li></ul></div></div></div><br>');
+  console.log("created item");
 }
