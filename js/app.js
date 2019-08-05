@@ -44,10 +44,55 @@ $$('#my-login-screen .login-button').on('click', function () {
 });
 var i;
 for (i = 0; i < 100; i++) {
-  createitem();
+  createitem("https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg","name","subtitle");
 }
 function createitem(img,name,title) {
   var content = document.getElementById("snoanime");
-  content.prepend('<div class="card" style="height: 160;"><div class="card-content"><div class="list media-list no-ios-edges"><ul><li class="item-content"><div class="item-media"><img src="https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg" width="130" height="160" class=""></div><div class="item-inner"><div class="item-title-row"><div class="item-title">Yellow Submarine</div></div><div class="item-subtitle">Beatles</div></div></li></ul></div></div></div><br>');
+  //Div
+  var div1 = document.createElement("div");
+  div1.style = 'style="height: 160;"';
+  div1.className = "card";
+  var div2 = document.createElement("div");
+  div2.className = "card-content"
+  var div3 = document.createElement("div");
+  div3.className = "list media-list no-ios-edges"
+  var div4 = document.createElement("div");
+  div4.className = "item-media"
+  var div5 = document.createElement("div");
+  div5.className = "item-inner";
+  var div6 = document.createElement("div");
+  div6.className = "item-title-row";
+  var div7 = document.createElement("div");
+  div7.className = "item-title";
+  div7.innerText = name;
+  var div8 = document.createElement("div");
+  div8.className = "item-subtitle";
+  div8.innerText = title;
+
+  //Div
+  //UL And Li
+  var ul = document.createElement("ul");
+  var li = document.createElement("li");
+  li.className = "item-content"
+  //UL And Li
+  //Image
+   var image = document.createElement("img"); 
+   image.className = "";
+   image.src = img;
+   image.width = "130";
+   image.height = "160";
+  //Image
+  //Append
+  div6.appendChild(div7);
+  div5.appendChild(div6);
+  div5.appendChild(div8);
+  div4.appendChild(image);
+  li.appendChild(div5);
+  li.appendChild(div4);
+  ul.appendChild(li);
+  div3.appendChild(ul);
+  div2.appendChild(div3);
+  div1.appendChild(div2);
+  content.appendChild(div1);
   console.log("created item");
 }
