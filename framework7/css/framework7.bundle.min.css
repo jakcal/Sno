@@ -514,11 +514,11 @@
   }
   
   .ios .statusbar {
-    background: var(--f7-statusbar-bg-color,var(--f7-bars-bg-color))
+    background: var(#512DA8,#512DA8);
   }
   
   .md .statusbar {
-    background: var(--f7-statusbar-bg-color,var(--f7-theme-color-shade))
+    background: var(#512DA8,#512DA8);
   }
   
   .view,.views {
