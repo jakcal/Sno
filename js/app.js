@@ -63,7 +63,7 @@ function createitem(img,name,title) {
   var div6 = document.createElement("div");
   div6.className = "item-title-row";
   var div7 = document.createElement("div");
-  div7.className = "item-title";
+  div7.className = "item-subtitle";
   div7.innerText = name;
   var div8 = document.createElement("div");
   div8.className = "item-subtitle";
