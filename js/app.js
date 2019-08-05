@@ -60,8 +60,6 @@ function createitem(img,name,title) {
   div4.className = "item-media"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
-  var div6 = document.createElement("div");
-  div6.className = "item-title-row";
   var div7 = document.createElement("div");
   div7.className = "item-subtitle";
   div7.innerText = name;
@@ -84,8 +82,7 @@ function createitem(img,name,title) {
   //Image
   //Append
   div4.appendChild(image);
-  div6.appendChild(div7);
-  div5.appendChild(div6);
+  div5.appendChild(div7);
   div5.appendChild(div8);
   li.appendChild(div4);
   li.appendChild(div5);
