@@ -42,8 +42,16 @@ $$('#my-login-screen .login-button').on('click', function () {
   // Alert username and password
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
+
+$$('.open-preloader-indicator').on('click', function () {
+  app.preloader.show();
+  setTimeout(function () {
+    app.preloader.hide();
+  }, 3000);
+});
+
 var i;
-for (i = 0; i < 100; i++) {
+for (i = 0; i < 1; i++) {
   createitem("https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg","name","subtitle");
 }
 function createitem(img,name,title) {
