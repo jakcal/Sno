@@ -2726,7 +2726,7 @@
   }
   
   .list .item-media+.item-inner {
-    margin-top: 18px;
+    margin-top: 7px;
     margin-left: 10px;
   }
   .list .item-media i+i,.list .item-media i+img {
@@ -2831,7 +2831,7 @@
     line-height: var(--f7-list-item-subtitle-line-height);
     font-weight: bold;
     border-radius: 2px;
-    font-size: 17px;
+    font-size: 15px;
     margin-top: var(--f7-card-margin-vertical);
     margin-bottom: var(--f7-card-margin-vertical);
     box-shadow: var(--f7-card-box-shadow);
