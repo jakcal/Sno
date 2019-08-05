@@ -5,8 +5,8 @@ import Framework7 from 'framework7/framework7.esm.bundle.js';
 import 'framework7/css/framework7.bundle.css';
 
 // Import Icons and App Custom Styles
-import '../css/icons.css';
-import '../css/app.less';
+import 'https://abrahem.github.io/Sno/css/icons.css';
+import 'https://abrahem.github.io/Sno/css/app.less';
 
 // Import Routes
 import routes from './routes.js';
@@ -40,7 +40,7 @@ var app = new Framework7({
   },
   // Register service worker
   serviceWorker: {
-    path: '/service-worker.js',
+    path: 'https://abrahem.github.io/Sno/service-worker.js',
   },
 });
 
