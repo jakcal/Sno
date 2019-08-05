@@ -60,6 +60,8 @@ var xhttp = new XMLHttpRequest();
 function createitem(img,name,title,id) {
   var content = document.getElementById("snoanime");
   //info 
+    var li = document.createElement("li");
+    li.style.display = "inherit";
     var infos = document.createElement("a");
     infos.className = "";
     infos.href = "/request-and-load/user/"+id;
@@ -105,7 +107,8 @@ function createitem(img,name,title,id) {
   div3.appendChild(ul);
   div2.appendChild(div3);
   infos.appendChild(div2)
-  div1.appendChild(infos);
+  li.appendChild(infos);
+  div1.appendChild(li);
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
