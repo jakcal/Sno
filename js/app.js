@@ -108,7 +108,7 @@ function createitem(img,name,title,id) {
   div2.appendChild(div3);
   infos.appendChild(div2)
   lid.appendChild(infos);
-  div1.appendChild(li);
+  div1.appendChild(lid);
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
