@@ -1,32 +1,21 @@
+// Dom7
 var $$ = Dom7;
 
-// Import F7 Styles
-import 'https://abrahem.github.io/Sno/framework7/css/framework7.bundle.css';
-
-// Import Icons and App Custom Styles
-import 'https://abrahem.github.io/Sno/css/icons.css';
-import 'https://abrahem.github.io/Sno/css/app.less';
-
-// Import Routes
-import routes from './routes.js';
-
-
 // Framework7 App main instance
-  var app = new Framework7({
-    root: '#app', // App root element
-    id: "com.snoanimex.iq",
-    name: 'SnoAnime X', // App name
-    theme: 'auto', // Automatic theme detection
-    // App root data
-    data: function () {
-      return {
-        user: {
-          firstName: 'John',
-          lastName: 'Doe',
-        },
-  
-      };
-    },
+var app  = new Framework7({
+  root: '#app', // App root element
+  id: 'com.snoanimex.iq', // App bundle ID
+  name: 'SnoAnimeX', // App name
+  theme: 'auto', // Automatic theme detection
+  // App root data
+  data: function () {
+    return {
+      user: {
+        firstName: 'John',
+        lastName: 'Doe',
+      },
+    };
+  },
   // App root methods
   methods: {
     helloWorld: function () {
