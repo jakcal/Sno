@@ -43,14 +43,20 @@ $$('#my-login-screen .login-button').on('click', function () {
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
 app.preloader.show();
-setTimeout(function () {
-app.preloader.hide();
-}, 3000);
 
-var i;
-for (i = 0; i < 1; i++) {
-  createitem("https://cdn.framework7.io/placeholder/fashion-88x88-4.jpg","name","subtitle");
-}
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var obj = JSON.parse(xhttp.responseText);
+      for (i = 0; i < obj.length; i++) {
+        var oimg = "http://www.animestarz.com/animeonline/templates/starzstyle/anime-cover/"+obj.tag+".jpg";
+        createitem(oimg,obj.name,obj.total_videos);
+      }
+      app.preloader.hide();
+    }
+  };
+  xhttp.open("GET", "http://api.snoanime.com/api/new.php", true);
+  xhttp.send();
 function createitem(img,name,title) {
   var content = document.getElementById("snoanime");
   //Div
@@ -96,5 +102,5 @@ function createitem(img,name,title) {
   div2.appendChild(div3);
   div1.appendChild(div2);
   content.appendChild(div1);
-  console.log("created item");
+  console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
