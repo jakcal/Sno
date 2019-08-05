@@ -64,11 +64,12 @@ function createitem(img,name,title,id) {
     lid.style.display = "inherit";
     var infos = document.createElement("a");
     infos.className = "";
-    infos.href = "/request-and-load/user/"+id;
+    infos.href = id;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
+  div1.onclick = "load("+id+")";
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
@@ -111,4 +112,9 @@ function createitem(img,name,title,id) {
   div1.appendChild(lid);
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
+}
+function load(id) {
+  app.request.postJSON('http://api.myapp.com', { catID:id}, function (data) {
+  console.log(data);
+});
 }
