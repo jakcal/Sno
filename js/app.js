@@ -50,7 +50,7 @@ var xhttp = new XMLHttpRequest();
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].tag+".jpg";
-        createitem(oimg,obj[i].name,obj[i].total_videos,id[i].id);
+        createitem(oimg,obj[i].name,obj[i].total_videos,obj[i].id);
       }
       app.preloader.hide();
     }
