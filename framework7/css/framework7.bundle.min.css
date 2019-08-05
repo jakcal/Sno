@@ -160,16 +160,16 @@
     --f7-theme-color-ripple-color:rgba(76, 217, 100, 0.3)}
   
   .color-blue {
-    --f7-theme-color:#2196f3;--f7-theme-color-rgb:33,150,243;--f7-theme-color-shade:#0c82df;--f7-theme-color-tint:#48a8f5}
+    --f7-theme-color:#512DA8;--f7-theme-color-rgb:33,150,243;--f7-theme-color-shade:#0c82df;--f7-theme-color-tint:#48a8f5}
   
   .text-color-blue {
-    --f7-theme-color-text-color:#2196f3}
+    --f7-theme-color-text-color:#512DA8}
   
   .bg-color-blue {
-    --f7-theme-color-bg-color:#2196f3}
+    --f7-theme-color-bg-color:#512DA8}
   
   .border-color-blue {
-    --f7-theme-color-border-color:#2196f3}
+    --f7-theme-color-border-color:#512DA8}
   
   .ripple-blue,.ripple-color-blue {
     --f7-theme-color-ripple-color:rgba(33, 150, 243, 0.3)}
@@ -924,6 +924,27 @@
     font-size: var(--f7-navbar-font-size);
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ط-
   .navbar .material-icons {
     width: 24px
   }
@@ -5565,7 +5586,7 @@
     }
   
     50% {
-        background-color: #2196f3
+        background-color: #512DA8
     }
   
     75% {
@@ -5586,12 +5607,12 @@
   
     25% {
         transform: scaleX(0);
-        background-color: #2196f3
+        background-color: #512DA8
     }
   
     49.9% {
         transform: scaleX(1);
-        background-color: #2196f3
+        background-color: #512DA8
     }
   
     50% {
