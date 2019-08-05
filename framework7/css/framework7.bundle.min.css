@@ -2723,14 +2723,12 @@
     flex-wrap: nowrap;
     align-items: center;
     box-sizing: border-box;
-    padding-bottom: var(--f7-list-item-padding-vertical);
-    padding-top: var(--f7-list-item-padding-vertical)
   }
   
   .list .item-media+.item-inner {
+    margin-top: 20px;
     margin-left: var(--f7-list-item-media-margin)
   }
-  
   .list .item-media i+i,.list .item-media i+img {
     margin-left: var(--f7-list-item-media-icons-margin)
   }
@@ -3073,7 +3071,8 @@
   }
   
   .media-list .item-media img,li.media-item .item-media img {
-    display: block
+    display: block;
+    border-radius: var(--f7-card-border-radius);
   }
   
   .media-list .item-link .item-inner,li.media-item .item-link .item-inner {
