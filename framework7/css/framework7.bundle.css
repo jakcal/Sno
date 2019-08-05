@@ -905,24 +905,25 @@ html.device-full-viewport,html.device-full-viewport body {
 .md .theme-dark,.md.theme-dark {
   --f7-navbar-subtitle-text-color:rgba(255, 255, 255, 0.85)}
 
-.navbar {
-  --f7-navbar-large-collapse-progress: 0;
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 100%;
-  z-index: 500;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  box-sizing: border-box;
-  margin: 0;
-  transform: translate3d(0,0,0);
-  height: var(--f7-navbar-height);
-  background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
-  background-color: blueviolet;
-  color: white;
-  font-size: var(--f7-navbar-font-size);
-}
+  .navbar {
+    --f7-navbar-large-collapse-progress: 0;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    transform: translate3d(0,0,0);
+    height: var(--f7-navbar-height);
+    background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
+    background-color: rgb(103, 58, 183);;
+    color: white;
+    font-size: var(--f7-navbar-font-size);
+  }
+  
 
 .navbar .material-icons {
   width: 24px
