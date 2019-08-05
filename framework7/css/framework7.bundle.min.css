@@ -2837,10 +2837,6 @@
     margin-right: calc(var(--f7-card-margin-horizontal) + var(--f7-safe-area-right));
     box-shadow: var(--f7-card-box-shadow);
 }
-  
-border-radius: var(--f7-card-border-radius);
-box-shadow: var(--f7-card-box-shadow);
-
   .list .item-text {
     position: relative;
     overflow: hidden;
