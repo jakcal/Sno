@@ -116,16 +116,14 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   console.log(data);
-  var signup = app.popup.create({
-    content: "",
-    once: {
-      opened: function (popup) {
-        app.views.create(document.getElementById("popup"), {
-          url: '/about/'
-        })
-      },
+  var popup = app.popup.create({
+    content: '<div class="popup">...</div>',
+    on: {
+      opened: function () {
+        console.log('Popup opened')
+      }
     }
-  });
-  signup.open();
+  })
+  popup.open(true);
 });
 }
