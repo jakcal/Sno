@@ -116,15 +116,5 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   console.log(data);
-  var popup = app.popup.create({
-    content: '<div class="popup popup-tablet-fullscreen"><div class="view view-mains"></div></div>',
-  })
-  app.views.create('.view-mains', {
-    url: '/about/'
-  })
-  popup.open(true);
 });
-}
-function closes() {
-  popup.close(true);
 }
