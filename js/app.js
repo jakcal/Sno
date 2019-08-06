@@ -118,14 +118,9 @@ app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data
   console.log(data);
   var popup = app.popup.create({
     content: '<div class="popup popup-tablet-fullscreen"><div class="view view-mains"></div></div>',
-    on: {
-      opened: function () {
-        app.views.create('.view-mains', {
-          url: '/about/'
-        })
-        console.log('Popup opened');
-      }
-    }
+  })
+  app.views.create('.view-mains', {
+    url: '/about/'
   })
   popup.open(true);
 });
