@@ -114,9 +114,10 @@ function createitem(img,name,title,id) {
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
 function load(id) {
+app.preloader.show();
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   var title = document.getElementById("titles");
   title.innerText = data[0].name;
-  alert(data[0].name);
+  app.preloader.show();
 });
 }
