@@ -2039,7 +2039,8 @@
   }
   
   .ios .toolbar-top-ios.tabbar-labels~* .page-content,.ios .toolbar-top-ios.tabbar-labels~.page-content,.md .toolbar-top-md.tabbar-labels~* .page-content,.md .toolbar-top-md.tabbar-labels~.page-content,.toolbar-top.tabbar-labels~* .page-content,.toolbar-top.tabbar-labels~.page-content {
-    padding-top: var(--f7-tabbar-labels-height)
+    padding-top: var(--f7-tabbar-labels-height);
+    background-color: #673ab7;
   }
   
   .ios .navbar~* .toolbar-top-ios,.ios .navbar~.page:not(.no-navbar) .toolbar-top-ios,.ios .navbar~.toolbar-top-ios,.md .navbar~* .toolbar-top-md,.md .navbar~.page:not(.no-navbar) .toolbar-top-md,.md .navbar~.toolbar-top-md,.navbar~* .toolbar-top,.navbar~.page:not(.no-navbar) .toolbar-top,.navbar~.toolbar-top {
