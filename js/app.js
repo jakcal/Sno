@@ -116,8 +116,7 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   var title = document.getElementById("titles");
-  title.val = data[0].name;
-  alert(obj[0].name);
-  
+  title.innerText = data[0].name;
+  alert(data[0].name);
 });
 }
