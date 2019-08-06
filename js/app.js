@@ -117,10 +117,13 @@ function load(id) {
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   console.log(data);
   var popup = app.popup.create({
-    content: '<div class="popup">...</div>',
+    content: '<div class="popup popup-tablet-fullscreen">...</div>',
     on: {
       opened: function () {
-        console.log('Popup opened')
+        app.views.create('.popup-tablet-fullscreen', {
+          url: '/'
+        })
+        console.log('Popup opened');
       }
     }
   })
