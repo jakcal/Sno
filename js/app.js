@@ -31,6 +31,15 @@ var mainView = app.views.create('.view-main', {
   url: '/'
 });
 
+var catalogView = app.views.create('#view-catalog', {
+  url: '/form/'
+});
+var settingsView = app.views.create('#view-settings', {
+  url: '/left-page-1/'
+});
+
+
+
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
