@@ -1812,7 +1812,8 @@
   }
   
   .ios .toolbar-top-ios .tab-link-highlight,.md .toolbar-top-md .tab-link-highlight,.toolbar-top .tab-link-highlight {
-    bottom: 0
+    bottom: 0;
+    background-color: #fff;
   }
   
   .ios .toolbar-top-ios.no-border:after,.ios .toolbar-top-ios.no-hairline:after,.md .toolbar-top-md.no-border:after,.md .toolbar-top-md.no-hairline:after,.toolbar-top.no-border:after,.toolbar-top.no-hairline:after {
@@ -2154,7 +2155,8 @@
     height: 2px;
     background: var(--f7-tabbar-link-active-border-color,var(--f7-theme-color));
     transition-duration: .3s;
-    left: 0
+    left: 0;
+    background-color: #fff;
   }
   
   .md .tabbar-labels a.link,.md .tabbar-labels a.tab-link {
