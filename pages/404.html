@@ -11,14 +11,51 @@
     </div>
   </div>
   <div id="infos" class="page-content">
-      <div class="toolbar tabbar tabbar-scrollable toolbar-bottom">
-          <div class="toolbar-inner">
-            <a href="#tab-1" class="tab-link tab-link-active">Tab 1</a>
-            <a href="#tab-2" class="tab-link">Tab 2</a>
-            <a href="#tab-3" class="tab-link">Tab 3</a>
-            <a href="#tab-12" class="tab-link">Tab 4</a>
+      <div class="views tabs safe-areas">
+          <!-- Tabbar for switching views-tabs -->
+          <div class="toolbar tabbar-labels toolbar-bottom">
+            <div class="toolbar-inner">
+              <a href="#view-home" class="tab-link tab-link-active">
+                <i class="icon f7-icons ios-only">home</i>
+                <i class="icon f7-icons ios-only icon-ios-fill">home_fill</i>
+                <i class="icon material-icons md-only">home</i>
+                <span class="tabbar-label">Home</span>
+              </a>
+              <a href="#view-catalog" class="tab-link">
+                <i class="icon f7-icons ios-only">list</i>
+                <i class="icon f7-icons ios-only icon-ios-fill">list_fill</i>
+                <i class="icon material-icons md-only">view_list</i>
+                <span class="tabbar-label">Catalog</span>
+              </a>
+              <a href="#view-settings" class="tab-link">
+                <i class="icon f7-icons ios-only">settings</i>
+                <i class="icon f7-icons ios-only icon-ios-fill">settings_fill</i>
+                <i class="icon material-icons md-only">settings</i>
+                <span class="tabbar-label">Settings</span>
+              </a>
+            </div>
           </div>
-        </div>
+          <div id="view-home" class="view view-main tab tab-active">
+              <!-- Page, data-name contains page name which can be used in page callbacks -->
+              <div class="page" data-name="home">
+                <!-- Top Navbar -->
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <div class="left">
+                      <a href="#" class="link icon-only panel-open" data-panel="left">
+                        <i class="icon f7-icons ios-only">menu</i>
+                        <i class="icon material-icons md-only">menu</i>
+                      </a>
+                    </div>
+                    <div class="title sliding">Home</div>
+                    <div class="right">
+                      <a href="#" class="link icon-only panel-open" data-panel="right">
+                        <i class="icon f7-icons ios-only">menu</i>
+                        <i class="icon material-icons md-only">menu</i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
   </div>
 </div>
   
