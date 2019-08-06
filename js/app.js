@@ -117,7 +117,7 @@ function load(id) {
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   console.log(data);
   var signup = app.popup.create({
-    content: Template7.global.popTemplate,
+    content: "",
     once: {
       opened: function (popup) {
         app.views.create(document.getElementById("popup"), {
