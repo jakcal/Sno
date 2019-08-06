@@ -917,7 +917,6 @@
     backface-visibility: hidden;
     box-sizing: border-box;
     margin: 0;
-    transform: translate3d(0,0,0);
     height: var(--f7-navbar-height);
     background-image: var(--f7-navbar-bg-image,var(--f7-bars-bg-image));
     background-color: rgb(103, 58, 183);;
