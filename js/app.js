@@ -115,9 +115,10 @@ function createitem(img,name,title,id) {
 }
 function load(id) {
 app.preloader.show();
+app.tab.show(document.getElementById("taps"), true);
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   var title = document.getElementById("titles");
   title.innerText = data[0].name;
-  app.preloader.show();
+  app.preloader.hide();
 });
 }
