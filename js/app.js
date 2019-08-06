@@ -125,3 +125,6 @@ app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data
   popup.open(true);
 });
 }
+function closes() {
+  popup.close(true);
+}
