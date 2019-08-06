@@ -120,7 +120,7 @@ app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data
     content: '<div class="popup popup-tablet-fullscreen">...</div>',
     on: {
       opened: function () {
-        app.views.create('.popup-tablet-fullscreen', {
+        app.views.create('.popup', {
           url: '/'
         })
         console.log('Popup opened');
