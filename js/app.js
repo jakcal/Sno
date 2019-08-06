@@ -116,6 +116,7 @@ function createitem(img,name,title,id) {
 }
 function load(id) {
 app.preloader.show();
+document.querySelector("span.tab-link-highlight").style.backgroundColor = "white";
 app.tab.show(document.getElementById("taps"), true);
 app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
   var title = document.getElementById("titles");
