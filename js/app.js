@@ -56,7 +56,7 @@ var xhttp = new XMLHttpRequest();
       app.preloader.hide();
     }
   };
-  xhttp.open("GET", "http://api.snoanime.com/api/new/", true);
+  xhttp.open("GET", "https://snoanime.com/api/new/", true);
   xhttp.send();
 function createitem(img,name,title,id) {
   var content = document.getElementById("snoanime");
@@ -117,7 +117,7 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
-app.request.json('https://snoanime.com/style-src.php/?catID='+id, function (data) {
+app.request.json('https://snoanime.com/api/new/info.php/?url='+id, function (data) {
   var title = document.getElementById("titles");
   title.innerText = data[0].name;
   app.preloader.hide();
