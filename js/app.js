@@ -94,8 +94,8 @@ function createitem(img,name,title,id) {
   //UL And Li
   //Image
    var image = document.createElement("img"); 
-   image.className = "";
-   image.src = img;
+   image.className = "lazy";
+   image.setAttribute("data-src",img);
    image.width = "125";
    image.height = "160";
   //Image
