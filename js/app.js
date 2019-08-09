@@ -50,13 +50,13 @@ var xhttp = new XMLHttpRequest();
     if (this.readyState == 4 && this.status == 200) {
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[i].tag+".jpg";
-        createitem(oimg,obj[i].name,obj[i].total_videos,obj[i].id);
+        var oimg = obj[i].image;
+        createitem(oimg,obj[i].name,obj[i].ep,obj[i].info);
       }
       app.preloader.hide();
     }
   };
-  xhttp.open("GET", "https://snoanime.com/new.php", true);
+  xhttp.open("GET", "http://api.snoanime.com/api/new/", true);
   xhttp.send();
 function createitem(img,name,title,id) {
   var content = document.getElementById("snoanime");
