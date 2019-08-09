@@ -51,7 +51,6 @@ var xhttp = new XMLHttpRequest();
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-        var oimg = obj[i].image;
         createitem(oimg,obj[i].name,obj[i].ep,obj[i].info);
       }
       app.preloader.hide();
