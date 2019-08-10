@@ -128,7 +128,7 @@ app.request.json(list, function (data) {
         var btn = document.createElement("button");
          btn.innerText = data[i].name;
          btn.setAttribute("class","col button button-large button-raised");
-         btn.setAttribute("style","width: 100%;margin: 5px;");
+         btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
          document.getElementById("list-ep").appendChild(btn);
       }
 });
