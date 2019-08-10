@@ -54,7 +54,8 @@ var xhttp = new XMLHttpRequest();
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-        createitem(oimg,obj[i].name,obj[i].ep,obj[i].info);
+        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].info;
+        createitem(oimg,obj[i].name,obj[i].ep,id);
       }
       app.preloader.hide();
     }
@@ -68,6 +69,7 @@ function createitem(img,name,title,id) {
     lid.style.display = "inherit";
     var infos = document.createElement("a");
     infos.className = "";
+    infos.href = id;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
@@ -119,7 +121,7 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
-app.request.json('https://snoanime.com/api/new/info.php/?url='+id, function (data) {
+app.request.json(id, function (data) {
   var title = document.getElementById("titles");
   title.innerText = data.name;
   app.preloader.hide();
