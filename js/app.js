@@ -126,7 +126,7 @@ app.request.json(id, function (data) {
   var image = document.getElementById("images");
   title.innerText = data.name;
   story.innerText = data.story;
-  image.setAttribute("src",data.logo);
+  image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
 }
