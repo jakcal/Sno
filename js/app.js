@@ -123,6 +123,7 @@ app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
 app.request.json(list, function (data) {
   document.getElementById("texts").style.display = "none";
+  document.getElementById("km").innerText = data.length;
       for (i = 0; i < data.length; i++) {
         var btn = document.createElement("button");
          btn.innerText = data[i].name;
