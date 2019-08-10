@@ -122,11 +122,14 @@ function load(id,list) {
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
 app.request.json(list, function (data) {
-var btn = document.createElement("button");
-btn.innerText = data.name;
-btn.setAttribute("class","col button button-large button-raised");
-btn.setAttribute("style","width: 100%;margin: 5px;");
-document.getElementById("list-ep").appendChild(btn);
+  var obj = JSON.parse(data);
+      for (i = 0; i < obj.length; i++) {
+        var btn = document.createElement("button");
+         btn.innerText = obj[i].name;
+         btn.setAttribute("class","col button button-large button-raised");
+         btn.setAttribute("style","width: 100%;margin: 5px;");
+         document.getElementById("list-ep").appendChild(btn);
+      }
 });
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
