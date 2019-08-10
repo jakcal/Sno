@@ -68,7 +68,6 @@ function createitem(img,name,title,id) {
     lid.style.display = "inherit";
     var infos = document.createElement("a");
     infos.className = "";
-    infos.href = id;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
