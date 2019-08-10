@@ -7,7 +7,10 @@ var app  = new Framework7({
   id: 'com.snoanimex.iq', // App bundle ID
   name: 'SnoAnimeX', // App name
   theme: 'auto',
-  // App root data
+  lazy: {
+    threshold: 50,
+    sequential: false,
+  },
   data: function () {
     return {
       user: {
