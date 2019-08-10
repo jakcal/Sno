@@ -140,7 +140,8 @@ app.request.json(id, function (data) {
   eps.innerText = data.epsodes;
   type.innerText = data.type;
   season.innerText = data.season;
-  statics.innerText = data.studios;
+  statics.innerText = data.statics;
+  studios.innerText = data.studios;
   ratings.innerText = data.ratings;
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
