@@ -122,7 +122,11 @@ app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
+  var story = document.getElementById("story");
+  var image = document.getElementById("images");
   title.innerText = data.name;
+  story.innerText = data.story;
+  image.setAttribute("src",data.logo);
   app.preloader.hide();
 });
 }
