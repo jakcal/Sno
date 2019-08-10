@@ -55,7 +55,7 @@ var xhttp = new XMLHttpRequest();
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].info;
-        var list = 'http://api.snoanime.com/api/new/eps.php/?url='+obj[i].info;
+        var list = 'https://snoanime.com/api/new/eps.php/?url='+obj[i].info;
         createitem(oimg,obj[i].name,obj[i].ep,id,list);
       }
       app.preloader.hide();
@@ -63,7 +63,7 @@ var xhttp = new XMLHttpRequest();
   };
   xhttp.open("GET", "https://snoanime.com/api/new/", true);
   xhttp.send();
-function createitem(img,name,title,id,list) {
+function createitem(img,name,title,id,listtd) {
   var content = document.getElementById("snoanime");
   //info 
     var lid = document.createElement("li");
@@ -75,7 +75,7 @@ function createitem(img,name,title,id,list) {
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {load(id)};
+  div1.onclick = function() {load(id,listtd)};
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
@@ -118,10 +118,10 @@ function createitem(img,name,title,id,list) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
-function load(id) {
+function load(id,list) {
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
-app.request.json(id, function (data) {
+app.request.json(list, function (data) {
 var btn = document.createElement("button");
 btn.innerText = data.name;
 btn.setAttribute("class","col button button-large button-raised");
