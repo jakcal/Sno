@@ -129,7 +129,7 @@ app.request.json(list, function (data) {
          btn.innerText = data[i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         document.getElementById("list-ep").appendChild(btn);
+         document.getElementById("list-ep").appendChild(btn);s
       }
 });
 app.request.json(id, function (data) {
