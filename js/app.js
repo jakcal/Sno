@@ -127,7 +127,7 @@ app.request.json(id, function (data) {
   //Two
   var genre = document.getElementById("genres");
   var start = document.getElementById("start");
-  var eps = document.getElementById("iep");
+  var eps = document.getElementById("ep");
   var type = document.getElementById("type");
   var season = document.getElementById("season");
   var statics = document.getElementById("statics");
