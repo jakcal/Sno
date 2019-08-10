@@ -55,14 +55,15 @@ var xhttp = new XMLHttpRequest();
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].info;
-        createitem(oimg,obj[i].name,obj[i].ep,id);
+        var list = 'http://api.snoanime.com/api/new/eps.php/?url='+obj[i].info;
+        createitem(oimg,obj[i].name,obj[i].ep,id,list);
       }
       app.preloader.hide();
     }
   };
   xhttp.open("GET", "https://snoanime.com/api/new/", true);
   xhttp.send();
-function createitem(img,name,title,id) {
+function createitem(img,name,title,id,list) {
   var content = document.getElementById("snoanime");
   //info 
     var lid = document.createElement("li");
@@ -120,6 +121,13 @@ function createitem(img,name,title,id) {
 function load(id) {
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
+app.request.json(id, function (data) {
+var btn = document.createElement("button");
+btn.innerText = data.name;
+btn.setAttribute("class","col button button-large button-raised");
+btn.setAttribute("style","width: 100%;margin: 5px;");
+document.getElementById("list-ep").appendChild(btn);
+});
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
   var story = document.getElementById("story");
