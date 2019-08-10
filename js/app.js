@@ -124,8 +124,24 @@ app.request.json(id, function (data) {
   var title = document.getElementById("titles");
   var story = document.getElementById("story");
   var image = document.getElementById("images");
+  //Two
+  var genre = document.getElementById("genres");
+  var start = document.getElementById("start");
+  var eps = document.getElementById("iep");
+  var type = document.getElementById("type");
+  var season = document.getElementById("season");
+  var statics = document.getElementById("statics");
+  var studios = document.getElementById("studios");
+  var ratings = document.getElementById("rating");
   title.innerText = data.name;
   story.innerText = data.story;
+  genre.innerText = data.genre;
+  start.innerText = data.start;
+  eps.innerText = data.epsodes;
+  type.innerText = data.type;
+  season.innerText = data.season;
+  statics.innerText = data.studios;
+  ratings.innerText = data.ratings;
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
