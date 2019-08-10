@@ -142,7 +142,7 @@ app.request.json(id, function (data) {
   season.innerText = data.season;
   statics.innerText = data.statics;
   studios.innerText = data.studios;
-  ratings.innerText = data.ratings;
+  ratings.innerText = data.rating;
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
