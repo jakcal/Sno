@@ -38,6 +38,10 @@ app.sheet.create({
   el: '.my-sheet-swipe-to-close',
   swipeToClose: true,
   backdrop: true,
+  on: {
+   closed: function () {
+     console.log('Sheet closed')
+   }
 });
 
 // Login Screen Demo
@@ -174,7 +178,7 @@ function shows(servers) {
     for (i = 0; i < data.length; i++) {
       iss++
       var btn = document.createElement("button");
-       btn.innerText = " سيرفر "+i;
+       btn.innerText = " سيرفر "+iss;
        btn.setAttribute("class","col button button-large button-raised");
        btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
        document.getElementById("listserver").appendChild(btn);
