@@ -132,29 +132,14 @@ app.request.json(list, function (data) {
       for (i = 0; i < data.length; i++) {
         var btn = document.createElement("button");
          btn.innerText = data[i].name;
+         var serve = "https://snoanime.com/api/new/server.php/?url="+data[i].serverlist;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         btn.onclick = function() {shows(data[i].serverlist)};
+         btn.onclick = function() {shows(serve)};
          document.getElementById("list-ep").appendChild(btn);
 
       }
 });
-function shows(servers) {
-  app.preloader.show();
-  app.request.json(servers, function (data) {
-    var iss = 1;
-    for (i = 0; i < data.length; i++) {
-      iss++
-      var btn = document.createElement("button");
-       btn.innerText = " سيرفر "+i;
-       btn.setAttribute("class","col button button-large button-raised");
-       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-       document.getElementById("listserver").appendChild(btn);
-    }
-    app.sheet.open('.my-sheet-swipe-to-close', true);
-    app.preloader.hide();
-  });
-}
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
   var story = document.getElementById("story");
@@ -181,4 +166,20 @@ app.request.json(id, function (data) {
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
+}
+function shows(servers) {
+  app.preloader.show();
+  app.request.json(servers, function (data) {
+    var iss = 1;
+    for (i = 0; i < data.length; i++) {
+      iss++
+      var btn = document.createElement("button");
+       btn.innerText = " سيرفر "+i;
+       btn.setAttribute("class","col button button-large button-raised");
+       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+       document.getElementById("listserver").appendChild(btn);
+    }
+    app.sheet.open('.my-sheet-swipe-to-close', true);
+    app.preloader.hide();
+  });
 }
