@@ -134,13 +134,26 @@ app.request.json(list, function (data) {
          btn.innerText = data[i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         btn.onclick = function() {shows()};
+         btn.onclick = function() {shows(data[i].serverlist)};
          document.getElementById("list-ep").appendChild(btn);
 
       }
 });
-function shows() {
-  app.sheet.open('.my-sheet-swipe-to-close', true);
+function shows(servers) {
+  app.preloader.show();
+  app.request.json(servers, function (data) {
+    var iss = 1;
+    for (i = 0; i < data.length; i++) {
+      iss++
+      var btn = document.createElement("button");
+       btn.innerText = " سيرفر "+i;
+       btn.setAttribute("class","col button button-large button-raised");
+       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+       document.getElementById("listserver").appendChild(btn);
+    }
+    app.sheet.open('.my-sheet-swipe-to-close', true);
+    app.preloader.hide();
+  });
 }
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
