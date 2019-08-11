@@ -170,7 +170,7 @@ app.request.json(id, function (data) {
 function shows(servers) {
   app.preloader.show();
   app.request.json(servers, function (data) {
-    var iss = 1;
+    var iss = 0;
     for (i = 0; i < data.length; i++) {
       iss++
       var btn = document.createElement("button");
