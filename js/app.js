@@ -65,7 +65,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.send();
 function createitem(img,name,title,id,listtd) {
   var content = document.getElementById("snoanime");
-  //info 
+  //info
     var lid = document.createElement("li");
     lid.style.display = "inherit";
     var infos = document.createElement("a");
@@ -98,7 +98,7 @@ function createitem(img,name,title,id,listtd) {
   li.className = "item-content"
   //UL And Li
   //Image
-   var image = document.createElement("img"); 
+   var image = document.createElement("img");
    image.setAttribute("src",img);
    image.width = "125";
    image.height = "160";
@@ -129,7 +129,7 @@ app.request.json(list, function (data) {
          btn.innerText = data[i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         document.getElementById("list-ep").appendChild(btn);s
+         document.getElementById("list-ep").appendChild(btn);
       }
 });
 app.request.json(id, function (data) {
