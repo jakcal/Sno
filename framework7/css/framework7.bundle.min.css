@@ -4815,6 +4815,24 @@
     cursor: pointer;
     z-index: 10;
 }
+.swipe-handler:after {
+    content: '';
+    width: 36px;
+    height: 6px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -18px;
+    margin-top: -3px;
+    border-radius: 3px;
+    background: #666;
+}
+.demo-sheet-swipe-to-close, .demo-sheet-swipe-to-step {
+    --f7-sheet-bg-color: #fff;
+    --f7-sheet-border-color: transparent;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
   .sheet-modal .toolbar {
     position: relative;
     width: 100%
