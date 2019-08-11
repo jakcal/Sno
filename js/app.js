@@ -34,6 +34,11 @@ var mainView = app.views.create('.view-main', {
   url: '/'
 });
 
+app.sheet.create({
+  el: '.my-sheet-swipe-to-close',
+  swipeToClose: true,
+  backdrop: true,
+});
 
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
