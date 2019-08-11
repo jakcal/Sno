@@ -38,10 +38,6 @@ app.sheet.create({
   el: '.my-sheet-swipe-to-close',
   swipeToClose: true,
   backdrop: true,
-  on: {
-   closed: function () {
-     console.log('Sheet closed')
-   }
 });
 
 // Login Screen Demo
