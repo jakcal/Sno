@@ -134,9 +134,14 @@ app.request.json(list, function (data) {
          btn.innerText = data[i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+         btn.onclick = function() {shows()};
          document.getElementById("list-ep").appendChild(btn);
+
       }
 });
+function shows() {
+  app.sheet.open('.my-sheet-swipe-to-close', true);
+}
 app.request.json(id, function (data) {
   var title = document.getElementById("titles");
   var story = document.getElementById("story");
