@@ -61,7 +61,7 @@ var xhttp = new XMLHttpRequest();
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].info;
         var list = 'https://snoanime.com/api/new/eps.php/?url='+obj[i].info;
-        createitem(oimg,obj[i].name,obj[i].ep,id,list);
+        createitem(oimg,obj[i].name,obj[i].epName,id,list);
       }
       app.preloader.hide();
     }
