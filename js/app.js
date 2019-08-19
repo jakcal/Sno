@@ -132,7 +132,6 @@ localStorage.setItem("img", img);
 localStorage.setItem("state", state);	
 localStorage.setItem("start", starts);
 localStorage.setItem("id", id);	
-	
 
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
@@ -183,4 +182,11 @@ function shows(id) {
 
 function sendDataToAndroid(toast) {
         MyFunction.onButtonClick(toast);
+    }
+	
+	function showLoading() {
+       app.preloader.show();
+    }
+	function hideLoading() {
+       app.preloader.hide();
     }
