@@ -168,9 +168,13 @@ app.request.json(id, function (data) {
   app.preloader.hide();
 });
 }
-function shows() {
-	sendDataToAndroid('Button 2 is click')
-    app.sheet.open('.my-sheet-swipe-to-close', true);
+function shows(id) {
+	  var n = navigator.userAgent.includes("99990000");
+      if (n == true) {
+	   sendDataToAndroid('Button 2 is click');
+      } else {
+       app.sheet.open('.my-sheet-swipe-to-close', true);
+      }
 }
 
 function sendDataToAndroid(toast) {
