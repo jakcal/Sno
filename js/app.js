@@ -145,7 +145,7 @@ app.request.json(id, function (data) {
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
    
 		 var datag = data["ep"][i].id;
-         btn.setAttribute("onclick","shows("+datag+"");
+         btn.setAttribute("onclick","shows("+datag+")");
 		 document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
