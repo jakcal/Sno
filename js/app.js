@@ -136,10 +136,10 @@ app.request.json(id, function (data) {
   var statics = document.getElementById("statics");
   var ratings = document.getElementById("rating");
   var start = document.getElementById("start");
-  story.innerText = data[0].story;
-  genre.innerText = data[0].genres;
-  season.innerText = data[0].age;
-  ratings.innerText = data[0].rank;
+  story.innerText = data["main"].story;
+  genre.innerText = data["main"].genres;
+  season.innerText = data["main"].age;
+  ratings.innerText = data["main"].rank;
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
