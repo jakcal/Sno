@@ -60,14 +60,14 @@ var xhttp = new XMLHttpRequest();
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-        createitem(oimg,obj[i].name,obj[i].epName,id);
+        createitem(oimg,obj[i].name,obj[i].epName,id,obj[i].status,obj[i].year);
       }
       app.preloader.hide();
     }
   };
   xhttp.open("GET", "https://snoanime.com/api/new/", true);
   xhttp.send();
-function createitem(img,name,title,id) {
+function createitem(img,name,title,id,state,starts) {
   var content = document.getElementById("snoanime");
   //info
     var lid = document.createElement("li");
@@ -79,7 +79,7 @@ function createitem(img,name,title,id) {
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {load(id)};
+  div1.onclick = function() {load(id,name,img,state,starts)};
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
@@ -122,27 +122,28 @@ function createitem(img,name,title,id) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
-function load(id,list) {
-localStorage.setItem("title", "Smitsh");	
-localStorage.setItem("statics", "Smitsh");	
+function load(id,name,img,state,starts) {
+localStorage.setItem("name", name);	
+localStorage.setItem("img", img);	
+localStorage.setItem("state", state);	
+localStorage.setItem("start", starts);	
 
 app.preloader.show();
-app.tab.show(document.getElementById("taps"), true);
+app.tab.show(document.getElementById("taps"), true); 
 app.request.json(id, function (data) {
   document.getElementById("titles").innerHTML = localStorage.getItem("title");
   var story = document.getElementById("story");
-  var image = document.getElementById("images");
+  document.getElementById("images").innerHTML = localStorage.getItem("img");
   //Two
   var genre = document.getElementById("genres");
   var age = document.getElementById("studios");
-  document.getElementById("statics");
+  document.getElementById("statics").innerHTML = localStorage.getItem("state");
   var ratings = document.getElementById("rating");
-  document.getElementById("start");
+  document.getElementById("start").innerHTML = localStorage.getItem("start");
   story.innerText = data["main"].story;
   genre.innerText = data["main"].genres;
-  season.innerText = data["main"].age;
+  age.innerText = data["main"].age;
   ratings.innerText = data["main"].rank;
-  image.setAttribute("src","https://snoanime.com/image.php/?name=https://www.khkhkhkh.com/animecp/animeImages/15625464474.jpg");
   app.preloader.hide();
 });
 }
