@@ -131,9 +131,9 @@ localStorage.setItem("start", starts);
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
 app.request.json(id, function (data) {
-  document.getElementById("titles").innerHTML = localStorage.getItem("title");
+  document.getElementById("titles").innerHTML = localStorage.getItem("name");
   var story = document.getElementById("story");
-  document.getElementById("images").innerHTML = localStorage.getItem("img");
+  document.getElementById("images").src = localStorage.getItem("img");
   //Two
   var genre = document.getElementById("genres");
   var age = document.getElementById("studios");
@@ -142,7 +142,12 @@ app.request.json(id, function (data) {
   document.getElementById("start").innerHTML = localStorage.getItem("start");
   story.innerText = data["main"].story;
   genre.innerText = data["main"].genres;
+  var n = data["main"].age.includes("+");
+  if (n == true) {
   age.innerText = data["main"].age;
+  } else {
+  age.innerText = "+13";
+  }
   ratings.innerText = data["main"].rank;
   app.preloader.hide();
 });
