@@ -139,6 +139,7 @@ app.request.json(id, function (data) {
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+		 btn.onclick = function() {shows(data["ep"][i].id)};
          document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
@@ -163,19 +164,18 @@ app.request.json(id, function (data) {
   app.preloader.hide();
 });
 }
-function shows(servers) {
-  app.preloader.show();
-  app.request.json(servers, function (data) {
-    var iss = 0;
-    for (i = 0; i < data.length; i++) {
-      iss++
-      var btn = document.createElement("button");
-       btn.innerText = " سيرفر "+iss;
+function shows(id) {
+	   var btn = document.createElement("button");
+       btn.innerText = "الدقة العادية";
        btn.setAttribute("class","col button button-large button-raised");
        btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
        document.getElementById("listserver").appendChild(btn);
-    }
+	   
+	   var btn = document.createElement("button");
+       btn.innerText = "الدقة العالية";
+       btn.setAttribute("class","col button button-large button-raised");
+       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+       document.getElementById("listserver").appendChild(btn);
     app.sheet.open('.my-sheet-swipe-to-close', true);
-    app.preloader.hide();
   });
 }
