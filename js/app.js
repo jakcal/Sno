@@ -28,7 +28,10 @@ var app  = new Framework7({
   // App routes
   routes: routes,
 });
-
+history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+	history.go(1);
+    };
 // Init/Create main view
 var mainView = app.views.create('.view-main', {
   url: '/'
