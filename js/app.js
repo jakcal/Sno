@@ -123,34 +123,23 @@ function createitem(img,name,title,id) {
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
 function load(id,list) {
+localStorage.setItem("title", "Smitsh");	
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
-app.request.json(list, function (data) {
-  document.getElementById("texts").style.display = "none";
-  document.getElementById("km").innerText = data.length;
-      for (i = 0; i < data.length; i++) {
-        var btn = document.createElement("button");
-         btn.innerText = data[i].name;
-         var serve = "https://snoanime.com/api/new/server.php/?url="+data[i].serverlist;
-         btn.setAttribute("class","col button button-large button-raised");
-         btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         btn.onclick = function() {shows(serve)};
-         document.getElementById("list-ep").appendChild(btn);
-
-      }
-});
 app.request.json(id, function (data) {
-  var title = document.getElementById("titles");
+  var title = document.getElementById("titles").innerHTML = localStorage.getItem("lastname");
   var story = document.getElementById("story");
   var image = document.getElementById("images");
   //Two
   var genre = document.getElementById("genres");
-  var season = document.getElementById("season");
+  var age = document.getElementById("studios");
+  var statics = document.getElementById("statics");
   var ratings = document.getElementById("rating");
-  story.innerText = data.story;
-  genre.innerText = data.genres;
-  season.innerText = data.age;
-  ratings.innerText = data.rank;
+  var start = document.getElementById("start");
+  story.innerText = data[0].story;
+  genre.innerText = data[0].genres;
+  season.innerText = data[0].age;
+  ratings.innerText = data[0].rank;
   image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
