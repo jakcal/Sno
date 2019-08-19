@@ -124,10 +124,25 @@ function createitem(img,name,title,id) {
 }
 function load(id,list) {
 localStorage.setItem("title", "Smitsh");	
+localStorage.setItem("statics", "Smitsh");	
+
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
 app.request.json(id, function (data) {
-  var title = document.getElementById("titles").innerHTML = localStorage.getItem("lastname");
+  document.getElementById("titles").innerHTML = localStorage.getItem("title");
+  var story = document.getElementById("story");
+  var image = document.getElementById("images");
+  //Two
+  var genre = document.getElementById("genres");
+  var age = document.getElementById("studios");
+  document.getElementById("statics");
+  var ratings = document.getElementById("rating");
+  document.getElementById("start");
+  story.innerText = data["main"].story;
+  genre.innerText = data["main"].genres;
+  season.innerText = data["main"].age;
+  ratings.innerText = data["main"].rank;
+  image.setAttribute("src","https://snoanime.com/image.php/?name=https://www.khkhkhkh.com/animecp/animeImages/15625464474.jpg");
   app.preloader.hide();
 });
 }
