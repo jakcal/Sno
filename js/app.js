@@ -128,19 +128,6 @@ app.preloader.show();
 app.tab.show(document.getElementById("taps"), true);
 app.request.json(id, function (data) {
   var title = document.getElementById("titles").innerHTML = localStorage.getItem("lastname");
-  var story = document.getElementById("story");
-  var image = document.getElementById("images");
-  //Two
-  var genre = document.getElementById("genres");
-  var age = document.getElementById("studios");
-  var statics = document.getElementById("statics");
-  var ratings = document.getElementById("rating");
-  var start = document.getElementById("start");
-  story.innerText = data["main"].story;
-  genre.innerText = data["main"].genres;
-  season.innerText = data["main"].age;
-  ratings.innerText = data["main"].rank;
-  image.setAttribute("src","https://snoanime.com/image.php/?name="+data.logo);
   app.preloader.hide();
 });
 }
