@@ -143,9 +143,10 @@ app.request.json(id, function (data) {
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         var datag = data["ep"][i].id;
-		 btn.onclick = function() {shows(datag)};
-         document.getElementById("list-ep").appendChild(btn);
+   
+		 var datag = data["ep"][i].id;
+         btn.setAttribute("onclick","shows("+datag+"");
+		 document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
   document.getElementById("titles").innerHTML = localStorage.getItem("name");
