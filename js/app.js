@@ -169,14 +169,5 @@ app.request.json(id, function (data) {
 });
 }
 function shows() {
-    var iss = 0;
-    for (i = 0; i < 1; i++) {
-      iss++
-      var btn = document.createElement("button");
-       btn.innerText = " سيرفر "+iss;
-       btn.setAttribute("class","col button button-large button-raised");
-       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-       document.getElementById("listserver").appendChild(btn);
-    }
     app.sheet.open('.my-sheet-swipe-to-close', true);
 }
