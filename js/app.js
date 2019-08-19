@@ -139,11 +139,12 @@ app.request.json(id, function (data) {
 	document.getElementById("texts").style.display = "none";
     document.getElementById("km").innerText = data["ep"].length;
       for (i = 0; i < data["ep"].length; i++) {
-        var btn = document.createElement("button");
+         var btn = document.createElement("button");
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-		 btn.onclick = function() {shows(data["ep"][i].id)};
+         var datag = data["ep"][i].id;
+		 btn.onclick = function() {shows(datag)};
          document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
