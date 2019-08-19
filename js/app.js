@@ -173,13 +173,13 @@ app.request.json(id, function (data) {
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid(localStorage.getItem("id"));
+	   sendDataToAndroid(localStorage.getItem("id"),id);
       } else {
        app.sheet.open('.my-sheet-swipe-to-close', true);
       }
 }
 
-function sendDataToAndroid(toast) {
-        MyFunction.onButtonClick(toast);
+function sendDataToAndroid(toast,id) {
+        MyFunction.onButtonClick(toast,id);
     }
 
