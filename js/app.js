@@ -126,12 +126,12 @@ function createitem(img,name,title,id,state,starts) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
-function load(ids,name,img,state,starts) {
+function load(id,name,img,state,starts) {
 localStorage.setItem("name", name);	
 localStorage.setItem("img", img);	
 localStorage.setItem("state", state);	
 localStorage.setItem("start", starts);
-localStorage.setItem("id", ids);	
+localStorage.setItem("id", id);	
 	
 
 app.preloader.show();
@@ -175,7 +175,7 @@ app.request.json(id, function (data) {
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid(localStorage.getItem("id")+"Data "+id);
+	   sendDataToAndroid(localStorage.getItem("id"));
       } else {
        app.sheet.open('.my-sheet-swipe-to-close', true);
       }
