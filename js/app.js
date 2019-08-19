@@ -70,11 +70,15 @@ var xhttp = new XMLHttpRequest();
 function createitem(img,name,title,id,state,starts) {
   var content = document.getElementById("snoanime");
   //info
-    var lid = document.createElement("li");
-    lid.style.display = "inherit";
-    var infos = document.createElement("a");
-    infos.className = "";
-    infos.href = id;
+  var lid = document.createElement("li");
+  
+  lid.style.display = "inherit";
+  
+  var infos = document.createElement("a");
+  
+  infos.className = "";
+  
+  infos.href = id;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
@@ -139,7 +143,7 @@ app.request.json(id, function (data) {
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-		 btn.onclick = function() {shows(data["ep"][i].id)};
+		 btn.onclick = function() {shows()};
          document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
@@ -164,17 +168,15 @@ app.request.json(id, function (data) {
   app.preloader.hide();
 });
 }
-function shows(id) {
-	   var btn = document.createElement("button");
-       btn.innerText = "الدقة العادية";
+function shows() {
+    var iss = 0;
+    for (i = 0; i < 1; i++) {
+      iss++
+      var btn = document.createElement("button");
+       btn.innerText = " سيرفر "+iss;
        btn.setAttribute("class","col button button-large button-raised");
        btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
        document.getElementById("listserver").appendChild(btn);
-	   
-	   var btn = document.createElement("button");
-       btn.innerText = "الدقة العالية";
-       btn.setAttribute("class","col button button-large button-raised");
-       btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-       document.getElementById("listserver").appendChild(btn);
+    }
     app.sheet.open('.my-sheet-swipe-to-close', true);
-  });
+}
