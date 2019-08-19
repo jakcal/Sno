@@ -178,4 +178,3 @@ function shows(id) {
        document.getElementById("listserver").appendChild(btn);
     app.sheet.open('.my-sheet-swipe-to-close', true);
   });
-}
