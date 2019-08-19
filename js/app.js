@@ -143,7 +143,7 @@ app.request.json(id, function (data) {
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-		 btn.onclick = function() {shows()};
+		 btn.onclick = function() {shows(data["ep"][i].id)};
          document.getElementById("list-ep").appendChild(btn);
       }
 	//epName
@@ -171,7 +171,7 @@ app.request.json(id, function (data) {
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid('Button 2 is click');
+	   sendDataToAndroid(id);
       } else {
        app.sheet.open('.my-sheet-swipe-to-close', true);
       }
