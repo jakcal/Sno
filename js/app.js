@@ -132,19 +132,15 @@ app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
 app.request.json(id, function (data) {
 	//epName
-	
 	document.getElementById("texts").style.display = "none";
     document.getElementById("km").innerText = data["ep"].length;
-      for (i = 0; i < data.length; i++) {
+      for (i = 0; i < data["ep"].length; i++) {
         var btn = document.createElement("button");
-         btn.innerText = data[i].name;
-         var serve = "https://snoanime.com/api/new/server.php/?url="+data[i].serverlist;
+         btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-         btn.onclick = function() {shows(serve)};
          document.getElementById("list-ep").appendChild(btn);
       }
-	
 	//epName
   document.getElementById("titles").innerHTML = localStorage.getItem("name");
   var story = document.getElementById("story");
