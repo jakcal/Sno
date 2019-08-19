@@ -90,33 +90,12 @@
   <script src="framework7/js/framework7.bundle.min.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script type="text/javascript">
-   function onDeviceReady() {
-    document.addEventListener('backbutton', onBackKeyDown, false);
-}
-
-function onBackKeyDown() {
-    var cpage = mainView.activePage;
-    var cpagename = cpage.name;
-    console.log(cpagename);
-    if (($$('#leftpanel').hasClass('active')) || ($$('#rightpanel').hasClass('active'))) { // #leftpanel and #rightpanel are id of both panels.
-        app.closePanel();
-        return false;
-    } else if ($$('.modal-in').length > 0) {
-        app.closeModal();
-        return false;
-    } else if (cpagename == 'index') {
-        app.confirm('Are you sure you want to exit?', function() {
-            // var deviceType = device.platform;
-            // if(deviceType == “Android” || deviceType == “android”){
-            navigator.app.exitApp();
-            // }
-        },
-        function() {
-        });
-    } else {
-        mainView.router.back();
+    function showLoading() {
+       app.preloader.show();
     }
-}
+	function hideLoading() {
+       app.preloader.hide();
+    }
   </script>
   <!-- App routes -->
   <script src="js/routes.js"></script>
