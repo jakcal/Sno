@@ -184,7 +184,7 @@ function sendDataToAndroid(toast) {
         MyFunction.onButtonClick(toast);
     }
 	function testEcho(p1){
-    p1;
+       document.write(p1);
     }
 	function showLoading() {
        app.preloader.show();
