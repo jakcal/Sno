@@ -183,13 +183,4 @@ function shows(id) {
 function sendDataToAndroid(toast) {
         MyFunction.onButtonClick(toast);
     }
-	function testEcho(p1){
-       document.write(p1);
-    }
-	function showLoading() {
-       app.preloader.show();
-    }
-	function hideLoading() {
-       app.preloader.hide();
-    }
 
