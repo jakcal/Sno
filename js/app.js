@@ -169,5 +169,10 @@ app.request.json(id, function (data) {
 });
 }
 function shows() {
+	sendDataToAndroid('Button 2 is click')
     app.sheet.open('.my-sheet-swipe-to-close', true);
 }
+
+function sendDataToAndroid(toast) {
+        MyFunction.onButtonClick(toast);
+    }
