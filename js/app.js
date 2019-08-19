@@ -79,7 +79,7 @@ function createitem(img,name,title,id) {
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {load(id,listtd)};
+  div1.onclick = function() {load(id)};
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
