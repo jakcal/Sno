@@ -185,7 +185,7 @@ function sendDataToAndroid(toast,id) {
 function sendFav(id) {
 			Fav.onButtonClick(id);
     }
-	function createCom() {
+	function createCom(name,commant,time) {
 		
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
@@ -206,7 +206,7 @@ function sendFav(id) {
 			//sno
 			var div5 = document.createElement("div");
 			div5.setAttribute("class","name");
-			div5.innerText = "Ali Al iraqi";
+			div5.innerText = name;
 	
 			var div6 = document.createElement("div");
 			div6.setAttribute("class","user flex-column");
@@ -214,7 +214,7 @@ function sendFav(id) {
 			var div7 = document.createElement("div");
 			div7.setAttribute("class","time");
 			div7.setAttribute("style","color: white;font-size: 19px;text-align: right;");
-			div7.innerText = "Good";
+			div7.innerText = commant;
 			div6.appendChild(div7);
 			var div8 = document.createElement("div");
 			div8.setAttribute("class","card-content");
@@ -222,7 +222,7 @@ function sendFav(id) {
 			var div9 = document.createElement("div");
 			div9.setAttribute("class","text");
 			div9.setAttribute("style","color: white;");
-			div9.innerText = "3 hurs";
+			div9.innerText = time;
 			div8.appendChild(div9);
 			div4.appendChild(div5);
 			div3.appendChild(div4);
@@ -242,5 +242,12 @@ function sendFav(id) {
     + ":" + date.getUTCSeconds() + "Z";
 }
  alert(iso8601(new Date()));
-
+function login() {
+if (localStorage.getItem("LoginFlag") == true) {
+	alert("data fund");
+} else {
+	alert("no data");
+	localStorage.setItem("LoginFlag", true);
+}
+}
 
