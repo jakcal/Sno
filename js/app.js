@@ -247,7 +247,7 @@ function starttest() {
 	toastBottom.open();
 	document.getElementById("btns").innerText = "تسجيل خروج";
     } else {
-	alert("not user");
+
     }
 }
 function ifre() {
