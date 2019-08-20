@@ -3294,6 +3294,22 @@
   .md .list ul ul {
     padding-left: calc(var(--f7-list-item-padding-horizontal) + 40px)
   }
+  .message-appear-from-bottom {
+    -webkit-animation: messageAppearFromBottom .4s;
+    animation: messageAppearFromBottom .4s;
+ }
+  .message:first-child {
+    margin-top: 8px;
+  }
+  .message-received {
+    -ms-flex-item-align: start;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
 
   .md .list .item-media {
     min-width: 40px
@@ -11686,14 +11702,19 @@
   }
 
   .message {
-    max-width: 70%;
     box-sizing: border-box;
+    margin: 0 8px 8px 8px;
+    max-width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
-    align-items: flex-end;
-    position: relative;
-    z-index: 1;
-    transform: translate3d(0,0,0)
-  }
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
 
   .message-avatar {
     border-radius: 50%;
