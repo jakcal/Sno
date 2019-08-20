@@ -281,7 +281,7 @@ function register() {
              var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
 	         app.request.get(url, function (data) {
 				 app.preloader.hide();
-	             app.dialog.alert(data+" قم بتسجيل الدخول للمتابعة ");
+	             app.dialog.alert(data);
 
               });
             } else {
