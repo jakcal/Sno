@@ -240,12 +240,11 @@ function sendFav(id) {
     + "T" + date.getUTCHours()
     + ":" + date.getUTCMinutes()
     + ":" + date.getUTCSeconds() + "Z";
+	 alert(iso8601(new Date()));
 }
- alert(iso8601(new Date()));
  
 if (localStorage.getItem("SaveLogin")) {
 	toastBottom.open();
-	document.getElementById("btns").innerText = "";
 	document.getElementById("btns").innerText = "تسجيل خروج";
 } else {
 	
