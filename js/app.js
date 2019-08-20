@@ -242,14 +242,29 @@ function sendFav(id) {
     + ":" + date.getUTCSeconds() + "Z";
 }
  alert(iso8601(new Date()));
-function logins() {
-if (localStorage.getItem("LoginFlag")) {
-	alert("data fund");
+ 
+if (localStorage.getItem("SaveLogin")) {
+	var data = localStorage.getItem("username");
+	app.dialog.alert(" أهلا بك مرى أخرى أستاذ " + data);
+	document.getElementById("btns").innerText = "";
+	document.getElementById("btns").innerText = "تسجيل خروج";
 } else {
-	alert("no data");
-	localStorage.setItem("LoginFlag", true);
+	
 }
+function ifre() {
+	if (localStorage.getItem("SaveLogin")) {
+	app.dialog.confirm('هل تود تسجيل الخروج ؟', function (username, password) {
+	localStorage.removeItem("SaveLogin");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    document.getElementById("btns").innerText = "";
+	document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
+    });
+    } else {
+	app.loginScreen.open(document.getElementsByClassName('login-screen'),true)
+    }
 }
+
 function register() {
 	var s1 = document.getElementById("username").value;
 	var s2 = document.getElementById("email").value;
@@ -266,8 +281,44 @@ function register() {
              var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
 	         app.request.get(url, function (data) {
 				 app.preloader.hide();
+	             app.dialog.alert(data+" قم بتسجيل الدخول للمتابعة ");
+
+              });
+            } else {
+				app.preloader.hide();
+  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+        }
+        } else {
+			app.preloader.hide();
+  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+    }
+    } else {
+		app.preloader.hide();
+  app.dialog.alert('يجب عليك كتابة اسمك');
+		}
+	
+}
+function logins() {
+	var s1 = document.getElementById("username").value;
+	var s2 = document.getElementById("email").value;
+	var s3 = document.getElementById("password").value;
+	app.preloader.show();
+	if(s1.trim())
+    {
+        if(s2.trim())
+        {
+            if(s3.trim())
+            {
+             var email = document.getElementById("email").value;
+             var password = document.getElementById("password").value;
+             var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
+	         app.request.get(url, function (data) {
+				 app.preloader.hide();
 	             app.dialog.alert(data);
-			 
+				 localStorage.setItem("SaveLogin", true);
+				 localStorage.setItem("username", s1);
+				 localStorage.setItem("email", s2);
+
               });
             } else {
 				app.preloader.hide();
