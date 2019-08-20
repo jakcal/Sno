@@ -182,4 +182,7 @@ function shows(id) {
 function sendDataToAndroid(toast,id) {
         MyFunction.onButtonClick(toast,id);
     }
+function sendFav(id) {
+			Fav.onButtonClick(id);
+    }
 
