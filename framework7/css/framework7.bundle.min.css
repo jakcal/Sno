@@ -7104,8 +7104,10 @@
     color: var(--f7-card-header-text-color);
     font-size: var(--f7-card-header-font-size);
     font-weight: var(--f7-card-header-font-weight);
-    padding: var(--f7-card-header-padding-vertical) var(--f7-card-header-padding-horizontal)
-  }
+    padding-right: 10px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
 
   .card-footer {
     min-height: var(--f7-card-footer-min-height);
