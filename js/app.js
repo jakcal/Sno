@@ -185,4 +185,15 @@ function sendDataToAndroid(toast,id) {
 function sendFav(id) {
 			Fav.onButtonClick(id);
     }
+	
+	function iso8601(date) {
+  return date.getUTCFullYear()
+    + "-" + (date.getUTCMonth()+1)
+    + "-" + date.getUTCDate()
+    + "T" + date.getUTCHours()
+    + ":" + date.getUTCMinutes()
+    + ":" + date.getUTCSeconds() + "Z";
+}
+ alert(iso8601(new Date()));
+
 
