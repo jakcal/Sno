@@ -244,8 +244,7 @@ function sendFav(id) {
  alert(iso8601(new Date()));
  
 if (localStorage.getItem("SaveLogin")) {
-	var data = localStorage.getItem("username");
-	app.dialog.alert(" أهلا بك مرى أخرى أستاذ " + data);
+	toastBottom.open();
 	document.getElementById("btns").innerText = "";
 	document.getElementById("btns").innerText = "تسجيل خروج";
 } else {
@@ -318,6 +317,9 @@ function logins() {
 				 localStorage.setItem("SaveLogin", true);
 				 localStorage.setItem("username", s1);
 				 localStorage.setItem("email", s2);
+				 document.getElementById("btns").innerText = "";
+	             document.getElementById("btns").innerText = "تسجيل خروج";
+				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true)
 
               });
             } else {
@@ -334,4 +336,8 @@ function logins() {
 		}
 	
 }
+var toastBottom = app.toast.create({
+  text: 'أهلا بك مرى أخرى أستاذ '+ localStorage.getItem("username"),
+  closeTimeout: 2000,
+});
 
