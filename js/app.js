@@ -242,13 +242,6 @@ function sendFav(id) {
     + ":" + date.getUTCSeconds() + "Z";
 	 alert(iso8601(new Date()));
 }
- 
-if (localStorage.getItem("SaveLogin")) {
-	toastBottom.open();
-	document.getElementById("btns").innerText = "تسجيل خروج";
-} else {
-	
-}
 function ifre() {
 	if (localStorage.getItem("SaveLogin")) {
 	app.dialog.confirm('هل تود تسجيل الخروج ؟', function (username, password) {
@@ -313,13 +306,16 @@ function logins() {
 	         app.request.get(url, function (data) {
 				 app.preloader.hide();
 	             app.dialog.alert(data);
-				 localStorage.setItem("SaveLogin", true);
+				 var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
+                 if (n == true) {
+
+                 } else {
+                 localStorage.setItem("SaveLogin", true);
 				 localStorage.setItem("username", s1);
 				 localStorage.setItem("email", s2);
 				 document.getElementById("btns").innerText = "";
 	             document.getElementById("btns").innerText = "تسجيل خروج";
-				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true)
-
+				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true);                 }
               });
             } else {
 				app.preloader.hide();
