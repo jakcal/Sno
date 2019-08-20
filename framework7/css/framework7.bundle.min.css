@@ -2803,7 +2803,7 @@
   }
 
   .list .item-link.active-state {
-    background-color: var(--f7-list-link-pressed-bg-color)
+    background-color: #673ab782;
   }
 
   .list .item-link .item-inner {
@@ -4210,7 +4210,10 @@
 
   .login-screen-content .list-button {
     text-align: center;
-    color: var(--f7-login-screen-list-button-text-color,var(--f7-theme-color))
+    background-color: var(--f7-login-screen-list-button-text-color,var(--f7-theme-color));
+    color: white;
+    border-radius: 5px;
+	margin: 4px;
   }
 
   .login-screen-content .block,.login-screen-content .list,.login-screen-content .login-screen-title {
@@ -7627,7 +7630,7 @@
   .list input[type=date],.list input[type=datetime-local],.list input[type=email],.list input[type=number],.list input[type=password],.list input[type=search],.list input[type=tel],.list input[type=text],.list input[type=time],.list input[type=url],.list select {
     width: 100%;
     height: var(--f7-input-height);
-    color: var(--f7-input-text-color);
+    color: #000000;
     font-size: var(--f7-input-font-size)
   }
 

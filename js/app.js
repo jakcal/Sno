@@ -242,8 +242,8 @@ function sendFav(id) {
     + ":" + date.getUTCSeconds() + "Z";
 }
  alert(iso8601(new Date()));
-function login() {
-if (localStorage.getItem("LoginFlag") == true) {
+function logins() {
+if (localStorage.getItem("LoginFlag")) {
 	alert("data fund");
 } else {
 	alert("no data");
