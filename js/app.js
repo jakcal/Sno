@@ -242,6 +242,14 @@ function sendFav(id) {
     + ":" + date.getUTCSeconds() + "Z";
 	 alert(iso8601(new Date()));
 }
+function starttest() {
+	if (localStorage.getItem("SaveLogin")) {
+	toastBottom.open();
+	document.getElementById("btns").innerText = "تسجيل خروج";
+    } else {
+	
+    }
+}
 function ifre() {
 	if (localStorage.getItem("SaveLogin")) {
 	app.dialog.confirm('هل تود تسجيل الخروج ؟', function (username, password) {
