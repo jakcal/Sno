@@ -7155,11 +7155,18 @@
   .card-header {
     border-radius: var(--f7-card-border-radius) var(--f7-card-border-radius) 0 0
   }
+  .snoanime-command {
+	border-radius: 5px;
+    background: #ff0000e6;
+    padding: 4px;
+    width: 10%;
+    text-align: center;
+    color: white;
+  }
 
   .card-header:after {
     content: '';
     position: absolute;
-    background-color: var(--f7-card-header-border-color);
     display: block;
     z-index: 15;
     top: auto;
