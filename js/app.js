@@ -185,6 +185,53 @@ function sendDataToAndroid(toast,id) {
 function sendFav(id) {
 			Fav.onButtonClick(id);
     }
+	function createCom() {
+		
+			var div = document.createElement("div");
+			div.setAttribute("class","card post-card");
+			div.setAttribute("style","background-color: #673ab7;");
+			//card post-card
+			
+			var div2 = document.createElement("div");
+			div2.setAttribute("class","card-header");
+			div2.setAttribute("style","padding-top: 4px; align-items: baseline;");
+			//card header
+			var div3 = document.createElement("div");
+			div3.setAttribute("class","user flex-column");
+			div3.setAttribute("style","height: 100%;");
+			//userflix
+			
+			var div4 = document.createElement("div");
+			div4.setAttribute("class","snoanime-command");
+			//sno
+			var div5 = document.createElement("div");
+			div5.setAttribute("class","name");
+			div5.innerText = "Ali Al iraqi";
+	
+			var div6 = document.createElement("div");
+			div6.setAttribute("class","user flex-column");
+			div6.setAttribute("style","padding-right: 10px;");
+			var div7 = document.createElement("div");
+			div7.setAttribute("class","time");
+			div7.setAttribute("style","color: white;font-size: 19px;text-align: right;");
+			div7.innerText = "Good";
+			div6.appendChild(div7);
+			var div8 = document.createElement("div");
+			div8.setAttribute("class","card-content");
+			div8.setAttribute("style","padding: 4px;");
+			var div9 = document.createElement("div");
+			div9.setAttribute("class","text");
+			div9.setAttribute("style","color: white;");
+			div9.innerText = "3 hurs";
+			div8.appendChild(div9);
+			div4.appendChild(div5);
+			div3.appendChild(div4);
+			div2.appendChild(div3);
+			div.appendChild(div2);
+			div.appendChild(div6);
+			div.appendChild(div8);
+			document.getElementById("list-commant").appendChild(div);
+	}
 	
 	function iso8601(date) {
   return date.getUTCFullYear()
