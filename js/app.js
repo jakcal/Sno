@@ -250,4 +250,31 @@ if (localStorage.getItem("LoginFlag")) {
 	localStorage.setItem("LoginFlag", true);
 }
 }
+function register() {
+	var s1 = document.getElementById("username").value;
+	var s2 = document.getElementById("email").value;
+	var s3 = document.getElementById("password").value;
+	if(s1.trim())
+    {
+        if(s2.trim())
+        {
+            if(s3.trim())
+            {
+    
+            } else {
+  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+        }
+        } else {
+  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+    }
+    } else {
+  app.dialog.alert('يجب عليك كتابة اسمك');
+		}
+	var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
+	app.request.get(url, function (data) {
+	  app.dialog.alert(data);
+    });
+}
 
