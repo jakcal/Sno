@@ -143,9 +143,9 @@ app.tab.show(document.getElementById("taps"), true);
 var idg = localStorage.getItem("id");
 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 var usl = "https://snoanime.com/api/new/sno-commants/"+idg+"/data.php"
-app.request.get(usl, function (data) {
-	    document.getElementById("km2").innerText = data.length;
-  for (i = 0; i < data.length; i++) {
+app.request.json(usl, function (data) {
+	  document.getElementById("km2").innerText = data.length;
+      for (i = 0; i < data.length; i++) {
 	  var name = data[i].name;
 	  var time = data[i].time;
 	  var commant = data[i].commants;
@@ -269,7 +269,7 @@ function sendFav(id) {
          }
 	}
 	
-	function showCom(time,name,commant) {
+	function showCom(times,name,commant) {
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -305,9 +305,9 @@ function sendFav(id) {
 			var div9 = document.createElement("div");
 			div9.setAttribute("class","text");
 			div9.setAttribute("style","color: white;");
-			div9.setAttribute("datetime",time);
+			div9.setAttribute("datetime",times);
 			div9.setAttribute("id","times");
-			div9.innerText = time;
+			div9.innerText = times;
 			div8.appendChild(div9);
 			div4.appendChild(div5);
 			div3.appendChild(div4);
