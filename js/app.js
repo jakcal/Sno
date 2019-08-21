@@ -55,6 +55,12 @@ app.preloader.show();
 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+    if (localStorage.getItem("SaveLogin")) {
+	toastBottom.open();
+	document.getElementById("btns").innerText = "تسجيل خروج";
+    } else {
+
+    }
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
@@ -185,8 +191,8 @@ function sendDataToAndroid(toast,id) {
 function sendFav(id) {
 			Fav.onButtonClick(id);
     }
-	function createCom(name,commant,time) {
-		
+	function createCom() {
+		    alert(document.getElementById("comm").value);
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
