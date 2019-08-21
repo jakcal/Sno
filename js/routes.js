@@ -4,8 +4,8 @@ routes = [
     url: './index.html',
   },
   {
-    path: '/about/',
-    url: './pages/about.html',
+    path: '/list/',
+    url: './pages/list.html',
   },
   {
     path: '/form/',
