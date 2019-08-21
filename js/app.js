@@ -436,4 +436,10 @@ var toas = app.toast.create({
   text: 'تم أرسال تعليقك',
   closeTimeout: 2000,
 });
+function favorite() {
+	    localStorage.setItem('checkbox', fieldValue);
+}
+function androidcode() {
+	localStorage.removeItem('id');
+}
 

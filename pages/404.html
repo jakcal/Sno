@@ -2,7 +2,7 @@
   <div class="navbar">
     <div class="navbar-inner sliding">
       <div class="left">
-        <a href="#" class="link back">
+        <a onclick="localStorage.removeItem('id');" href="#" class="link back">
           <i class="icon icon-back"></i>
           <span class="ios-only">رجوع</span>
         </a>
@@ -106,7 +106,7 @@ h3.file {
                   </div>
                </div>
                </div>
-			   <div onclick="alert('good')" class="fab fab-right-bottom color-orange" style="--f7-theme-color: #643cab;"><a href="#" class=""><i class="icon material-icons md-only">bookmark</i></a></div>
+			   <div onclick="favorite();" class="fab fab-right-bottom color-orange" style="--f7-theme-color: #643cab;"><a href="#" class=""><i class="icon material-icons md-only">bookmark</i></a></div>
           </div>
           <div id="view-ep" style="background-color: white;" class="view tab">
             <div style="background-color: white; padding-top: 1px;" class="page-content">
