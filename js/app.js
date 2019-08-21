@@ -428,6 +428,10 @@ var toastBottom = app.toast.create({
   text: 'أهلا بك مرى أخرى أستاذ '+ localStorage.getItem("username"),
   closeTimeout: 2000,
 });
+var toass = app.toast.create({
+  text: 'يجب عليك تسجيل الدخول',
+  closeTimeout: 2000,
+});
 var toas = app.toast.create({
   text: 'تم أرسال تعليقك',
   closeTimeout: 2000,
