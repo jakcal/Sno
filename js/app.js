@@ -83,7 +83,7 @@ function createitem(img,name,title,id,state,starts) {
   
   infos.className = "";
   
-  infos.href = id;
+  infos.href = "/list/;
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
