@@ -197,6 +197,7 @@ function sendFav(id) {
 			var name = localStorage.getItem("username");
 		    var email = localStorage.getItem("email");
 			var idg = localStorage.getItem("id");
+            idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 		    var time = iso8601(new Date());
             var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
 			alert(url);
