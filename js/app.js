@@ -192,11 +192,14 @@ function sendFav(id) {
 			Fav.onButtonClick(id);
     }
 	function createCom() {
-		    var commant = document.getElementById("comm").value;
+		 if (localStorage.getItem("SaveLogin")) {
+			var commant = document.getElementById("comm").value;
 			var name = localStorage.getItem("username");
 		    var email = localStorage.getItem("email");
+			var idg = localStorage.getItem("id");
 		    var time = iso8601(new Date());
-
+            var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
+			app.request.get(url, function (data) {
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -244,6 +247,11 @@ function sendFav(id) {
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
 			timeago.render(div9, 'ar');
+				}
+              });
+         } else {
+			 toass.open();
+         }
 	}
 	
 	function iso8601(date) {
@@ -353,6 +361,10 @@ function logins() {
 }
 var toastBottom = app.toast.create({
   text: 'أهلا بك مرى أخرى أستاذ '+ localStorage.getItem("username"),
+  closeTimeout: 2000,
+});
+var toass = app.toast.create({
+  text: 'يجب عليك تسجيل الدخول',
   closeTimeout: 2000,
 });
 
