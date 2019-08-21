@@ -142,14 +142,14 @@ app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
 var idg = localStorage.getItem("id");
 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-var usl = "https://snoanime.com/api/new/sno-commants/"+idg+"/data.php"
+var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
 app.request.json(usl, function (data) {
 	  document.getElementById("km2").innerText = data.length;
       for (i = 0; i < data.length; i++) {
 	  var name = data[i].name;
 	  var time = data[i].time;
 	  var commant = data[i].commants;
-      showCom(time.name,commant);
+      showCom(time,name,commant);
       }
 });
 app.request.json(id, function (data) {
