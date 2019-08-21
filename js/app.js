@@ -187,13 +187,11 @@ app.request.json(id, function (data) {
   ratings.innerText = data["main"].rank;
                 var idg = localStorage.getItem("id");
                 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-                 var favorites = localStorage.getItem("Favorite");
-                 var n = favorites.includes('"id":"'+idg+'"');
-                 if (n == true) {
-					 app.dialog.alert("موجود");
+                 if (localStorage.getItem(idg) === null) {
+					 document.getElementById("ssff").style.display = "none";
                  } else {
-                 	 app.dialog.alert("غير موجود");
-				 }
+                  document.getElementById("ssff").style.display = "inline-flex";
+                 }
   app.preloader.hide();
 });
 }
@@ -447,13 +445,21 @@ var toas = app.toast.create({
   closeTimeout: 2000,
 });
 function favorite() {
-var idg = localStorage.getItem("id");
-idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-var name = localStorage.getItem("name");
-var image = localStorage.getItem("img");
-var data = '{"id":"'+idg+'","name":"'+name+'","image":"'+image+'" }';
-var obj = JSON.parse(data);
-localStorage.setItem('Favorite', JSON.stringify(obj));
+	             var idg = localStorage.getItem("id");
+                 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+                 if (localStorage.getItem(idg) === null) {
+                 var name = localStorage.getItem("name");
+                 var image = localStorage.getItem("img");
+                 var data = '{"id":"'+idg+'","name":"'+name+'","image":"'+image+'" }';
+                 var obj = JSON.parse(data);
+                 localStorage.setItem(idg, JSON.stringify(obj));
+                 document.getElementById("ssff").style.display = "inline-flex";
+                 } else {
+					   app.dialog.confirm('حذف ألانمي من المفضلة ؟', function (username, password) {
+	                   localStorage.removeItem(idg);
+					   document.getElementById("ssff").style.display = "none";
+                       });
+                 }
 }
 function androidcode() {
 	localStorage.removeItem('id');
