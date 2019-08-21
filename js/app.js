@@ -199,7 +199,7 @@ function sendFav(id) {
 			var idg = localStorage.getItem("id");
 		    var time = iso8601(new Date());
             var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
-			app.request.get(url, function (data) {
+			alert(url);
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -247,8 +247,6 @@ function sendFav(id) {
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
 			timeago.render(div9, 'ar');
-				}
-              });
          } else {
 			 toass.open();
          }
