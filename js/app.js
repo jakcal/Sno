@@ -268,7 +268,7 @@ function sendFav(id) {
          }
 	}
 	
-	function showCom(time.name,commant) {
+	function showCom(time,name,commant) {
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
