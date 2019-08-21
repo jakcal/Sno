@@ -140,6 +140,17 @@ localStorage.setItem("id", id);
 
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
+var idg = localStorage.getItem("id");
+idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+var usl = "https://snoanime.com/api/new/sno-commants.php/"+idg+"/data.php"
+app.request.get(usl, function (data) {
+  for (i = 0; i < data.length; i++) {
+	  var name = data[i].name;
+	  var time = data[i].time;
+	  var commant = data[i].commants;
+      showCom(time.name,commant);
+      }
+});
 app.request.json(id, function (data) {
 	//epName
 	document.getElementById("texts").style.display = "none";
@@ -193,6 +204,7 @@ function sendFav(id) {
     }
 	function createCom() {
 		 if (localStorage.getItem("SaveLogin")) {
+			app.preloader.show();
 			var commant = document.getElementById("comm").value;
 			var name = localStorage.getItem("username");
 		    var email = localStorage.getItem("email");
@@ -200,7 +212,9 @@ function sendFav(id) {
             idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 		    var time = iso8601(new Date());
             var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
-			alert(url);
+			app.request.get(url, function (data) {
+			app.preloader.hide();
+            toas.open();
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -248,9 +262,60 @@ function sendFav(id) {
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
 			timeago.render(div9, 'ar');
+            });
          } else {
 			 toass.open();
          }
+	}
+	
+	function showCom(time.name,commant) {
+			var div = document.createElement("div");
+			div.setAttribute("class","card post-card");
+			div.setAttribute("style","background-color: #673ab7;");
+			//card post-card
+			
+			var div2 = document.createElement("div");
+			div2.setAttribute("class","card-header");
+			div2.setAttribute("style","padding-top: 4px; align-items: baseline;");
+			//card header
+			var div3 = document.createElement("div");
+			div3.setAttribute("class","user flex-column");
+			div3.setAttribute("style","height: 100%;");
+			//userflix
+			
+			var div4 = document.createElement("div");
+			div4.setAttribute("class","snoanime-command");
+			//sno
+			var div5 = document.createElement("div");
+			div5.setAttribute("class","name");
+			div5.innerText = name;
+	
+			var div6 = document.createElement("div");
+			div6.setAttribute("class","user flex-column");
+			div6.setAttribute("style","padding-right: 10px;");
+			var div7 = document.createElement("div");
+			div7.setAttribute("class","time");
+			div7.setAttribute("style","color: white;font-size: 19px;text-align: right;");
+			div7.innerText = commant;
+			div6.appendChild(div7);
+			var div8 = document.createElement("div");
+			div8.setAttribute("class","card-content");
+			div8.setAttribute("style","padding: 4px;");
+			var div9 = document.createElement("div");
+			div9.setAttribute("class","text");
+			div9.setAttribute("style","color: white;");
+			div9.setAttribute("datetime",time);
+			div9.setAttribute("id","times");
+			div9.innerText = time;
+			div8.appendChild(div9);
+			div4.appendChild(div5);
+			div3.appendChild(div4);
+			div2.appendChild(div3);
+			div.appendChild(div2);
+			div.appendChild(div6);
+			div.appendChild(div8);
+			document.getElementById("list-commant").appendChild(div);
+			timeago.render(div9, 'ar');
 	}
 	
 	function iso8601(date) {
@@ -362,8 +427,8 @@ var toastBottom = app.toast.create({
   text: 'أهلا بك مرى أخرى أستاذ '+ localStorage.getItem("username"),
   closeTimeout: 2000,
 });
-var toass = app.toast.create({
-  text: 'يجب عليك تسجيل الدخول',
+var toas = app.toast.create({
+  text: 'تم أرسال تعليقك',
   closeTimeout: 2000,
 });
 
