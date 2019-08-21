@@ -52,7 +52,7 @@ $$('#my-login-screen .login-button').on('click', function () {
 });
 app.preloader.show();
 
-var xhttp = new XMLHttpRequest();
+  var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     if (localStorage.getItem("SaveLogin")) {
@@ -74,6 +74,65 @@ var xhttp = new XMLHttpRequest();
   xhttp.send();
 function createitem(img,name,title,id,state,starts) {
   var content = document.getElementById("snoanime");
+  //info
+  var lid = document.createElement("li");
+  
+  lid.style.display = "inherit";
+  
+  var infos = document.createElement("a");
+  
+  infos.className = "";
+  
+  infos.href = "/info/";
+  //Div
+  var div1 = document.createElement("div");
+  div1.style = 'style="height: 160;"';
+  div1.className = "card";
+  div1.onclick = function() {load(id,name,img,state,starts)};
+  var div2 = document.createElement("div");
+  div2.className = "card-content"
+  var div3 = document.createElement("div");
+  div3.className = "list media-list no-ios-edges"
+  var div4 = document.createElement("div");
+  div4.className = "item-media"
+  var div5 = document.createElement("div");
+  div5.className = "item-inner";
+  var div7 = document.createElement("div");
+  div7.className = "item-subtitle";
+  div7.innerText = name;
+  var div8 = document.createElement("div");
+  div8.className = "item-subtitle";
+  div8.innerText = title;
+
+  //Div
+  //UL And Li
+  var ul = document.createElement("ul");
+  var li = document.createElement("li");
+  li.className = "item-content"
+  //UL And Li
+  //Image
+   var image = document.createElement("img");
+   image.setAttribute("src",img);
+   image.width = "125";
+   image.height = "160";
+  //Image
+  //Append
+  div4.appendChild(image);
+  div5.appendChild(div7);
+  div5.appendChild(div8);
+  li.appendChild(div4);
+  li.appendChild(div5);
+  ul.appendChild(li);
+  div3.appendChild(ul);
+  div2.appendChild(div3);
+  infos.appendChild(div2)
+  lid.appendChild(infos);
+  div1.appendChild(lid);
+  content.appendChild(div1);
+  console.log("Loaded Anime To SnoAnime By ibrahim khaled");
+}
+function createitem-list(img,name,title,id,state,starts) {
+  var content = document.getElementById("snoanime-list");
   //info
   var lid = document.createElement("li");
   
@@ -467,5 +526,22 @@ function androidcode() {
     localStorage.removeItem("img");	
     localStorage.removeItem("state");	
     localStorage.removeItem("start");
+}
+function golist() {
+	app.preloader.show();
+	var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var obj = JSON.parse(xhttp.responseText);
+      for (i = 0; i < obj.length; i++) {
+        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+        createitem-list(oimg,obj[i].name,obj[i].epName,id,obj[i].status,obj[i].year);
+      }
+      app.preloader.hide();
+    }
+  };
+  xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
+  xhttp.send();
 }
 
