@@ -192,7 +192,11 @@ function sendFav(id) {
 			Fav.onButtonClick(id);
     }
 	function createCom() {
-		    alert(document.getElementById("comm").value);
+		    var commant = document.getElementById("comm").value;
+			var name = localStorage.getItem("username");
+		    var email = localStorage.getItem("email");
+		    var time = iso8601(new Date());
+
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -228,6 +232,7 @@ function sendFav(id) {
 			var div9 = document.createElement("div");
 			div9.setAttribute("class","text");
 			div9.setAttribute("style","color: white;");
+			div9.setAttribute("datetime",time);
 			div9.innerText = time;
 			div8.appendChild(div9);
 			div4.appendChild(div5);
@@ -237,6 +242,7 @@ function sendFav(id) {
 			div.appendChild(div6);
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
+			timeago.render(nodes, 'zh_CN');
 	}
 	
 	function iso8601(date) {
@@ -246,7 +252,6 @@ function sendFav(id) {
     + "T" + date.getUTCHours()
     + ":" + date.getUTCMinutes()
     + ":" + date.getUTCSeconds() + "Z";
-	 alert(iso8601(new Date()));
 }
 function starttest() {
 	if (localStorage.getItem("SaveLogin")) {
