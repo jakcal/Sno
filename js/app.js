@@ -132,6 +132,15 @@ function createitem(img,name,title,id,state,starts) {
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
 function load(id,name,img,state,starts) {
+	var is_favorite = localStorage.getItem("id");
+                 var favorites = localStorage.getItem("Favorite");
+                 var n = favorites.includes(is_favorite);
+                 if (n == true) {
+					 app.dialog.alert("موجود");
+                 } else {
+                 	 app.dialog.alert("غير موجود");
+				 }
+				 
 localStorage.setItem("name", name);	
 localStorage.setItem("img", img);	
 localStorage.setItem("state", state);	
@@ -203,7 +212,7 @@ function sendDataToAndroid(toast,id) {
 function sendFav(id) {
 			Fav.onButtonClick(id);
     }
-	function createCom() {
+function createCom() {
 		 if (localStorage.getItem("SaveLogin")) {
 			app.preloader.show();
 			var commant = document.getElementById("comm").value;
@@ -408,7 +417,8 @@ function logins() {
 				 localStorage.setItem("email", s2);
 				 document.getElementById("btns").innerText = "";
 	             document.getElementById("btns").innerText = "تسجيل خروج";
-				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true);                 }
+				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
+				 }
               });
             } else {
 				app.preloader.hide();
@@ -437,9 +447,18 @@ var toas = app.toast.create({
   closeTimeout: 2000,
 });
 function favorite() {
-	    localStorage.setItem('checkbox', fieldValue);
+var id = localStorage.getItem("id");
+var name = localStorage.getItem("name");
+var image = localStorage.getItem("img");
+var data = '{"id":"'+id+'","name":"'+name+'","image":"'+image+'" }';
+var obj = JSON.parse(data);
+localStorage.setItem('Favorite', JSON.stringify(obj));
 }
 function androidcode() {
 	localStorage.removeItem('id');
+	localStorage.removeItem("name");	
+    localStorage.removeItem("img");	
+    localStorage.removeItem("state");	
+    localStorage.removeItem("start");
 }
 
