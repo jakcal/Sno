@@ -185,9 +185,10 @@ app.request.json(id, function (data) {
   age.innerText = "+13";
   }
   ratings.innerText = data["main"].rank;
-  var is_favorite = localStorage.getItem("id");
+                var idg = localStorage.getItem("id");
+                idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
                  var favorites = localStorage.getItem("Favorite");
-                 var n = favorites.includes(is_favorite);
+                 var n = favorites.includes('"id":"'+idg+'"');
                  if (n == true) {
 					 app.dialog.alert("موجود");
                  } else {
@@ -446,10 +447,11 @@ var toas = app.toast.create({
   closeTimeout: 2000,
 });
 function favorite() {
-var id = localStorage.getItem("id");
+var idg = localStorage.getItem("id");
+idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 var name = localStorage.getItem("name");
 var image = localStorage.getItem("img");
-var data = '{"id":"'+id+'","name":"'+name+'","image":"'+image+'" }';
+var data = '{"id":"'+idg+'","name":"'+name+'","image":"'+image+'" }';
 var obj = JSON.parse(data);
 localStorage.setItem('Favorite', JSON.stringify(obj));
 }
