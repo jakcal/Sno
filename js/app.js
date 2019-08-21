@@ -233,6 +233,7 @@ function sendFav(id) {
 			div9.setAttribute("class","text");
 			div9.setAttribute("style","color: white;");
 			div9.setAttribute("datetime",time);
+			div9.setAttribute("id","times");
 			div9.innerText = time;
 			div8.appendChild(div9);
 			div4.appendChild(div5);
@@ -242,7 +243,7 @@ function sendFav(id) {
 			div.appendChild(div6);
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
-			timeago.render(nodes, 'zh_CN');
+			timeago.render(div9, 'ar');
 	}
 	
 	function iso8601(date) {
