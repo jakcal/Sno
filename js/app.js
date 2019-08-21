@@ -131,16 +131,7 @@ function createitem(img,name,title,id,state,starts) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
-function load(id,name,img,state,starts) {
-	var is_favorite = localStorage.getItem("id");
-                 var favorites = localStorage.getItem("Favorite");
-                 var n = favorites.includes(is_favorite);
-                 if (n == true) {
-					 app.dialog.alert("موجود");
-                 } else {
-                 	 app.dialog.alert("غير موجود");
-				 }
-				 
+function load(id,name,img,state,starts) {				 
 localStorage.setItem("name", name);	
 localStorage.setItem("img", img);	
 localStorage.setItem("state", state);	
@@ -194,6 +185,14 @@ app.request.json(id, function (data) {
   age.innerText = "+13";
   }
   ratings.innerText = data["main"].rank;
+  var is_favorite = localStorage.getItem("id");
+                 var favorites = localStorage.getItem("Favorite");
+                 var n = favorites.includes(is_favorite);
+                 if (n == true) {
+					 app.dialog.alert("موجود");
+                 } else {
+                 	 app.dialog.alert("غير موجود");
+				 }
   app.preloader.hide();
 });
 }
