@@ -523,9 +523,9 @@ function favorite() {
 function androidcode() {
 	localStorage.removeItem('id');
 	localStorage.removeItem("name");	
-    localStorage.removeItem("img");	
-    localStorage.removeItem("state");	
-    localStorage.removeItem("start");
+  localStorage.removeItem("img");	
+  localStorage.removeItem("state");	
+  localStorage.removeItem("start");
 }
 function golist() {
 	app.preloader.show();
