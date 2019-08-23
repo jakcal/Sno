@@ -544,4 +544,29 @@ function golist() {
   xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
   xhttp.send();
 }
+function openinfo() {
+  var dynamicPopup = app.popup.create({
+    content: document.getElementById("infohere").innerHTML    ,
+    on: {
+      open: function (popup) {
+        console.log('Popup open');
+      },
+      opened: function (popup) {
+        console.log('Popup opened');
+      },
+    }
+  });
+  // Events also can be assigned on instance later
+  dynamicPopup.on('close', function (popup) {
+    console.log('Popup close');
+  });
+  dynamicPopup.on('closed', function (popup) {
+    console.log('Popup closed');
+  });
+  
+  // Open dynamic popup
+  $$('.dynamic-popup').on('click', function () {
+    dynamicPopup.open();
+  });
+}
 
