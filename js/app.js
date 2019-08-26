@@ -568,7 +568,7 @@ function clears() {
 var allowInfinite = true;
 
 // Last loaded index
-var lastItemIndex = $$('.list li').length;
+var lastItemIndex = $$('#datg').length;
 
 // Max items to load
 var maxItems = 200;
@@ -607,7 +607,7 @@ $$('.infinite-scroll-content').on('infinite', function () {
     $$('#datg').append(html);
 
     // Update last loaded index
-    lastItemIndex = $$('.list li').length;
+    lastItemIndex = $$('#datg').length;
   }, 1000);
 });
 function loadmor(img,name,title,id,state,starts) {
