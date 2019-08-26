@@ -220,161 +220,162 @@
   </div>
 </div>
 <!-- info popup here-->
-  <div class="popup popup-about">
-      <div id="infohere" class="page">
-        <div class="navbar">
-          <div class="navbar-inner sliding">
-            <div class="left">
-              <a onclick="androidcode();" href="/" class="link back popup-close">
-                <i class="icon icon-back"></i>
-                <span class="ios-only">رجوع</span>
-              </a>
-            </div>
-            <div id="titles" class="title"></div>
+  <div id="infodata" class="popup popup-about">
+    <div id="infohere" class="page">
+      <div class="navbar">
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a onclick="clears();" href="/" class="link back popup-close">
+              <i class="icon icon-back"></i>
+              <span class="ios-only">رجوع</span>
+            </a>
+          </div>
+          <div id="titles" class="title"></div>
+        </div>
+      </div>
+      <style>
+      div.ex3 {
+        font-weight: bold;
+        width: 100%;
+        height: 180px;
+        text-align: center;
+        overflow: auto;
+        color: black;
+    }
+    div.ex2 {
+        font-weight: bold;
+        width: 100%;
+        height: 60%;
+        text-align: center;
+        overflow: auto;
+        color: black;
+    }
+    h3.tit {
+        margin: 10px;
+        width: 100%;
+        color: black;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    h3.file {
+        margin: 10px;
+        width: 100%;
+        color: #000000bd;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    </style>
+      <div style="background-color: #673ab7;" class="toolbar tabbar-labels toolbar-top">
+          <div class="toolbar-inner">
+            <a style="color: white;" href="#view-home" class="tab-link tab-link-active">
+              <i class="icon f7-icons ios-only">home</i>
+              <i class="icon material-icons md-only">home</i>
+              <span class="tabbar-label">المعلومات</span>
+            </a>
+            <a style="color: white;" href="#view-ep" class="tab-link">
+              <i class="icon f7-icons ios-only">list</i>
+              <i class="icon material-icons md-only"><span id="km" class="badge color-red">0</span>list</i>
+              <span class="tabbar-label">الحلقات</span>
+            </a>
+            <a style="color: white;" href="#view-comants" class="tab-link">
+              <i class="icon f7-icons ios-only">view_list</i>
+              <i class="icon material-icons md-only"><span id="km2" class="badge color-red">0</span>view_list</i>
+              <span class="tabbar-label">التعليقات</span>
+            </a>
+            <a style="color: white;" href="#view-smlr" class="tab-link">
+              <i class="icon f7-icons ios-only">view_list</i>
+              <i class="icon material-icons md-only"><span class="badge color-red">0</span>view_list</i>
+              <span class="tabbar-label">مقترحات</span>
+            </a>
           </div>
         </div>
-        <style>
-        div.ex3 {
-          font-weight: bold;
-          width: 100%;
-          height: 180px;
-          text-align: center;
-          overflow: auto;
-          color: black;
-      }
-      div.ex2 {
-          font-weight: bold;
-          width: 100%;
-          height: 60%;
-          text-align: center;
-          overflow: auto;
-          color: black;
-      }
-      h3.tit {
-          margin: 10px;
-          width: 100%;
-          color: black;
-          font-weight: bold;
-          font-size: 18px;
-      }
-      h3.file {
-          margin: 10px;
-          width: 100%;
-          color: #000000bd;
-          font-weight: bold;
-          font-size: 15px;
-      }
-      </style>
-        <div style="background-color: #673ab7;" class="toolbar tabbar-labels toolbar-top">
-            <div class="toolbar-inner">
-              <a style="color: white;" href="#view-home" class="tab-link tab-link-active">
-                <i class="icon f7-icons ios-only">home</i>
-                <i class="icon material-icons md-only">home</i>
-                <span class="tabbar-label">المعلومات</span>
-              </a>
-              <a style="color: white;" href="#view-ep" class="tab-link">
-                <i class="icon f7-icons ios-only">list</i>
-                <i class="icon material-icons md-only"><span id="km" class="badge color-red">0</span>list</i>
-                <span class="tabbar-label">الحلقات</span>
-              </a>
-              <a style="color: white;" href="#view-comants" class="tab-link">
-                <i class="icon f7-icons ios-only">view_list</i>
-                <i class="icon material-icons md-only"><span id="km2" class="badge color-red">0</span>view_list</i>
-                <span class="tabbar-label">التعليقات</span>
-              </a>
-              <a style="color: white;" href="#view-smlr" class="tab-link">
-                <i class="icon f7-icons ios-only">view_list</i>
-                <i class="icon material-icons md-only"><span class="badge color-red">0</span>view_list</i>
-                <span class="tabbar-label">مقترحات</span>
-              </a>
-            </div>
-          </div>
-        <div id="infos" class="page-content">
-            <div class="views tabs safe-areas">
-                <!-- Tabbar for switching views-tabs -->
-                <div id="view-home" class="view view-main tab tab-active">
-                    <div class="page" data-name="home">
-                        <div class="card" style="">
-                          <li style="display: inherit;">
-                            <a class="">
-                              <div class="card-content">
-                                <div class="list media-list no-ios-edges">
-                                  <ul><li class="item-content">
-                                    <div class="item-media">
-                                      <img id="images" class="" src="" width="140" height="180">
-                                    </div><div>
-                                      <div id="story" class="ex3">
-      
-                                      </div>
+      <div id="infos" class="page-content">
+          <div class="views tabs safe-areas">
+              <!-- Tabbar for switching views-tabs -->
+              <div id="view-home" class="view view-main tab tab-active">
+                  <div class="page" data-name="home">
+                      <div class="card" style="">
+                        <li style="display: inherit;">
+                          <a class="">
+                            <div class="card-content">
+                              <div class="list media-list no-ios-edges">
+                                <ul><li class="item-content">
+                                  <div class="item-media">
+                                    <img id="images" class="" src="" width="140" height="180">
+                                  </div><div>
+                                    <div id="story" class="ex3">
+    
                                     </div>
-                                  </li>
-                                </ul>
-                              </div>
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
-                          </a>
-                        </li>
+                          </div>
+                        </a>
+                      </li>
+                    </div>
+                    <div class="row no-margin" style="width: 100%;height: 100%;text-align: center;">
+                      <div class="ex2">
+                        <h3 class="tit">التصنيفات</h3>
+                        <h3 id="genres" class="file"></h3>
+                        <h3 class="tit">تاريخ الانمي</h3>
+                        <h3 id="start" class="file"></h3>
+                        <h3 class="tit">الحالة</h3>
+                        <h3 id="statics" class="file"></h3>
+                        <h3 class="tit">التقيم العمري</h3>
+                        <h3 id="studios" class="file"></h3>
+                        <h3 class="tit">التقيم العالمي</h3>
+                        <h3 id="rating" class="file"></h3>
+    
                       </div>
-                      <div class="row no-margin" style="width: 100%;height: 100%;text-align: center;">
-                        <div class="ex2">
-                          <h3 class="tit">التصنيفات</h3>
-                          <h3 id="genres" class="file"></h3>
-                          <h3 class="tit">تاريخ الانمي</h3>
-                          <h3 id="start" class="file"></h3>
-                          <h3 class="tit">الحالة</h3>
-                          <h3 id="statics" class="file"></h3>
-                          <h3 class="tit">التقيم العمري</h3>
-                          <h3 id="studios" class="file"></h3>
-                          <h3 class="tit">التقيم العالمي</h3>
-                          <h3 id="rating" class="file"></h3>
-                        </div>
-                     </div>
-                     </div>
-               <div onclick="favorite();" class="fab fab-right-bottom color-orange" style="--f7-theme-color: #643cab;"><a href="#" class=""><i class="icon material-icons md-only"><span id="ssff" class="badge color-red" style="display: none;">♥</span>bookmark</i></a></div>
+                   </div>
+                   </div>
+             <div onclick="favorite();" class="fab fab-right-bottom color-orange" style="--f7-theme-color: #643cab;"><a href="#" class=""><i class="icon material-icons md-only"><span id="ssff" class="badge color-red" style="display: none;">♥</span>bookmark</i></a></div>
+              </div>
+              <div id="view-ep" style="background-color: white;" class="view tab">
+                <div style="background-color: white; padding-top: 1px;" class="page-content">
+                    <div style="margin: 0%" class="block">
+                        <p id="list-ep" class="row">
+    
+                        </p>
+                    </div>
+                      </div>
                 </div>
-                <div id="view-ep" style="background-color: white;" class="view tab">
-                  <div style="background-color: white; padding-top: 1px;" class="page-content">
-                      <div style="margin: 0%" class="block">
-                          <p id="list-ep" class="row">
-                            <h2 id="texts" style="text-align: center;">يتم تحميل الحلقات يرجى الانتظار</h2>
-                          </p>
-                      </div>
-                        </div>
+                <div id="view-comants" style="background-color: white;" class="view tab">
+          
+          
+          <div class="pages"><div class="page page-on-center"><div class="toolbar messagebar">
+          <div class="toolbar-inner"> <textarea  id="comm" placeholder="أكتب هنا" class=""></textarea>
+          <a href="#" onclick="createCom();" class="link">أرسال</a> </div> </div>
+          <div style="padding-top: 1px;" class="page-content messages-content">
+          <div id="list-commant" class="messages messages-auto-layout">
+    
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+           <div id="view-smlr" style="background-color: white;" class="view tab">
+                    <h1>99999</h1>
                   </div>
-                  <div id="view-comants" style="background-color: white;" class="view tab">
-            
-            
-            <div class="pages"><div class="page page-on-center"><div class="toolbar messagebar">
-            <div class="toolbar-inner"> <textarea  id="comm" placeholder="أكتب هنا" class=""></textarea>
-            <a href="#" onclick="createCom();" class="link">أرسال</a> </div> </div>
-            <div style="padding-top: 1px;" class="page-content messages-content">
-            <div id="list-commant" class="messages messages-auto-layout">
-      
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
-             <div id="view-smlr" style="background-color: white;" class="view tab">
-                      <h1>99999</h1>
-                    </div>
-                    </div>
-                   
-                </div>
-              <p><a id="showserver" style=" display: none; border-radius: 15px 15px 0 0;" class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-swipe-to-close">Server</a></p>
-                          <div class="sheet-modal my-sheet-swipe-to-close" style="border-radius: 15px 15px 0 0; height:auto; --f7-sheet-bg-color: #fff;">
-                           <div style="border-radius: 15px 15px 0px 0px;" class="sheet-modal-inner">
-                             <div class="swipe-handler">
-                               </div>
-                             <div class="page-content">
-                               <div style="text-align: center;" class="block-title block-title-large">أختيار دقة الحلقة</div>
-                               <div id="listserver" class="block">
-                                      <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
-                                      <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
-                               </div>
+                  </div>
+                 
+              </div>
+            <p><a id="showserver" style=" display: none; border-radius: 15px 15px 0 0;" class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-swipe-to-close">Server</a></p>
+                        <div class="sheet-modal my-sheet-swipe-to-close" style="border-radius: 15px 15px 0 0; height:auto; --f7-sheet-bg-color: #fff;">
+                         <div style="border-radius: 15px 15px 0px 0px;" class="sheet-modal-inner">
+                           <div class="swipe-handler">
+                             </div>
+                           <div class="page-content">
+                             <div style="text-align: center;" class="block-title block-title-large">أختيار دقة الحلقة</div>
+                             <div id="listserver" class="block">
+                                    <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
+                                    <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
                              </div>
                            </div>
                          </div>
-        </div>
+                       </div>
+      </div>
   </div>
   </div>
   <!-- Cordova -->

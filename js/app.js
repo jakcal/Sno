@@ -545,4 +545,23 @@ function golist() {
   xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
   xhttp.send();
 }
+function clears() {
+  document.getElementById("km").innerText = "0"
+  document.getElementById("km2").innerText = "0"
+  document.getElementById("image").src = "";
+  document.getElementById("story").innerText = "";
+  document.getElementById("story").innerText = "";
+  document.getElementById("genres").innerText = "";
+  document.getElementById("start").innerText = "";
+  document.getElementById("statics").innerText = "";
+  document.getElementById("studios").innerText = "";
+  document.getElementById("rating").innerText = "";
+  document.getElementById("list-ep").innerHTML = "";
+  document.getElementById("list-commant").innerHTML = "";
+  localStorage.removeItem('id');
+	localStorage.removeItem("name");	
+  localStorage.removeItem("img");	
+  localStorage.removeItem("state");	
+  localStorage.removeItem("start");
+}
 
