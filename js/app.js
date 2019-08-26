@@ -604,7 +604,7 @@ $$('.infinite-scroll-content').on('infinite', function () {
     }
 
     // Append new items
-    $$('.list ul').append(html);
+    $$('#datg').append(html);
 
     // Update last loaded index
     lastItemIndex = $$('.list li').length;
