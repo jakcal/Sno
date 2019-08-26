@@ -39,6 +39,7 @@ app.sheet.create({
   backdrop: true,
 });
 
+var maxItems = "";
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
@@ -133,7 +134,7 @@ function createitem(img,name,title,id,state,starts) {
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
 function createitemlist(img,name,title,id,state,starts) {
-  var content = document.getElementById("snoanime-list");
+  var content = document.getElementById("datg");
   //info
   var lid = document.createElement("li");
   
@@ -528,23 +529,25 @@ function androidcode() {
   localStorage.removeItem("state");	
   localStorage.removeItem("start");
 }
-function golist() {
-	app.preloader.show();
+//listanime
 	var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("datg").innerHTML = "";
       var obj = JSON.parse(xhttp.responseText);
-      for (i = 0; i < obj.length; i++) {
+      maxItems = obj.length;
+      for (i = 0; i < 20; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
         createitemlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
       }
-      app.preloader.hide();
+      createLoader();
     }
   };
   xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
   xhttp.send();
-}
+
+
 function clears() {
   document.getElementById("km").innerText = "0"
   document.getElementById("km2").innerText = "0"
@@ -564,52 +567,52 @@ function clears() {
   localStorage.removeItem("state");	
   localStorage.removeItem("start");
 }
+function createLoader() {
+  var allowInfinite = true;
+
+  // Last loaded index
+  var lastItemIndex = document.querySelector("#datg").childElementCount;
+    
+  // Append items per load
+  var itemsPerLoad = 20;
+  
+  // Attach 'infinite' event handler
+  $$('.infinite-scroll-content').on('infinite', function () {
+    // Exit, if loading in progress
+    if (!allowInfinite) return;
+  
+    // Set loading flag
+    allowInfinite = false;
+  
+    // Emulate 1s loading
+    setTimeout(function () {
+      // Reset loading flag
+      allowInfinite = true;
+  
+      if (lastItemIndex >= maxItems) {
+        // Nothing more to load, detach infinite scroll events to prevent unnecessary loadings
+        app.infiniteScroll.destroy('.infinite-scroll-content');
+        // Remove preloader
+        $$('.infinite-scroll-preloader').remove();
+        return;
+      }
+  
+      // Generate new items HTML
+      var html = '';
+      for (var i = lastItemIndex + 1; i <= lastItemIndex + itemsPerLoad; i++) {
+        isd = i - 1;
+        html += loadmor("",isd,"","","","");
+      }
+  
+      // Append new items
+      $$('#datg').append(html);
+  
+      // Update last loaded index
+      lastItemIndex = document.querySelector("#datg").childElementCount;
+    }, 1000);
+  });
+}
 // Loading flag
-var allowInfinite = true;
-
-// Last loaded index
-var lastItemIndex = document.querySelector("#datg").childElementCount;
-
-// Max items to load
-var maxItems = 200;
-
-// Append items per load
-var itemsPerLoad = 20;
-
-// Attach 'infinite' event handler
-$$('.infinite-scroll-content').on('infinite', function () {
-  // Exit, if loading in progress
-  if (!allowInfinite) return;
-
-  // Set loading flag
-  allowInfinite = false;
-
-  // Emulate 1s loading
-  setTimeout(function () {
-    // Reset loading flag
-    allowInfinite = true;
-
-    if (lastItemIndex >= maxItems) {
-      // Nothing more to load, detach infinite scroll events to prevent unnecessary loadings
-      app.infiniteScroll.destroy('.infinite-scroll-content');
-      // Remove preloader
-      $$('.infinite-scroll-preloader').remove();
-      return;
-    }
-
-    // Generate new items HTML
-    var html = '';
-    for (var i = lastItemIndex + 1; i <= lastItemIndex + itemsPerLoad; i++) {
-      html += loadmor("",i,"","","","");
-    }
-
-    // Append new items
-    $$('#datg').append(html);
-
-    // Update last loaded index
-    lastItemIndex = document.querySelector("#datg").childElementCount;
-  }, 1000);
-});
 function loadmor(img,name,title,id,state,starts) {
   var content = document.getElementById("animeing");
   //info
