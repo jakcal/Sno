@@ -600,7 +600,7 @@ $$('.infinite-scroll-content').on('infinite', function () {
     // Generate new items HTML
     var html = '';
     for (var i = lastItemIndex + 1; i <= lastItemIndex + itemsPerLoad; i++) {
-      html += '<li>Item ' + i + '</li>';
+      html += loadmor("",i,"","","","");
     }
 
     // Append new items
@@ -610,4 +610,63 @@ $$('.infinite-scroll-content').on('infinite', function () {
     lastItemIndex = $$('.list li').length;
   }, 1000);
 });
+function loadmor(img,name,title,id,state,starts) {
+  var content = document.getElementById("animeing");
+  //info
+  var lid = document.createElement("li");
+  
+  lid.style.display = "inherit";
+  
+  var infos = document.createElement("a");
+  
+  infos.className = "popup-open";
+  
+  infos.href = "#";
+  infos.setAttribute("data-popup",".popup-about")
+  //Div
+  var div1 = document.createElement("div");
+  div1.style = 'style="height: 160;"';
+  div1.className = "card";
+  div1.onclick = function() {load(id,name,img,state,starts)};
+  var div2 = document.createElement("div");
+  div2.className = "card-content"
+  var div3 = document.createElement("div");
+  div3.className = "list media-list no-ios-edges"
+  var div4 = document.createElement("div");
+  div4.className = "item-media"
+  var div5 = document.createElement("div");
+  div5.className = "item-inner";
+  var div7 = document.createElement("div");
+  div7.className = "item-subtitle";
+  div7.innerText = name;
+  var div8 = document.createElement("div");
+  div8.className = "item-subtitle";
+  div8.innerText = title;
+
+  //Div
+  //UL And Li
+  var ul = document.createElement("ul");
+  var li = document.createElement("li");
+  li.className = "item-content"
+  //UL And Li
+  //Image
+   var image = document.createElement("img");
+   image.setAttribute("src",img);
+   image.width = "125";
+   image.height = "160";
+  //Image
+  //Append
+  div4.appendChild(image);
+  div5.appendChild(div7);
+  div5.appendChild(div8);
+  li.appendChild(div4);
+  li.appendChild(div5);
+  ul.appendChild(li);
+  div3.appendChild(ul);
+  div2.appendChild(div3);
+  infos.appendChild(div2)
+  lid.appendChild(infos);
+  div1.appendChild(lid);
+  return div1.outerHTML;
+}
 
