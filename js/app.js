@@ -81,7 +81,7 @@ function createitem(img,name,title,id,state,starts) {
   
   var infos = document.createElement("a");
   
-  infos.className = "";
+  infos.className = "popup-open";
   
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
