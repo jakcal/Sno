@@ -548,7 +548,7 @@ function golist() {
 function clears() {
   document.getElementById("km").innerText = "0"
   document.getElementById("km2").innerText = "0"
-  document.getElementById("image").src = "";
+  document.getElementById("images").removeAttribute("src")
   document.getElementById("story").innerText = "";
   document.getElementById("story").innerText = "";
   document.getElementById("genres").innerText = "";
