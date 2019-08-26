@@ -40,6 +40,7 @@ app.sheet.create({
 });
 
 var maxItems = "";
+var animedata = "";
 // Login Screen Demo
 $$('#my-login-screen .login-button').on('click', function () {
   var username = $$('#my-login-screen [name="username"]').val();
@@ -52,7 +53,6 @@ $$('#my-login-screen .login-button').on('click', function () {
   app.dialog.alert('Username: ' + username + '<br>Password: ' + password);
 });
 app.preloader.show();
-
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -536,11 +536,13 @@ function androidcode() {
       document.getElementById("datg").innerHTML = "";
       var obj = JSON.parse(xhttp.responseText);
       maxItems = obj.length;
-      for (i = 0; i < 20; i++) {
+      animedata = JSON.stringify(obj);
+      for (i = 0; i < 40; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
         createitemlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
       }
+      animedata = obj;
       createLoader();
     }
   };
@@ -601,7 +603,9 @@ function createLoader() {
       var html = '';
       for (var i = lastItemIndex + 1; i <= lastItemIndex + itemsPerLoad; i++) {
         isd = i - 1;
-        html += loadmor("",isd,"","","","");
+        var oimg = "https://snoanime.com/image.php/?name="+animedata[isd].image;
+        var id = 'https://snoanime.com/api/new/info.php/?url='+animedata[isd].id;
+        html += loadmor(oimg,animedata[isd].name,animedata[isd].status,id,animedata[isd].status,animedata[isd].year);
       }
   
       // Append new items
