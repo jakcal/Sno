@@ -530,26 +530,27 @@ function androidcode() {
   localStorage.removeItem("start");
 }
 //listanime
-	var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("datg").innerHTML = "";
-      var obj = JSON.parse(xhttp.responseText);
-      maxItems = obj.length;
-      animedata = JSON.stringify(obj);
-      for (i = 0; i < 40; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-        createitemlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
-      }
-      animedata = obj;
-      createLoader();
+function golist() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("datg").innerHTML = "";
+    var obj = JSON.parse(xhttp.responseText);
+    maxItems = obj.length;
+    animedata = JSON.stringify(obj);
+    for (i = 0; i < 40; i++) {
+      var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+      var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+      createitemlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
     }
-  };
-  xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
-  xhttp.send();
+    animedata = obj;
+    createLoader();
+  }
+};
+xhttp.open("GET", "https://snoanime.com/api/new/list.php", true);
+xhttp.send();
 
-
+}
 function clears() {
   document.getElementById("km").innerText = "0"
   document.getElementById("km2").innerText = "0"
