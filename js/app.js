@@ -564,6 +564,7 @@ function clears() {
   document.getElementById("studios").innerText = "";
   document.getElementById("rating").innerText = "";
   document.getElementById("list-ep").innerHTML = "";
+  document.getElementById("titles").innerText = "";
   document.getElementById("list-commant").innerHTML = "";
   localStorage.removeItem('id');
 	localStorage.removeItem("name");	
