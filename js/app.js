@@ -413,7 +413,8 @@ app.request.setup({
       }
   },
   error:function(data){
-    opencustom2()
+    app.request({method:'GET'});
+    errornet.open();
   },
 })
 app.request({method:'GET'});
@@ -448,7 +449,8 @@ app.request.setup({
     }
     },
     error:function(data){
-      opencustom2()
+      app.request({method:'GET'});
+      errornet.open();
     },
   })
   app.request({method:'GET'});
@@ -482,7 +484,8 @@ app.request.setup({
   },
   error:function(data){
     app.preloader.hide();
-    opencustom2()
+    app.request({method:'GET'});
+    errornet.open();
   },
 })
 app.request({method:'GET'});
@@ -736,6 +739,10 @@ var toas = app.toast.create({
   text: 'تم أرسال تعليقك',
   closeTimeout: 2000,
 });
+var errornet = app.toast.create({
+  text: 'توجد مشكلة في الشبكة سيتم أعادة ألمحاولة خلال 5 ثوان',
+  closeTimeout: 2000,
+});
 function favorite() {
 	             var idg = localStorage.getItem("id");
                  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
@@ -811,14 +818,6 @@ function closecustom() {
   document.getElementById("dialgodrop").style.display = "none";
   document.getElementById("dialogs").style.display = "none";
 }
-function opencustom2() {
-  document.getElementById("dialgodrop2").style.display = "block";
-  document.getElementById("dialogs2").style.display = "block";
-}
-function closecustom2() {
-  document.getElementById("dialgodrop2").style.display = "none";
-  document.getElementById("dialogs2").style.display = "none";
-}
 function search(name) {
 document.getElementById("showonsearch").innerHTML = "";
 closecustom();
@@ -841,7 +840,8 @@ app.request.setup({
   },
   error:function(data){
     app.preloader.hide();
-    opencustom2()
+    app.request({method:'GET'});
+    errornet.open();
   },
 })
 app.request({method:'GET'});
