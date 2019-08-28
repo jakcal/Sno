@@ -119,8 +119,8 @@ function createitem(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -180,8 +180,8 @@ function createitemslmr(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -241,8 +241,8 @@ function createitemlist(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -302,8 +302,8 @@ function infosmlrs(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -363,8 +363,8 @@ function searchlist(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -900,8 +900,8 @@ function loadmor(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("data-bg","url("+img+")");
-   image.setAttribute("class","lazy");
+   image.setAttribute("data-src",img);
+   image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
   //Image
