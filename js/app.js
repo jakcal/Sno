@@ -812,8 +812,8 @@ function closecustom() {
   document.getElementById("dialogs").style.display = "none";
 }
 function opencustom2() {
-  document.getElementById("dialgodrop").style.display = "block";
-  document.getElementById("dialogs").style.display = "block";
+  document.getElementById("dialgodrop2").style.display = "block";
+  document.getElementById("dialogs2").style.display = "block";
 }
 function closecustom2() {
   document.getElementById("dialgodrop2").style.display = "none";
