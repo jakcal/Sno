@@ -993,6 +993,7 @@ function openf() {
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
         fcreateitem(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
     }
+    console.log("يتم تحميل المفضلة")
 }
 function fcreateitem(img,name,title,id,state,starts) {
   var content = document.getElementById("favoritelist");
