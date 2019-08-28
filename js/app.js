@@ -964,20 +964,25 @@ function loadmor(img,name,title,id,state,starts) {
   return div1.outerHTML;
 }
 function getFavorite() {
-  var person = [];
+  var person = {};
+  var a=[];
   for (i=0; i<=localStorage.length-1; i++)  
-    {  
-    if(isNaN(localStorage.key(i))) {
-    } else {
-    key = localStorage.key(i);  
-    var jsons = JSON.parse(localStorage.getItem(key))
-    person["id"] = jsons["id"];
-    person["name"] = jsons["name"];
-    person["image"] = jsons["image"];
-    person["year"] = jsons["year"];
-    person["status"] = jsons["status"];
-    person["keywords"] = jsons["keywords"];
-    }
-    }
-    return jsons.stringify(person);
+  {  
+  if(isNaN(localStorage.key(i))) {
+
+  } else {
+  key = localStorage.key(i);  
+  var jsons = JSON.parse(localStorage.getItem(key))
+  person["id"] = jsons["id"];
+  person["name"] = jsons["name"];
+  person["image"] = jsons["image"];
+  person["year"] = jsons["year"];
+  person["status"] = jsons["status"];
+  person["keywords"] = jsons["keywords"];
+  a.push(person); 
+  person = {};
+  }
+  }
+  var myJSON = JSON.stringify(a);
+  return myJSON;
 }
