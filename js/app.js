@@ -836,12 +836,6 @@ app.request.setup({
 })
 app.request({method:'GET'});
 }
-var lazyLoadInstance = new LazyLoad({
-  elements_selector: ".lazy"
-});
-if (lazyLoadInstance) {
-  lazyLoadInstance.update();
-}
 function backtomain() {
   document.getElementById("hideonsearch").style.display = "block";
   document.getElementById("newsearch").style.display = "none";
