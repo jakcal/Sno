@@ -119,7 +119,8 @@ function createitem(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -179,7 +180,8 @@ function createitemslmr(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -239,7 +241,8 @@ function createitemlist(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -299,7 +302,8 @@ function infosmlrs(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -359,7 +363,8 @@ function searchlist(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
@@ -794,6 +799,12 @@ app.request.json(url, function (obj) {
   document.getElementById('dialogvalue').value = "";
 })
 }
+var lazyLoadInstance = new LazyLoad({
+  elements_selector: ".lazy"
+});
+if (lazyLoadInstance) {
+  lazyLoadInstance.update();
+}
 function backtomain() {
   document.getElementById("hideonsearch").style.display = "block";
   document.getElementById("newsearch").style.display = "none";
@@ -889,7 +900,8 @@ function loadmor(img,name,title,id,state,starts) {
   //UL And Li
   //Image
    var image = document.createElement("img");
-   image.setAttribute("src",img);
+   image.setAttribute("data-bg","url("+img+")");
+   image.setAttribute("class","lazy");
    image.width = "125";
    image.height = "160";
   //Image
