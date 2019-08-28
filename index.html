@@ -111,7 +111,7 @@
             </div>
             <div class="title sliding">أحدث الحلقات المضافة</div>
             <div class="right">
-              <a onclick="opencustom" href="#" class="link icon-only">
+              <a onclick="opencustom()" href="#" class="link icon-only">
                 <i class="icon material-icons md-only">search</i>
               </a>
             </div>
@@ -145,11 +145,13 @@
                    </div>
                    <div id="view-eps" style="background-color: white;" class="view tab">
                     <div style="background-color: white; padding-top: 0px;" class="page-content">
-                                <div style="background-color: white; padding-top: 0px;" class="page-content infinite-scroll-content">
+                                <div id="hideonsearch" style="background-color: white; padding-top: 0px;" class="page-content infinite-scroll-content">
                                     <div id="datg">
                                   </div>
                                   <!-- data scroll -->
                                   <div class="preloader infinite-scroll-preloader"></div>
+                                </div>
+                                <div style="display: none; background-color: white; padding-top: 0px;" id="showonsearch" class="page-content">
                                 </div>
                       </div>
                     </div>
@@ -290,7 +292,7 @@
             <a style="color: white;" href="#view-smlr" class="tab-link">
               <i class="icon f7-icons ios-only">view_list</i>
               <i class="icon material-icons md-only"><span class="badge color-red">0</span>view_list</i>
-              <span class="tabbar-label">مقترحات</span>
+              <span class="tabbar-label">مرتبط</span>
             </a>
           </div>
         </div>
