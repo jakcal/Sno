@@ -485,7 +485,7 @@ app.request.setup({
   },
 })
 app.request({method:'GET'});
-
+}
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
