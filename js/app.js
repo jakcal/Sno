@@ -268,7 +268,7 @@ function infosmlrs(img,name,title,id,state,starts) {
   var infos = document.createElement("a");
   
   infos.className = "popup-open";
-  
+  infos.onclick = function() {clears()};
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
   //Div
@@ -356,7 +356,7 @@ app.request.json(id, function (data) {
   var idgs = localStorage.getItem("id");
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
   var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
-  app.request.json(urlsmlr, function (data) {
+  app.request.json(urlsmlr, function (obj) {
   for (i = 0; i < obj.length; i++) {
       var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
       var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
