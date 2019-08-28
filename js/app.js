@@ -778,7 +778,7 @@ function closecustom() {
 }
 function search(name) {
 app.preloader.show();
-$url = "https://snoanime.com/api/new/search.php/?name="+name;
+var url = "https://snoanime.com/api/new/search.php/?name="+name;
 app.request.get(url, function (obj) {
   document.getElementById("hideonsearch").style.display = "none";
   document.getElementById("showonsearch").style.display = "block";
