@@ -743,6 +743,10 @@ var errornet = app.toast.create({
   text: 'توجد مشكلة في الشبكة سيتم أعادة ألمحاولة خلال 5 ثوان',
   closeTimeout: 2000,
 });
+var empity = app.toast.create({
+  text: 'لا توجد أنميات في قائمة المفضلة',
+  closeTimeout: 2000,
+});
 function favorite() {
 	             var idg = localStorage.getItem("id");
                  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
@@ -987,11 +991,16 @@ function getFavorite() {
   return myJSON;
 }
 function openf() {
-  obj = JSON.parse(getFavorite());
+    obj = JSON.parse(getFavorite());
+    var n = getFavorite().includes("[]");
+    if (n == true) {
+    empity.open();
+    } else {
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
         fcreateitem(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+    }
     }
     console.log("يتم تحميل المفضلة")
 }
