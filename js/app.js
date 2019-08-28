@@ -748,7 +748,7 @@ var empity = app.toast.create({
   closeTimeout: 2000,
 });
 function favorite() {
-	             var idg = localStorage.getItem("id");
+	               var idg = localStorage.getItem("id");
                  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
                  if (localStorage.getItem(idg) === null) {
                  var name = localStorage.getItem("name");
