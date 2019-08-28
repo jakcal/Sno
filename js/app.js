@@ -73,7 +73,6 @@ app.preloader.show();
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[1][i].id;
         createitemslmr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
       }
-      $(".slow-images").imageReloader();
       app.preloader.hide();
     }
   };
