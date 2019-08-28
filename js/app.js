@@ -701,6 +701,7 @@ function clears() {
   document.getElementById("list-ep").innerHTML = "";
   document.getElementById("titles").innerText = "";
   document.getElementById("list-commant").innerHTML = "";
+  document.getElementById("infosmlr").innerHTML = "";
   localStorage.removeItem('id');
 	localStorage.removeItem("name");	
   localStorage.removeItem("img");	
