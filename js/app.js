@@ -749,15 +749,17 @@ function favorite() {
                  if (localStorage.getItem(idg) === null) {
                  var name = localStorage.getItem("name");
                  var image = localStorage.getItem("img");
-                 var data = '{"id":"'+idg+'","name":"'+name+'","image":"'+image+'" }';
+                 var start = localStorage.getItem("start");
+                 var state = localStorage.getItem("state");
+                 var data = '{"id":"'+idg+'","name":"'+name+'","image":"'+image+'","year":"'+start+'","status":"'+state+'" }';
                  var obj = JSON.parse(data);
                  localStorage.setItem(idg, JSON.stringify(obj));
                  document.getElementById("ssff").style.display = "inline-flex";
                  } else {
-					   app.dialog.confirm('حذف ألانمي من المفضلة ؟', function (username, password) {
+					           app.dialog.confirm('حذف ألانمي من المفضلة ؟', function (username, password) {
 	                   localStorage.removeItem(idg);
-					   document.getElementById("ssff").style.display = "none";
-                       });
+					           document.getElementById("ssff").style.display = "none";
+                   });
                  }
 }
 function androidcode() {
@@ -960,4 +962,22 @@ function loadmor(img,name,title,id,state,starts) {
   lid.appendChild(infos);
   div1.appendChild(lid);
   return div1.outerHTML;
+}
+function getFavorite() {
+  var person = [];
+  for (i=0; i<=localStorage.length-1; i++)  
+    {  
+    if(isNaN(localStorage.key(i))) {
+    } else {
+    key = localStorage.key(i);  
+    var jsons = JSON.parse(localStorage.getItem(key))
+    person["id"] = jsons["id"];
+    person["name"] = jsons["name"];
+    person["image"] = jsons["image"];
+    person["year"] = jsons["year"];
+    person["status"] = jsons["status"];
+    person["keywords"] = jsons["keywords"];
+    }
+    }
+    return jsons.stringify(person);
 }
