@@ -708,6 +708,17 @@ function clears() {
   localStorage.removeItem("state");	
   localStorage.removeItem("start");
 }
+function opencustom() {
+  document.getElementById("dialgodrop").style.display = "block";
+  document.getElementById("dialogs").style.display = "block";
+}
+function closecustom() {
+  document.getElementById("dialgodrop").style.display = "none";
+  document.getElementById("dialogs").style.display = "none";
+}
+function search(name) {
+alert(name);
+}
 function createLoader() {
   var allowInfinite = true;
 
