@@ -1,7 +1,5 @@
 /* Your app styles here */
 img.demo-lazy {
-    width: 100%;
-    height: auto;
     display: block;
   }
 div.demo-lazy {
