@@ -777,6 +777,7 @@ function closecustom() {
   document.getElementById("dialogs").style.display = "none";
 }
 function search(name) {
+closecustom();
 app.preloader.show();
 var url = "https://snoanime.com/api/new/search.php/?name="+name;
 app.request.get(url, function (obj) {
@@ -786,8 +787,10 @@ app.request.get(url, function (obj) {
     var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
     var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
     searchlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+    alert(obj[i].id);
   }
   app.preloader.hide();
+  document.getElementById('dialogvalue').value = "";
 })
 }
 function createLoader() {
