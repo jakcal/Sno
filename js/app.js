@@ -413,7 +413,9 @@ app.request.setup({
       }
   },
   error:function(data){
-    console.log("error")
+    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
+      app.request({method:'GET'});
+    });
   },
 })
 app.request({method:'GET'});
@@ -448,7 +450,9 @@ app.request.setup({
     }
     },
     error:function(data){
-      console.log("error")
+      app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
+        app.request({method:'GET'});
+      });
     },
   })
   app.request({method:'GET'});
@@ -481,7 +485,9 @@ app.request.setup({
   app.preloader.hide();
   },
   error:function(data){
-    console.log("error")
+    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
+      app.request({method:'GET'});
+    });
   },
 })
 app.request({method:'GET'});
@@ -831,7 +837,9 @@ app.request.setup({
   document.getElementById('dialogvalue').value = "";
   },
   error:function(data){
-    console.log("error")
+    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
+      app.request({method:'GET'});
+    });
   },
 })
 app.request({method:'GET'});
