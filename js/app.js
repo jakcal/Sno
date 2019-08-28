@@ -413,9 +413,7 @@ app.request.setup({
       }
   },
   error:function(data){
-    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
-      app.request({method:'GET'});
-    });
+    opencustom2()
   },
 })
 app.request({method:'GET'});
@@ -450,9 +448,7 @@ app.request.setup({
     }
     },
     error:function(data){
-      app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
-        app.request({method:'GET'});
-      });
+      opencustom2()
     },
   })
   app.request({method:'GET'});
@@ -486,9 +482,7 @@ app.request.setup({
   },
   error:function(data){
     app.preloader.hide();
-    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
-      app.request({method:'GET'});
-    });
+    opencustom2()
   },
 })
 app.request({method:'GET'});
@@ -817,6 +811,14 @@ function closecustom() {
   document.getElementById("dialgodrop").style.display = "none";
   document.getElementById("dialogs").style.display = "none";
 }
+function opencustom2() {
+  document.getElementById("dialgodrop").style.display = "block";
+  document.getElementById("dialogs").style.display = "block";
+}
+function closecustom2() {
+  document.getElementById("dialgodrop2").style.display = "none";
+  document.getElementById("dialogs2").style.display = "none";
+}
 function search(name) {
 document.getElementById("showonsearch").innerHTML = "";
 closecustom();
@@ -839,9 +841,7 @@ app.request.setup({
   },
   error:function(data){
     app.preloader.hide();
-    app.dialog.confirm('توجد مشكلة في الأتصال بشبكة ألانترنت هل تود أعادة الاتصال', function (username, password) {
-      app.request({method:'GET'});
-    });
+    opencustom2()
   },
 })
 app.request({method:'GET'});
