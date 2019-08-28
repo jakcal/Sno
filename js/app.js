@@ -120,6 +120,7 @@ function createitem(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
@@ -181,6 +182,7 @@ function createitemslmr(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
@@ -242,6 +244,7 @@ function createitemlist(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
@@ -303,6 +306,7 @@ function infosmlrs(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
@@ -364,6 +368,7 @@ function searchlist(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
@@ -901,6 +906,7 @@ function loadmor(img,name,title,id,state,starts) {
   //Image
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
    image.setAttribute("class","lazy lazy-fade-in demo-lazy");
    image.width = "125";
    image.height = "160";
