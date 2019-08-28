@@ -281,7 +281,6 @@ app.request.json(usl, function (data) {
 });
 app.request.json(id, function (data) {
 	//epName
-	document.getElementById("texts").style.display = "none";
     document.getElementById("km").innerText = data["ep"].length;
       for (i = 0; i < data["ep"].length; i++) {
          var btn = document.createElement("button");
