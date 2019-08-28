@@ -400,18 +400,29 @@ app.tab.show(document.getElementById("taps"), true);
 var idg = localStorage.getItem("id");
 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
-app.request.json(usl, function (data) {
-	  document.getElementById("km2").innerText = data.length;
+app.request.setup({
+  url:usl,
+  success:function(data){
+    data = JSON.parse(data);
+    document.getElementById("km2").innerText = data.length;
       for (i = 0; i < data.length; i++) {
 	  var name = data[i].name;
 	  var time = data[i].time;
 	  var commant = data[i].commants;
       showCom(time,name,commant);
       }
-});
-app.request.json(id, function (data) {
-	//epName
-    document.getElementById("km").innerText = data["ep"].length;
+  },
+  error:function(data){
+    console.log("error")
+  },
+})
+app.request({method:'GET'});
+app.request.setup({
+  url:id,
+  success:function(data){
+    data = JSON.parse(data);
+    	//epName
+      document.getElementById("km").innerText = data["ep"].length;
       for (i = 0; i < data["ep"].length; i++) {
          var btn = document.createElement("button");
          btn.innerText = data["ep"][i].name;
@@ -426,14 +437,22 @@ app.request.json(id, function (data) {
   var idgs = localStorage.getItem("id");
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
   var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
-  app.request.json(urlsmlr, function (obj) {
-  for (i = 0; i < obj.length; i++) {
-      var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-      var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-      infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
-  }
-//SMLR
+  app.request.setup({
+    url:urlsmlr,
+    success:function(data){
+      obj = JSON.parse(data);
+      for (i = 0; i < obj.length; i++) {
+        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+        infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+    }
+    },
+    error:function(data){
+      console.log("error")
+    },
   })
+  app.request({method:'GET'});
+
   document.getElementById("titles").innerHTML = localStorage.getItem("name");
   var story = document.getElementById("story");
   document.getElementById("images").src = localStorage.getItem("img");
@@ -460,8 +479,13 @@ app.request.json(id, function (data) {
                   document.getElementById("ssff").style.display = "inline-flex";
                  }
   app.preloader.hide();
-});
-}
+  },
+  error:function(data){
+    console.log("error")
+  },
+})
+app.request({method:'GET'});
+
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
@@ -791,8 +815,11 @@ document.getElementById("showonsearch").innerHTML = "";
 closecustom();
 app.preloader.show();
 var url = "https://snoanime.com/api/new/search.php/?name="+name;
-app.request.json(url, function (obj) {
-  document.getElementById("hideonsearch").style.display = "none";
+app.request.setup({
+  url:url,
+  success:function(data){
+    obj = JSON.parse(data);
+    document.getElementById("hideonsearch").style.display = "none";
   document.getElementById("showonsearch").style.display = "block";
   document.getElementById("newsearch").style.display = "block";
   for (i = 0; i < obj.length; i++) {
@@ -802,7 +829,12 @@ app.request.json(url, function (obj) {
   }
   app.preloader.hide();
   document.getElementById('dialogvalue').value = "";
+  },
+  error:function(data){
+    console.log("error")
+  },
 })
+app.request({method:'GET'});
 }
 var lazyLoadInstance = new LazyLoad({
   elements_selector: ".lazy"
