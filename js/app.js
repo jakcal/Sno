@@ -71,7 +71,7 @@ app.preloader.show();
       for (i = 0; i < obj[1].length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[1][i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[1][i].id;
-        createitemsmlr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
+        createitemslmr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
       }
       app.preloader.hide();
     }
