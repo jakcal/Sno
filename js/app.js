@@ -560,7 +560,7 @@ function logins() {
 	
 }
 var toastBottom = app.toast.create({
-  text: 'أهلا بك مرى أخرى أستاذ '+ localStorage.getItem("username"),
+  text: ' مرحبا بعودتك '+ localStorage.getItem("username"),
   closeTimeout: 2000,
 });
 var toass = app.toast.create({
