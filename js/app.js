@@ -777,12 +777,14 @@ function closecustom() {
   document.getElementById("dialogs").style.display = "none";
 }
 function search(name) {
+document.getElementById("showonsearch").innerHTML = "";
 closecustom();
 app.preloader.show();
 var url = "https://snoanime.com/api/new/search.php/?name="+name;
 app.request.json(url, function (obj) {
   document.getElementById("hideonsearch").style.display = "none";
   document.getElementById("showonsearch").style.display = "block";
+  document.getElementById("newsearch").style.display = "block";
   for (i = 0; i < obj.length; i++) {
     var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
     var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
@@ -791,6 +793,12 @@ app.request.json(url, function (obj) {
   app.preloader.hide();
   document.getElementById('dialogvalue').value = "";
 })
+}
+function backtomain() {
+  document.getElementById("hideonsearch").style.display = "block";
+  document.getElementById("newsearch").style.display = "none";
+  document.getElementById("showonsearch").style.display = "none";
+  document.getElementById("showonsearch").innerHTML = "";
 }
 function createLoader() {
   var allowInfinite = true;
