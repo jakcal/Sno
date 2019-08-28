@@ -121,7 +121,7 @@ function createitem(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -183,7 +183,7 @@ function createitemslmr(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -245,7 +245,7 @@ function createitemlist(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -307,7 +307,7 @@ function infosmlrs(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -369,7 +369,7 @@ function searchlist(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -907,7 +907,7 @@ function loadmor(img,name,title,id,state,starts) {
    var image = document.createElement("img");
    image.setAttribute("data-src",img);
    image.setAttribute("src",img);
-   image.setAttribute("class","slow-images");
+   image.onerror = function() {this.src = img};
    image.width = "125";
    image.height = "160";
   //Image
@@ -925,4 +925,3 @@ function loadmor(img,name,title,id,state,starts) {
   div1.appendChild(lid);
   return div1.outerHTML;
 }
-$(".slow-images").imageReloader();
