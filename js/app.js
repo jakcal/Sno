@@ -88,7 +88,7 @@ function createitem(img,name,title,id,state,starts) {
   var infos = document.createElement("a");
   
   infos.className = "popup-open";
-  
+  infos.onclick = function() {clears()};
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
   //Div
@@ -101,7 +101,7 @@ function createitem(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");
@@ -149,7 +149,7 @@ function createitemslmr(img,name,title,id,state,starts) {
   var infos = document.createElement("a");
   
   infos.className = "popup-open";
-  
+  infos.onclick = function() {clears()};
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
   //Div
@@ -162,7 +162,7 @@ function createitemslmr(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");
@@ -210,7 +210,7 @@ function createitemlist(img,name,title,id,state,starts) {
   var infos = document.createElement("a");
   
   infos.className = "popup-open";
-  
+  infos.onclick = function() {clears()};
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
   //Div
@@ -223,7 +223,7 @@ function createitemlist(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");
@@ -284,7 +284,7 @@ function infosmlrs(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");
@@ -345,7 +345,7 @@ function searchlist(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");
@@ -869,7 +869,7 @@ function loadmor(img,name,title,id,state,starts) {
   var infos = document.createElement("a");
   
   infos.className = "popup-open";
-  
+  infos.onclick = function() {clears()};
   infos.href = "#";
   infos.setAttribute("data-popup",".popup-about")
   //Div
@@ -882,7 +882,7 @@ function loadmor(img,name,title,id,state,starts) {
   var div3 = document.createElement("div");
   div3.className = "list media-list no-ios-edges"
   var div4 = document.createElement("div");
-  div4.className = "item-media"
+  div4.className = "item-media demo-lazy"
   var div5 = document.createElement("div");
   div5.className = "item-inner";
   var div7 = document.createElement("div");

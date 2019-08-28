@@ -4,8 +4,9 @@ img.demo-lazy {
     height: auto;
     display: block;
   }
-  div.demo-lazy {
+div.demo-lazy {
     background: #aaa;
     background-size: cover;
-    height: 60vw;
-  }
+    height: 160px;
+    width: 125px;
+}
