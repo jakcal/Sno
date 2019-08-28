@@ -780,14 +780,13 @@ function search(name) {
 closecustom();
 app.preloader.show();
 var url = "https://snoanime.com/api/new/search.php/?name="+name;
-app.request.get(url, function (obj) {
+app.request.json(url, function (obj) {
   document.getElementById("hideonsearch").style.display = "none";
   document.getElementById("showonsearch").style.display = "block";
   for (i = 0; i < obj.length; i++) {
     var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
     var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
     searchlist(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
-    alert(obj[i].id);
   }
   app.preloader.hide();
   document.getElementById('dialogvalue').value = "";
