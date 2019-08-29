@@ -439,7 +439,7 @@ app.request.setup({
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
   var n = data["main"].relatedID.includes("0");
   if (n == true) {
-      nosmlr.open();
+
   } else {
     var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
     app.request.setup({
@@ -716,7 +716,9 @@ function logins() {
              var email = document.getElementById("email").value;
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
-	                app.request.get(url, function (data) {
+              app.request.setup({
+                url:usl,
+                success:function(data){
                   app.preloader.hide();
                   var toastCenter = app.toast.create({
                     text: data,
@@ -734,7 +736,18 @@ function logins() {
 	               document.getElementById("btns").innerText = "تسجيل خروج";
 				         app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
 				         }
-              });
+                },
+                error:function(data){
+                  var toastCenterr = app.toast.create({
+                    text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenterr.open();
+                },
+              })
+              app.request({method:'GET'});
+
             } else {
 				app.preloader.hide();
   var toastCenter = app.toast.create({
