@@ -401,24 +401,6 @@ var idg = localStorage.getItem("id");
 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
 app.request.setup({
-  url:usl,
-  success:function(data){
-    data = JSON.parse(data);
-    document.getElementById("km2").innerText = ""+data.length;
-    for (i = 0; i < data.length; i++) {
-	  var name = data[i].name;
-	  var time = data[i].time;
-	  var commant = data[i].commants;
-      showCom(time,name,commant);
-      }
-  },
-  error:function(data){
-    app.request({method:'GET'});
-    errornet.open();
-  },
-})
-app.request({method:'GET'});
-app.request.setup({
   url:id,
   success:function(data){
     data = JSON.parse(data);
@@ -430,9 +412,10 @@ app.request.setup({
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
    
-		 var datag = data["ep"][i].id;
-         btn.setAttribute("onclick","shows("+datag+")");
-		 document.getElementById("list-ep").appendChild(btn);
+		var datag = data["ep"][i].id;
+    btn.setAttribute("onclick","shows("+datag+")");
+    document.getElementById("list-ep").appendChild(btn);
+    showallcom(usl);
       }
   //epName
   var idgs = localStorage.getItem("id");
@@ -1176,4 +1159,24 @@ function logout() {
     document.getElementById("btns").innerText = "";
     document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
     userclose();
+}
+function showallcom(usl) {
+  app.request.setup({
+    url:usl,
+    success:function(data){
+      data = JSON.parse(data);
+      document.getElementById("km2").innerText = ""+data.length;
+      for (i = 0; i < data.length; i++) {
+      var name = data[i].name;
+      var time = data[i].time;
+      var commant = data[i].commants;
+        showCom(time,name,commant);
+        }
+    },
+    error:function(data){
+      app.request({method:'GET'});
+      errornet.open();
+    },
+  })
+  app.request({method:'GET'});
 }
