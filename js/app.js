@@ -891,7 +891,6 @@ function search() {
 var name = document.getElementById('dialogvalue').value;
 document.getElementById("showonsearch").innerHTML = "";
 closecustom();
-document.getElementById().style.display = "none";
 app.preloader.show();
 var url = "https://snoanime.com/api/new/search.php/?name="+name;
 app.request.setup({
