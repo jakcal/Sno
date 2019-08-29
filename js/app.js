@@ -644,13 +644,7 @@ function starttest() {
 }
 function ifre() {
 	if (localStorage.getItem("SaveLogin")) {
-	app.dialog.confirm('هل تود تسجيل الخروج ؟', function (username, password) {
-	localStorage.removeItem("SaveLogin");
-    localStorage.removeItem("username");
-    localStorage.removeItem("email");
-    document.getElementById("btns").innerText = "";
-	document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
-    });
+  useropen();
     } else {
 	app.loginScreen.open(document.getElementsByClassName('login-screen'),true)
     }
@@ -672,20 +666,39 @@ function register() {
              var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
 	         app.request.get(url, function (data) {
 				 app.preloader.hide();
-	             app.dialog.alert(data);
-
+               var toastCenter = app.toast.create({
+                text: data,
+                position: 'center',
+                closeTimeout: 2000,
+              });
+              toastCenter.open();
               });
             } else {
 				app.preloader.hide();
-  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+  var toastCenter = app.toast.create({
+    text: "يجب عليك أدخال كلمة المرور",
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
         }
         } else {
 			app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+  var toastCenter = app.toast.create({
+    text: "يجب عليك كتابة البريد الاكتروني",
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
     }
     } else {
-		app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة اسمك');
+    app.preloader.hide();
+    var toastCenter = app.toast.create({
+      text: "يجب عليك كتابة اسمك",
+      position: 'center',
+      closeTimeout: 2000,
+    });
+    toastCenter.open();
 		}
 	
 }
@@ -704,18 +717,16 @@ function logins() {
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
 	                app.request.get(url, function (data) {
-				          app.preloader.hide();
-	                app.dialog.alert(data);
+                  app.preloader.hide();
+                  var toastCenter = app.toast.create({
+                    text: data,
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenter.open();
 				          var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
                   if (n == true) {
-                    var toastCenter = app.toast.create({
-                      text: 'أسم المستخدم أو الرقم السري غير صحيح',
-                      position: 'center',
-                      closeTimeout: 2000,
-                    });
-                    toastCenter.open();
                   } else {
-                
                  localStorage.setItem("SaveLogin", true);
 				         localStorage.setItem("username", s1);
 				         localStorage.setItem("email", s2);
@@ -1109,4 +1120,21 @@ function deletefav() {
   localStorage.removeItem(idg);
   document.getElementById("ssff").style.display = "none";
   closefav();
+}
+
+function userclose() {
+  document.getElementById("dialogfav3").style.display = "none";
+  document.getElementById("dialogmain3").style.display = "none";
+}
+function useropen() {
+  document.getElementById("dialogfav3").style.display = "block";
+  document.getElementById("dialogmain3").style.display = "block";
+}
+function logout() {
+    localStorage.removeItem("SaveLogin");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    document.getElementById("btns").innerText = "";
+    document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
+    userclose();
 }
