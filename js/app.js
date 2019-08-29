@@ -664,15 +664,27 @@ function register() {
              var email = document.getElementById("email").value;
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
-	         app.request.get(url, function (data) {
-				 app.preloader.hide();
-               var toastCenter = app.toast.create({
-                text: data,
-                position: 'center',
-                closeTimeout: 2000,
-              });
-              toastCenter.open();
-              });
+              app.request.setup({
+                url:url,
+                success:function(data){
+                  app.preloader.hide();
+                  var toastCenter = app.toast.create({
+                   text: data,
+                   position: 'center',
+                   closeTimeout: 2000,
+                 });
+                 toastCenter.open();
+                },
+                error:function(data){
+                  var toastCenterr = app.toast.create({
+                    text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenterr.open();
+                },
+              })
+              app.request({method:'GET'});
             } else {
 				app.preloader.hide();
   var toastCenter = app.toast.create({
@@ -717,7 +729,7 @@ function logins() {
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
               app.request.setup({
-                url:usl,
+                url:url,
                 success:function(data){
                   app.preloader.hide();
                   var toastCenter = app.toast.create({
