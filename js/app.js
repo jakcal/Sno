@@ -760,10 +760,7 @@ function favorite() {
                  localStorage.setItem(idg, JSON.stringify(obj));
                  document.getElementById("ssff").style.display = "inline-flex";
                  } else {
-					           app.dialog.confirm('حذف ألانمي من المفضلة ؟', function (username, password) {
-	                   localStorage.removeItem(idg);
-					           document.getElementById("ssff").style.display = "none";
-                   });
+	                   openfav();
                  }
 }
 function androidcode() {
@@ -796,6 +793,7 @@ xhttp.send();
 
 }
 function clears() {
+  document.getElementById("ssff").style.display = "none";
   document.getElementById("km").innerText = "0"
   document.getElementById("km2").innerText = "0"
   document.getElementById("images").removeAttribute("src");
@@ -1074,4 +1072,8 @@ function closefav() {
 function openfav() {
   document.getElementById("dialogfav").style.display = "block";
   document.getElementById("dialogmain").style.display = "block";
+}
+function deletefav() {
+  localStorage.removeItem(idg);
+	document.getElementById("ssff").style.display = "none";
 }
