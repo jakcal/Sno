@@ -515,14 +515,16 @@ function createCom() {
 			app.preloader.show();
 			var commant = document.getElementById("comm").value;
 			var name = localStorage.getItem("username");
-		    var email = localStorage.getItem("email");
+		  var email = localStorage.getItem("email");
 			var idg = localStorage.getItem("id");
-            idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-		    var time = iso8601(new Date());
-            var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
-			app.request.get(url, function (data) {
-			app.preloader.hide();
-            toas.open();
+      idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+		  var time = iso8601(new Date());
+      var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
+      app.request.setup({
+      url:url,
+      success:function(data){
+      app.preloader.hide();
+      toas.open();
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -570,7 +572,18 @@ function createCom() {
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
 			timeago.render(div9, 'ar');
-            });
+        },
+        error:function(data){
+          var toastCenterr = app.toast.create({
+            text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+            position: 'center',
+            closeTimeout: 2000,
+          });
+          toastCenterr.open();
+        },
+      })
+
+      app.request({method:'GET'});
          } else {
 			 toass.open();
          }
