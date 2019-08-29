@@ -1066,3 +1066,12 @@ function fcreateitem(img,name,title,id,state,starts) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
+
+function closefav() {
+  document.getElementById("dialogfav").style.display = "none";
+  document.getElementById("dialogmain").style.display = "none";
+}
+function openfav() {
+  document.getElementById("dialogfav").style.display = "block";
+  document.getElementById("dialogmain").style.display = "block";
+}
