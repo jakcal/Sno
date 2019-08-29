@@ -364,24 +364,6 @@
                   </div>
                  
               </div>
-            <p><a id="showserver" style=" display: none; border-radius: 15px 15px 0 0;" class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-swipe-to-close">
-              <div class="sheet-backdrop backdrop-in" onclick="document.getElementById('showserver').style.display = 'none'; this.style.display = 'none';" style="display: block;"></div>
-              Server
-            </a>
-            </p>
-                        <div class="sheet-modal my-sheet-swipe-to-close" style="border-radius: 15px 15px 0 0; height:auto; --f7-sheet-bg-color: #fff;">
-                         <div style="border-radius: 15px 15px 0px 0px;" class="sheet-modal-inner">
-                           <div class="swipe-handler">
-                             </div>
-                           <div class="page-content">
-                             <div style="text-align: center;" class="block-title block-title-large">أختيار دقة الحلقة</div>
-                             <div id="listserver" class="block">
-                                    <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
-                                    <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
       </div>
   </div>
   </div>
@@ -457,7 +439,16 @@
         <span onclick="logout()" class="dialog-button dialog-button-bold">نعم</span>
       
     </div>
-  
+
+    <div onclick="closesS()" id="showss" class="dialog-backdrop backdrop-in" style="display: none;"></div>
+    <div id="showsm" class="dialog dialog-buttons-2 modal-in" style="display: none;">
+      <div class="dialog-inner">
+        <div class="dialog-title">الدقات المتوفرة</div>
+        <div id="listserver" class="block">
+          <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
+          <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
+       </div>
+      </div>
   </div>
 
   <!-- Cordova -->

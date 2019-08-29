@@ -484,7 +484,7 @@ function shows(id) {
       if (n == true) {
 	   sendDataToAndroid(localStorage.getItem("id"),id);
       } else {
-       app.sheet.open('.my-sheet-swipe-to-close', true);
+       opensS();
       }
 }
 
@@ -1183,4 +1183,12 @@ function showallcom(usl) {
     },
   })
   app.request({method:'GET'});
+}
+function closesS() {
+  document.getElementById("showss").style.display = "none";
+  document.getElementById("showsm").style.display = "none";
+}
+function opensS() {
+  document.getElementById("showss").style.display = "block";
+  document.getElementById("showsm").style.display = "block";
 }
