@@ -397,27 +397,6 @@ localStorage.setItem("id", id);
 
 app.preloader.show();
 app.tab.show(document.getElementById("taps"), true); 
-var idg = localStorage.getItem("id");
-idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
-app.request.setup({
-  url:usl,
-  success:function(data){
-    data = JSON.parse(data);
-    document.getElementById("km2").innerText = data.length;
-      for (i = 0; i < data.length; i++) {
-	  var name = data[i].name;
-	  var time = data[i].time;
-	  var commant = data[i].commants;
-      showCom(time,name,commant);
-      }
-  },
-  error:function(data){
-    app.request({method:'GET'});
-    errornet.open();
-  },
-})
-app.request({method:'GET'});
 app.request.setup({
   url:id,
   success:function(data){
@@ -494,6 +473,7 @@ app.request.setup({
   },
 })
 app.request({method:'GET'});
+loadallcom();
 }
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
@@ -571,7 +551,8 @@ function createCom() {
 			div.appendChild(div6);
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
-			timeago.render(div9, 'ar');
+      timeago.render(div9, 'ar');
+      document.getElementById("comm").value = "";
         },
         error:function(data){
           var toastCenterr = app.toast.create({
@@ -1175,4 +1156,27 @@ function logout() {
     document.getElementById("btns").innerText = "";
     document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
     userclose();
+}
+function loadallcom() {
+var idg = localStorage.getItem("id");
+idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
+app.request.setup({
+  url:usl,
+  success:function(data){
+    data = JSON.parse(data);
+    document.getElementById("km2").innerText = data.length;
+    for (i = 0; i < data.length; i++) {
+	  var name = data[i].name;
+	  var time = data[i].time;
+	  var commant = data[i].commants;
+      showCom(time,name,commant);
+      }
+  },
+  error:function(data){
+    app.request({method:'GET'});
+    errornet.open();
+  },
+})
+app.request({method:'GET'});
 }
