@@ -415,8 +415,8 @@ app.request.setup({
 		var datag = data["ep"][i].id;
     btn.setAttribute("onclick","shows("+datag+")");
     document.getElementById("list-ep").appendChild(btn);
-    showallcom(usl);
       }
+      showallcom(usl);
   //epName
   var idgs = localStorage.getItem("id");
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
