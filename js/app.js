@@ -886,7 +886,8 @@ function closecustom() {
   document.getElementById("dialgodrop").style.display = "none";
   document.getElementById("dialogs").style.display = "none";
 }
-function search(name) {
+function search() {
+var name = document.getElementById('dialogvalue').value;
 document.getElementById("showonsearch").innerHTML = "";
 closecustom();
 document.getElementById().style.display = "none";
