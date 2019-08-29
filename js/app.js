@@ -429,6 +429,7 @@ app.request.setup({
       url:urlsmlr,
       success:function(data){
         obj = JSON.parse(data);
+        document.getElementById("mrtbta").innerText = ""+obj.length;
         for (i = 0; i < obj.length; i++) {
           var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
           var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
