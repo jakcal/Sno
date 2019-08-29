@@ -1074,6 +1074,8 @@ function openfav() {
   document.getElementById("dialogmain").style.display = "block";
 }
 function deletefav() {
+  var idg = localStorage.getItem("id");
+  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
   localStorage.removeItem(idg);
 	document.getElementById("ssff").style.display = "none";
 }
