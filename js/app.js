@@ -703,32 +703,53 @@ function logins() {
              var email = document.getElementById("email").value;
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
-	         app.request.get(url, function (data) {
-				 app.preloader.hide();
-	             app.dialog.alert(data);
-				 var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
-                 if (n == true) {
-
-                 } else {
+	                app.request.get(url, function (data) {
+				          app.preloader.hide();
+	                app.dialog.alert(data);
+				          var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
+                  if (n == true) {
+                    var toastCenter = app.toast.create({
+                      text: 'أسم المستخدم أو الرقم السري غير صحيح',
+                      position: 'center',
+                      closeTimeout: 2000,
+                    });
+                    toastCenter.open();
+                  } else {
+                
                  localStorage.setItem("SaveLogin", true);
-				 localStorage.setItem("username", s1);
-				 localStorage.setItem("email", s2);
-				 document.getElementById("btns").innerText = "";
-	             document.getElementById("btns").innerText = "تسجيل خروج";
-				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
-				 }
+				         localStorage.setItem("username", s1);
+				         localStorage.setItem("email", s2);
+				         document.getElementById("btns").innerText = "";
+	               document.getElementById("btns").innerText = "تسجيل خروج";
+				         app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
+				         }
               });
             } else {
 				app.preloader.hide();
-  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+  var toastCenter = app.toast.create({
+    text: 'يجب عليك أدخال كلمة المرور',
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
         }
         } else {
 			app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+  var toastCenter = app.toast.create({
+    text: 'يجب عليك كتابة البريد الاكتروني',
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
     }
     } else {
-		app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة اسمك');
+    app.preloader.hide();
+    var toastCenter = app.toast.create({
+      text: 'يجب عليك كتابة اسمك',
+      position: 'center',
+      closeTimeout: 2000,
+    });
+    toastCenter.open();
 		}
 	
 }
