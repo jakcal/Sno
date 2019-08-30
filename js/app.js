@@ -1193,4 +1193,5 @@ function opensS() {
 }
 function outing() {
   document.getElementById("outing").click()
+  hideLoading();
 }
