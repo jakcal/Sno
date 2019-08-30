@@ -1191,3 +1191,6 @@ function opensS() {
   document.getElementById("showss").style.display = "block";
   document.getElementById("showsm").style.display = "block";
 }
+function outing() {
+  document.getElementById("outing").click()
+}
