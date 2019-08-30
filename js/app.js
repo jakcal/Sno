@@ -482,14 +482,14 @@ app.request({method:'GET'});
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid(localStorage.getItem("id"),id,"ca-app-pub-9372585201524216/1486370747");
+	   sendDataToAndroid(localStorage.getItem("id"),id,"ca-app-pub-9372585201524216/1486370747","ca-app-pub-9372585201524216/3420175615");
       } else {
        opensS();
       }
 }
 
-function sendDataToAndroid(toast,id,ads) {
-        MyFunction.onButtonClick(toast,id,ads);
+function sendDataToAndroid(toast,id,ads,bnads) {
+        MyFunction.onButtonClick(toast,id,ads,bnads);
     }
 function sendFav(id) {
 			Fav.onButtonClick(id);
