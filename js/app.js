@@ -411,7 +411,7 @@ function newslist(img,name,title) {
   var infos = document.createElement("a");
     //Div
   var div1 = document.createElement("div");
-  div1.style = 'style="height: 160;"';
+  div1.style.height = '160px';
   div1.className = "card";
   div1.onclick = function() {addmsg(title)};
   var div2 = document.createElement("div");
@@ -428,6 +428,7 @@ function newslist(img,name,title) {
   var div8 = document.createElement("div");
   div8.className = "item-subtitle b";
   div8.style.height = "17px";
+  div8.style.width = "100%";
   div8.innerText = title;
   //Div
   //UL And Li
