@@ -401,59 +401,48 @@ var idg = localStorage.getItem("id");
 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
 var usl = "https://snoanime.com/api/new/read.php/?id="+idg;
 app.request.setup({
-  url:usl,
-  success:function(data){
-    data = JSON.parse(data);
-    document.getElementById("km2").innerText = data.length;
-      for (i = 0; i < data.length; i++) {
-	  var name = data[i].name;
-	  var time = data[i].time;
-	  var commant = data[i].commants;
-      showCom(time,name,commant);
-      }
-  },
-  error:function(data){
-    app.request({method:'GET'});
-    errornet.open();
-  },
-})
-app.request({method:'GET'});
-app.request.setup({
   url:id,
   success:function(data){
     data = JSON.parse(data);
-    	//epName
-      document.getElementById("km").innerText = data["ep"].length;
+      //epName
+      document.getElementById("km").innerText = ""+data["ep"].length;
       for (i = 0; i < data["ep"].length; i++) {
          var btn = document.createElement("button");
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
    
-		 var datag = data["ep"][i].id;
-         btn.setAttribute("onclick","shows("+datag+")");
-		 document.getElementById("list-ep").appendChild(btn);
+		var datag = data["ep"][i].id;
+    btn.setAttribute("onclick","shows("+datag+")");
+    document.getElementById("list-ep").appendChild(btn);
       }
+      showallcom(usl);
   //epName
   var idgs = localStorage.getItem("id");
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
-  var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
-  app.request.setup({
-    url:urlsmlr,
-    success:function(data){
-      obj = JSON.parse(data);
-      for (i = 0; i < obj.length; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-        infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
-    }
-    },
-    error:function(data){
-      app.request({method:'GET'});
-      errornet.open();
-    },
-  })
-  app.request({method:'GET'});
+  var n = data["main"].relatedID.includes("0");
+  if (n == true) {
+
+  } else {
+    var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
+    app.request.setup({
+      url:urlsmlr,
+      success:function(data){
+        obj = JSON.parse(data);
+        document.getElementById("mrtbta").innerText = ""+obj.length;
+        for (i = 0; i < obj.length; i++) {
+          var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+          var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+          infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+      }
+      },
+      error:function(data){
+        app.request({method:'GET'});
+        errornet.open();
+      },
+    })
+    app.request({method:'GET'});
+  }
 
   document.getElementById("titles").innerHTML = localStorage.getItem("name");
   var story = document.getElementById("story");
@@ -495,7 +484,7 @@ function shows(id) {
       if (n == true) {
 	   sendDataToAndroid(localStorage.getItem("id"),id);
       } else {
-       app.sheet.open('.my-sheet-swipe-to-close', true);
+       opensS();
       }
 }
 
@@ -511,14 +500,16 @@ function createCom() {
 			app.preloader.show();
 			var commant = document.getElementById("comm").value;
 			var name = localStorage.getItem("username");
-		    var email = localStorage.getItem("email");
+		  var email = localStorage.getItem("email");
 			var idg = localStorage.getItem("id");
-            idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-		    var time = iso8601(new Date());
-            var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
-			app.request.get(url, function (data) {
-			app.preloader.hide();
-            toas.open();
+      idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+		  var time = iso8601(new Date());
+      var url = "https://snoanime.com/api/new/send-commants.php/?id="+idg+"&name="+name+"&commants="+commant+"&time="+time+"&email="+email;
+      app.request.setup({
+      url:url,
+      success:function(data){
+      app.preloader.hide();
+      toas.open();
 			var div = document.createElement("div");
 			div.setAttribute("class","card post-card");
 			div.setAttribute("style","background-color: #673ab7;");
@@ -565,8 +556,20 @@ function createCom() {
 			div.appendChild(div6);
 			div.appendChild(div8);
 			document.getElementById("list-commant").appendChild(div);
-			timeago.render(div9, 'ar');
-            });
+      timeago.render(div9, 'ar');
+      document.getElementById("comm").value = "";
+        },
+        error:function(data){
+          var toastCenterr = app.toast.create({
+            text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+            position: 'center',
+            closeTimeout: 2000,
+          });
+          toastCenterr.open();
+        },
+      })
+
+      app.request({method:'GET'});
          } else {
 			 toass.open();
          }
@@ -640,13 +643,7 @@ function starttest() {
 }
 function ifre() {
 	if (localStorage.getItem("SaveLogin")) {
-	app.dialog.confirm('هل تود تسجيل الخروج ؟', function (username, password) {
-	localStorage.removeItem("SaveLogin");
-    localStorage.removeItem("username");
-    localStorage.removeItem("email");
-    document.getElementById("btns").innerText = "";
-	document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
-    });
+  useropen();
     } else {
 	app.loginScreen.open(document.getElementsByClassName('login-screen'),true)
     }
@@ -666,22 +663,53 @@ function register() {
              var email = document.getElementById("email").value;
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/reg.php/?email="+email+"&password="+password;
-	         app.request.get(url, function (data) {
-				 app.preloader.hide();
-	             app.dialog.alert(data);
-
-              });
+              app.request.setup({
+                url:url,
+                success:function(data){
+                  app.preloader.hide();
+                  var toastCenter = app.toast.create({
+                   text: data,
+                   position: 'center',
+                   closeTimeout: 2000,
+                 });
+                 toastCenter.open();
+                },
+                error:function(data){
+                  var toastCenterr = app.toast.create({
+                    text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenterr.open();
+                },
+              })
+              app.request({method:'GET'});
             } else {
 				app.preloader.hide();
-  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+  var toastCenter = app.toast.create({
+    text: "يجب عليك أدخال كلمة المرور",
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
         }
         } else {
 			app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+  var toastCenter = app.toast.create({
+    text: "يجب عليك كتابة البريد الاكتروني",
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
     }
     } else {
-		app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة اسمك');
+    app.preloader.hide();
+    var toastCenter = app.toast.create({
+      text: "يجب عليك كتابة اسمك",
+      position: 'center',
+      closeTimeout: 2000,
+    });
+    toastCenter.open();
 		}
 	
 }
@@ -699,32 +727,64 @@ function logins() {
              var email = document.getElementById("email").value;
              var password = document.getElementById("password").value;
              var url = "https://snoanime.com/api/new/login.php/?email="+email+"&password="+password;
-	         app.request.get(url, function (data) {
-				 app.preloader.hide();
-	             app.dialog.alert(data);
-				 var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
-                 if (n == true) {
-
-                 } else {
+              app.request.setup({
+                url:url,
+                success:function(data){
+                  app.preloader.hide();
+                  var toastCenter = app.toast.create({
+                    text: data,
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenter.open();
+				          var n = data.includes("أسم المستخدم أو الرقم السري غير صحيح");
+                  if (n == true) {
+                  } else {
                  localStorage.setItem("SaveLogin", true);
-				 localStorage.setItem("username", s1);
-				 localStorage.setItem("email", s2);
-				 document.getElementById("btns").innerText = "";
-	             document.getElementById("btns").innerText = "تسجيل خروج";
-				 app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
-				 }
-              });
+				         localStorage.setItem("username", s1);
+				         localStorage.setItem("email", s2);
+				         document.getElementById("btns").innerText = "";
+	               document.getElementById("btns").innerText = "تسجيل خروج";
+				         app.loginScreen.close(document.getElementsByClassName('login-screen'),true); 
+				         }
+                },
+                error:function(data){
+                  var toastCenterr = app.toast.create({
+                    text: 'توجد مشكلة في الشبكة حاول مرى أخرى',
+                    position: 'center',
+                    closeTimeout: 2000,
+                  });
+                  toastCenterr.open();
+                },
+              })
+              app.request({method:'GET'});
+
             } else {
 				app.preloader.hide();
-  app.dialog.alert('يجب عليك أدخال كلمة المرور');
+  var toastCenter = app.toast.create({
+    text: 'يجب عليك أدخال كلمة المرور',
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
         }
         } else {
 			app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة البريد الاكتروني');
+  var toastCenter = app.toast.create({
+    text: 'يجب عليك كتابة البريد الاكتروني',
+    position: 'center',
+    closeTimeout: 2000,
+  });
+  toastCenter.open();
     }
     } else {
-		app.preloader.hide();
-  app.dialog.alert('يجب عليك كتابة اسمك');
+    app.preloader.hide();
+    var toastCenter = app.toast.create({
+      text: 'يجب عليك كتابة اسمك',
+      position: 'center',
+      closeTimeout: 2000,
+    });
+    toastCenter.open();
 		}
 	
 }
@@ -748,6 +808,10 @@ var empity = app.toast.create({
   text: 'لا توجد أنميات في قائمة المفضلة',
   closeTimeout: 2000,
 });
+var nosmlr = app.toast.create({
+  text: 'لا توجد انميات مرتبطة',
+  closeTimeout: 2000,
+});
 function favorite() {
 	               var idg = localStorage.getItem("id");
                  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
@@ -761,10 +825,7 @@ function favorite() {
                  localStorage.setItem(idg, JSON.stringify(obj));
                  document.getElementById("ssff").style.display = "inline-flex";
                  } else {
-					           app.dialog.confirm('حذف ألانمي من المفضلة ؟', function (username, password) {
-	                   localStorage.removeItem(idg);
-					           document.getElementById("ssff").style.display = "none";
-                   });
+	                   openfav();
                  }
 }
 function androidcode() {
@@ -797,7 +858,9 @@ xhttp.send();
 
 }
 function clears() {
+  document.getElementById("ssff").style.display = "none";
   document.getElementById("km").innerText = "0"
+  document.getElementById("mrtbta").innerText = "0"
   document.getElementById("km2").innerText = "0"
   document.getElementById("images").removeAttribute("src");
   document.getElementById("story").innerText = "";
@@ -825,7 +888,8 @@ function closecustom() {
   document.getElementById("dialgodrop").style.display = "none";
   document.getElementById("dialogs").style.display = "none";
 }
-function search(name) {
+function search() {
+var name = document.getElementById('dialogvalue').value;
 document.getElementById("showonsearch").innerHTML = "";
 closecustom();
 app.preloader.show();
@@ -1021,7 +1085,7 @@ function fcreateitem(img,name,title,id,state,starts) {
   //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
-  div1.className = "card";
+  div1.className = "card popup-close";
   div1.onclick = function() {load(id,name,img,state,starts)};
   var div2 = document.createElement("div");
   div2.className = "card-content"
@@ -1066,4 +1130,65 @@ function fcreateitem(img,name,title,id,state,starts) {
   div1.appendChild(lid);
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
+}
+
+function closefav() {
+  document.getElementById("dialogfav").style.display = "none";
+  document.getElementById("dialogmain").style.display = "none";
+}
+function openfav() {
+  document.getElementById("dialogfav").style.display = "block";
+  document.getElementById("dialogmain").style.display = "block";
+}
+function deletefav() {
+  var idg = localStorage.getItem("id");
+  idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+  localStorage.removeItem(idg);
+  document.getElementById("ssff").style.display = "none";
+  closefav();
+}
+
+function userclose() {
+  document.getElementById("dialogfav3").style.display = "none";
+  document.getElementById("dialogmain3").style.display = "none";
+}
+function useropen() {
+  document.getElementById("dialogfav3").style.display = "block";
+  document.getElementById("dialogmain3").style.display = "block";
+}
+function logout() {
+    localStorage.removeItem("SaveLogin");
+    localStorage.removeItem("username");
+    localStorage.removeItem("email");
+    document.getElementById("btns").innerText = "";
+    document.getElementById("btns").innerText = "تسجيل دخول أو أنشاء حساب";
+    userclose();
+}
+function showallcom(usl) {
+  app.request.setup({
+    url:usl,
+    success:function(data){
+      data = JSON.parse(data);
+      document.getElementById("km2").innerText = ""+data.length;
+      for (i = 0; i < data.length; i++) {
+      var name = data[i].name;
+      var time = data[i].time;
+      var commant = data[i].commants;
+        showCom(time,name,commant);
+        }
+    },
+    error:function(data){
+      app.request({method:'GET'});
+      errornet.open();
+    },
+  })
+  app.request({method:'GET'});
+}
+function closesS() {
+  document.getElementById("showss").style.display = "none";
+  document.getElementById("showsm").style.display = "none";
+}
+function opensS() {
+  document.getElementById("showss").style.display = "block";
+  document.getElementById("showsm").style.display = "block";
 }

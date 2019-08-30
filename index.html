@@ -286,7 +286,7 @@
             </a>
             <a style="color: white;" href="#view-smlr" class="tab-link">
               <i class="icon f7-icons ios-only">view_list</i>
-              <i class="icon material-icons md-only"><span class="badge color-red">0</span>view_list</i>
+              <i class="icon material-icons md-only"><span id="mrtbta" class="badge color-red">0</span>view_list</i>
               <span class="tabbar-label">مرتبط</span>
             </a>
           </div>
@@ -364,20 +364,6 @@
                   </div>
                  
               </div>
-            <p><a id="showserver" style=" display: none; border-radius: 15px 15px 0 0;" class="button button-fill sheet-open" href="#" data-sheet=".my-sheet-swipe-to-close">Server</a></p>
-                        <div class="sheet-modal my-sheet-swipe-to-close" style="border-radius: 15px 15px 0 0; height:auto; --f7-sheet-bg-color: #fff;">
-                         <div style="border-radius: 15px 15px 0px 0px;" class="sheet-modal-inner">
-                           <div class="swipe-handler">
-                             </div>
-                           <div class="page-content">
-                             <div style="text-align: center;" class="block-title block-title-large">أختيار دقة الحلقة</div>
-                             <div id="listserver" class="block">
-                                    <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
-                                    <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
-                             </div>
-                           </div>
-                         </div>
-                       </div>
       </div>
   </div>
   </div>
@@ -394,7 +380,7 @@
       
         <span onclick="closecustom()" class="dialog-button">الغاء</span>
       
-        <span onclick="search(document.getElementById('dialogvalue').value)" class="dialog-button dialog-button-bold">بحث</span>
+        <span onclick="search()" class="dialog-button dialog-button-bold">بحث</span>
       
     </div>
   </div>
@@ -403,7 +389,7 @@
       <div class="navbar">
         <div class="navbar-inner sliding">
           <div class="left">
-            <a  href="#" class="link popup-close">
+            <a onclick="document.getElementById('favoritelist').innerHTML = '';" href="#" class="link popup-close">
               <i class="icon icon-back"></i>
               <span class="ios-only">Back</span>
             </a>
@@ -419,6 +405,53 @@
     </div>
 
   </div>
+  <!-- All Dialog Bind here -->
+  <div onclick="closefav()" id="dialogfav" class="dialog-backdrop backdrop-in" style="display: none;"></div>
+  <div id="dialogmain" class="dialog dialog-buttons-2 modal-in" style="display: none;">
+    <div class="dialog-inner">
+      <div class="dialog-title">SnoAnime</div>
+      <div class="dialog-text">هل تود حذف ألانمي من المفضلة</div>
+      
+    </div>
+    
+    <div class="dialog-buttons">
+      
+        <span onclick="closefav()" class="dialog-button dialog-button-bold">لا</span>
+      
+        <span onclick="deletefav()" class="dialog-button dialog-button-bold">نعم</span>
+      
+    </div>
+  
+  </div>
+
+  <div onclick="userclose()" id="dialogfav3" class="dialog-backdrop backdrop-in" style="display: none;"></div>
+  <div id="dialogmain3" class="dialog dialog-buttons-2 modal-in" style="display: none;">
+    <div class="dialog-inner">
+      <div class="dialog-title">SnoAnime</div>
+      <div class="dialog-text">هل تود تسجيل الخروج ؟</div>
+      
+    </div>
+  </div>
+    
+    <div class="dialog-buttons">
+      
+        <span onclick="userclose()" class="dialog-button dialog-button-bold">لا</span>
+      
+        <span onclick="logout()" class="dialog-button dialog-button-bold">نعم</span>
+      
+    </div>
+
+    <div onclick="closesS()" id="showss" class="dialog-backdrop backdrop-in" style="display: none;"></div>
+    <div id="showsm" class="dialog dialog-buttons-2 modal-in" style="display: none;">
+      <div class="dialog-inner">
+        <div class="dialog-title">الدقات المتوفرة</div>
+        <div id="listserver" class="block">
+          <button id="sd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">SD</button>
+          <button id="hd" class="col button button-large button-raised" style="width: 100%;margin: 5px; color: black;">HD</button>
+       </div>
+      </div>
+  </div>
+
   <!-- Cordova -->
   <!--
   <script src="cordova.js"></script>
