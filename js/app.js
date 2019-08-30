@@ -1253,14 +1253,14 @@ function outing() {
   document.getElementById("outing").click()
   hideLoading();
 }
-function opnenews() {
+function opennews() {
   app.request.setup({
     url:"https://snoanime.com/api/new/newlist.php",
     success:function(data){
       obj = JSON.parse(data);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].img;
-        infosmlrs(oimg,obj[i].title,obj[i].text);
+        newslist(oimg,obj[i].title,obj[i].text);
     }
     },
     error:function(data){
