@@ -1271,6 +1271,7 @@ function opennews() {
   app.request.setup({
     url:"https://snoanime.com/api/new/newlist.php",
     success:function(data){
+      document.getElementById("newslist").innerText = "";
       obj = JSON.parse(data);
       for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].img;
