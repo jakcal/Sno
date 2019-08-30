@@ -500,7 +500,8 @@ function shows(id) {
 }
 
 function sendDataToAndroid(toast,id) {
-        MyFunction.onButtonClick(toast,id);
+  var ads = "ca-app-pub-9372585201524216/1486370747"
+        MyFunction.onButtonClick(toast,id,ads);
     }
 function sendFav(id) {
 			Fav.onButtonClick(id);
