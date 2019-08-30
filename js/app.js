@@ -388,6 +388,17 @@ function searchlist(img,name,title,id,state,starts) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
+function newsopen() {
+  document.getElementById("newsdialog").style.display = "block";
+  document.getElementById("newsdialog1").style.display = "block";
+}
+function newsclose() {
+  document.getElementById("newsdialog").style.display = "none";
+  document.getElementById("newsdialog1").style.display = "none";
+}
+function addmsg(msg) {
+    document.getElementById("newsmsg").innerText = msg;
+}
 function newslist(img,name,title) {
   var content = document.getElementById("newslist");
   //info
@@ -400,7 +411,7 @@ function newslist(img,name,title) {
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {};
+  div1.onclick = function() {addmsg(title)};
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
@@ -415,7 +426,6 @@ function newslist(img,name,title) {
   var div8 = document.createElement("div");
   div8.className = "item-subtitle b";
   div8.innerText = title;
-
   //Div
   //UL And Li
   var ul = document.createElement("ul");

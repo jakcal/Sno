@@ -482,15 +482,17 @@
   </div>
   
   <!--news dialog-->
-  <div style="display: none" class="dialog-backdrop backdrop-in"></div>
-  <div style="display: none" class="dialog dialog-buttons-2 modal-in" style="display: block;">
+  <div style="display: none" id="newsdialog" class="dialog-backdrop backdrop-in"></div>
+  <div style="display: none" id="newsdialog1" class="dialog dialog-buttons-2 modal-in" style="display: block;">
       <div class="dialog-inner">
         <div class="dialog-text" style="height: 100%;">
-        
+            <div id="newsmsg" class="ex3">
+    
+              </div>
         </div>
       </div>
       <div class="dialog-buttons">
-          <span class="dialog-button">خروج</span>
+          <span onclick="newsclose()" class="dialog-button">خروج</span>
           <span class="dialog-button dialog-button-bold">مشاركة الخبر</span>
       </div>
     </div>
