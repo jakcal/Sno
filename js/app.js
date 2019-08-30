@@ -393,10 +393,12 @@ function newsopen() {
   document.getElementById("newsdialog1").style.display = "block";
 }
 function newsclose() {
+  document.getElementById("newsmsg").innerText = "";
   document.getElementById("newsdialog").style.display = "none";
   document.getElementById("newsdialog1").style.display = "none";
 }
 function addmsg(msg) {
+    newsopen();
     document.getElementById("newsmsg").innerText = msg;
 }
 function newslist(img,name,title) {
@@ -425,6 +427,7 @@ function newslist(img,name,title) {
   div7.innerText = name;
   var div8 = document.createElement("div");
   div8.className = "item-subtitle b";
+  div8.style.height = "17px";
   div8.innerText = title;
   //Div
   //UL And Li
