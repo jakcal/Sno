@@ -413,7 +413,7 @@ function newslist(img,name,title) {
   div7.className = "item-subtitle";
   div7.innerText = name;
   var div8 = document.createElement("div");
-  div8.className = "item-subtitle";
+  div8.className = "item-subtitle b";
   div8.innerText = title;
 
   //Div
