@@ -1283,5 +1283,10 @@ function opennews() {
     },
   })
   app.request({method:'GET'});
-
+}
+function hideSearch() {
+  document.getElementById("btnsearch").style.display = "none";
+}
+function showSearch() {
+  document.getElementById("btnsearch").style.display = "block";
 }

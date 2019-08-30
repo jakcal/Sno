@@ -103,7 +103,7 @@
             </div>
             <div class="title sliding">أحدث الحلقات المضافة</div>
             <div class="right">
-              <a onclick="opencustom()" href="#" class="link icon-only">
+              <a id="btnsearch" style="display: none" onclick="opencustom()" href="#" class="link icon-only">
                 <i class="icon material-icons md-only">search</i>
               </a>
             </div>
@@ -111,17 +111,17 @@
         </div>
         <div style="background-color: #673ab7;" class="toolbar tabbar-labels toolbar-top">
           <div class="toolbar-inner">
-            <a style="color: white;" href="#view-homes" class="tab-link tab-link-active">
+            <a onclick="hideSearch()" style="color: white;" href="#view-homes" class="tab-link tab-link-active">
               <i class="icon f7-icons ios-only">home</i>
               <i class="icon material-icons md-only">home</i>
               <span class="tabbar-label">الرئيسية</span>
             </a>
-            <a onclick="golist()" style="color: white;" href="#view-eps" class="tab-link">
+            <a onclick="showSearch()" onclick="golist()" style="color: white;" href="#view-eps" class="tab-link">
               <i class="icon f7-icons ios-only">list</i>
               <i class="icon material-icons md-only">list</i>
               <span class="tabbar-label">قائمة الانمي</span>
             </a>
-            <a style="color: white;" href="#view-smlrs" class="tab-link">
+            <a onclick="hideSearch()" style="color: white;" href="#view-smlrs" class="tab-link">
               <i class="icon f7-icons ios-only">view_list</i>
               <i class="icon material-icons md-only">view_list</i>
               <span class="tabbar-label">عشوائيات</span>
