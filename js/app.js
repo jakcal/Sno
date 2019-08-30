@@ -482,14 +482,13 @@ app.request({method:'GET'});
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid(localStorage.getItem("id"),id);
+	   sendDataToAndroid(localStorage.getItem("id"),id,"ca-app-pub-9372585201524216/1486370747");
       } else {
        opensS();
       }
 }
 
-function sendDataToAndroid(toast,id) {
-  var ads = "ca-app-pub-9372585201524216/1486370747"
+function sendDataToAndroid(toast,id,ads) {
         MyFunction.onButtonClick(toast,id,ads);
     }
 function sendFav(id) {
