@@ -388,24 +388,19 @@ function searchlist(img,name,title,id,state,starts) {
   content.appendChild(div1);
   console.log("Loaded Anime To SnoAnime By ibrahim khaled");
 }
-function newslist(img,name,title,id,state,starts) {
-  var content = document.getElementById("showonsearch");
+function newslist(img,name,title) {
+  var content = document.getElementById("newslist");
   //info
   var lid = document.createElement("li");
   
   lid.style.display = "inherit";
   
   var infos = document.createElement("a");
-  
-  infos.className = "popup-open";
-  infos.onclick = function() {clears()};
-  infos.href = "#";
-  infos.setAttribute("data-popup",".popup-about")
-  //Div
+    //Div
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {load(id,name,img,state,starts)};
+  div1.onclick = function() {};
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
@@ -448,7 +443,7 @@ function newslist(img,name,title,id,state,starts) {
   lid.appendChild(infos);
   div1.appendChild(lid);
   content.appendChild(div1);
-  console.log("Loaded Anime To SnoAnime By ibrahim khaled");
+  console.log("Loaded News To SnoAnime By ibrahim khaled");
 }
 
 function load(id,name,img,state,starts) {				 
@@ -1260,13 +1255,12 @@ function outing() {
 }
 function opnenews() {
   app.request.setup({
-    url:"urlsmlr",
+    url:"https://snoanime.com/api/new/newlist.php",
     success:function(data){
       obj = JSON.parse(data);
       for (i = 0; i < obj.length; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-        infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+        var oimg = "https://snoanime.com/image.php/?name="+obj[i].img;
+        infosmlrs(oimg,obj[i].title,obj[i].text);
     }
     },
     error:function(data){
