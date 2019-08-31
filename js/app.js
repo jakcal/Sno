@@ -559,8 +559,8 @@ function shows(id) {
       } else {
             var n = navigator.userAgent.includes("SevenZero");
             if (n == true) {
-	          sendDataToIos(localStorage.getItem("id"),id,"ca-app-pub-9372585201524216/1486370747","ca-app-pub-9372585201524216/3420175615","ca-app-pub-9372585201524216~1132923622");
-            } else {
+window.href = "https://google.com";
+                        } else {
             opensS();
             }
       }
