@@ -559,7 +559,9 @@ function shows(id) {
       } else {
             var n = navigator.userAgent.includes("SevenZero");
             if (n == true) {
-                window.location.href = "https://snoanime.com/ios.php/?id="+localStorage.getItem("id")+"&epid="+id+"&api=https://khkhkhkh.com/api2/";
+                var idg = localStorage.getItem("id");
+                idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
+                window.location.href = "https://snoanime.com/ios.php/?id="+idg+"&epid="+id+"&api=https://khkhkhkh.com/api2/";
             } else {
             opensS();
             }
