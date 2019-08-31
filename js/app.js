@@ -74,6 +74,7 @@ app.preloader.show();
         createitemslmr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
       }
       app.preloader.hide();
+      sendFav("تنبيه","نأسف كثيرا لكثرة المشاكل ال لتي واجهتكم في الاصدارات السابقة أنشاء الله سيتم حل جميع المشاكل قريبا في هذا النسخة التجريبية","")
     }
   };
   xhttp.open("GET", "https://snoanime.com/api/new/", true);
@@ -570,8 +571,8 @@ function shows(id) {
 function sendDataToAndroid(toast,id,ads,bnads,appid) {
         MyFunction.onButtonClick(toast,id,ads,bnads,appid);
     }
-function sendFav(id) {
-			Fav.onButtonClick(id);
+function sendFav(title,msg,url) {
+			Fav.onButtonClick(title,msg,url);
     }
 function createCom() {
 		 if (localStorage.getItem("SaveLogin")) {
