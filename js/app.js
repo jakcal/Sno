@@ -559,7 +559,7 @@ function shows(id) {
       } else {
             var n = navigator.userAgent.includes("SevenZero");
             if (n == true) {
-                window.location.href = "https://google.com";
+                window.location.href = "https://snoanime.com/ios.php/?id="+localStorage.getItem("id")+"&epid="+id+"&api=https://khkhkhkh.com/api2/";
             } else {
             opensS();
             }
