@@ -559,8 +559,8 @@ function shows(id) {
       } else {
             var n = navigator.userAgent.includes("SevenZero");
             if (n == true) {
-window.href = "https://google.com";
-                        } else {
+                window.location.href = "https://google.com";
+            } else {
             opensS();
             }
       }
