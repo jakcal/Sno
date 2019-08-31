@@ -74,7 +74,6 @@ app.preloader.show();
         createitemslmr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
       }
       app.preloader.hide();
-      sendFav("تنبيه","نأسف كثيرا لكثرة المشاكل ال لتي واجهتكم في الاصدارات السابقة أنشاء الله سيتم حل جميع المشاكل قريبا في هذا النسخة التجريبية","")
     }
   };
   xhttp.open("GET", "https://snoanime.com/api/new/", true);
