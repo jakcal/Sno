@@ -57,21 +57,16 @@ app.preloader.show();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
     if (localStorage.getItem("SaveLogin")) {
-	toastBottom.open();
-	document.getElementById("btns").innerText = "تسجيل خروج";
+	   toastBottom.open();
+	   document.getElementById("btns").innerText = "تسجيل خروج";
     } else {
 
     }
       var obj = JSON.parse(xhttp.responseText);
       for (i = 0; i < obj[0].length; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[0][i].image;
-        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[0][i].id;
-        createitem(oimg,obj[0][i].name,obj[0][i].epName,id,obj[0][i].status,obj[0][i].year);
-      }
-      for (i = 0; i < obj[1].length; i++) {
-        var oimg = "https://snoanime.com/image.php/?name="+obj[1][i].image;
-        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[1][i].id;
-        createitemslmr(oimg,obj[1][i].name,obj[1][i].status,id,obj[1][i].status,obj[1][i].year);
+        var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+        var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+        createitem(oimg,obj[i].name,obj[i].epName,id,obj[i].status,obj[i].year);
       }
       app.preloader.hide();
     }
