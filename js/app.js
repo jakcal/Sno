@@ -63,7 +63,7 @@ app.preloader.show();
 
     }
       var obj = JSON.parse(xhttp.responseText);
-      for (i = 0; i < obj[0].length; i++) {
+      for (i = 0; i < obj.length; i++) {
         var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
         var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
         createitem(oimg,obj[i].name,obj[i].epName,id,obj[i].status,obj[i].year);
