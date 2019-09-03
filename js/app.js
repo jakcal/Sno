@@ -1126,7 +1126,7 @@ function opengenere() {
         btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
         var datag = obj[i].data;
         btn.setAttribute("onclick","alert('"+datag+"')");
-        document.getElementById("list-ep").appendChild(btn);
+        document.getElementById("generelist").appendChild(btn);
   }
   console.log("يتم تحميل التصنيفات")
 }
