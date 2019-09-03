@@ -1020,7 +1020,7 @@ function createLoader() {
 }
 // Loading flag
 function loadmor(img,name,title,id,state,starts) {
-  var content = document.getElementById("animeing");
+  var content = document.getElementById("showonsearch");
   //info
   var lid = document.createElement("li");
   
