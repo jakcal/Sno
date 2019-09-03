@@ -1131,7 +1131,7 @@ function opengenere() {
   console.log("يتم تحميل التصنيفات")
 }
 function loadgenre(id) {
-$url = "https://snoanime.com/api/new/genre.php/?name="+id;
+url = "https://snoanime.com/api/new/genre.php/?name="+id;
 app.preloader.show();
 app.request.setup({
   url:url,
