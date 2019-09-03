@@ -1125,12 +1125,13 @@ function opengenere() {
         btn.setAttribute("class","col button button-large button-raised");
         btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
         var datag = obj[i].data;
-        btn.setAttribute("onclick","loadgenre('"+datag+"')");
+        btn.setAttribute("onclick","loadgenre("+datag+","+obj[i].name+")");
         document.getElementById("generelist").appendChild(btn);
   }
   console.log("يتم تحميل التصنيفات")
 }
-function loadgenre(id) {
+function loadgenre(id,name) {
+document.getElementById("gnreid").innerText = name;
 url = "https://snoanime.com/api/new/genre.php/?name="+id;
 app.preloader.show();
 app.request.setup({
