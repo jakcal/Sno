@@ -1036,7 +1036,7 @@ function loadmor(img,name,title,id,state,starts) {
   var div1 = document.createElement("div");
   div1.style = 'style="height: 160;"';
   div1.className = "card";
-  div1.onclick = function() {load(id,name,img,state,starts)};
+  div1.setAttribute("onclick","load('"+id+"','"+name+"','"+img+"','"+state+"','"+starts+"')");
   var div2 = document.createElement("div");
   div2.className = "card-content"
   var div3 = document.createElement("div");
