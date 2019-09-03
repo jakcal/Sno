@@ -496,7 +496,7 @@ app.request.setup({
   document.getElementById("statics").innerHTML = localStorage.getItem("state");
   var ratings = document.getElementById("rating");
   document.getElementById("start").innerHTML = localStorage.getItem("start");
-  story.innerText = data["main"].story;
+  story.innerHTML = data["main"].story;
   genre.innerText = data["main"].genres;
   var n = data["main"].age.includes("+");
   if (n == true) {
