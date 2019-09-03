@@ -911,11 +911,9 @@ xhttp.send();
 function clears() {
   document.getElementById("ssff").style.display = "none";
   document.getElementById("km").innerText = "0"
-  document.getElementById("mrtbta").innerText = "0"
   document.getElementById("km2").innerText = "0"
   document.getElementById("images").removeAttribute("src");
-  document.getElementById("story").innerText = "";
-  document.getElementById("story").innerText = "";
+  document.getElementById("story").innerHTML = "";
   document.getElementById("genres").innerText = "";
   document.getElementById("start").innerText = "";
   document.getElementById("statics").innerText = "";
