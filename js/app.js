@@ -1125,13 +1125,100 @@ function opengenere() {
         btn.setAttribute("class","col button button-large button-raised");
         btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
         var datag = obj[i].data;
-        btn.setAttribute("onclick","alert('"+datag+"')");
+        btn.setAttribute("onclick","loadgenre('"+datag+"')");
         document.getElementById("generelist").appendChild(btn);
   }
   console.log("يتم تحميل التصنيفات")
 }
+function loadgenre(id) {
+$url = "https://snoanime.com/api/new/genre.php/?name="+id;
+app.preloader.show();
+app.request.setup({
+  url:url,
+  success:function(data){
+  var content = document.getElementById("generelist");
+  content.innerHTML = "";
+  obj = JSON.parse(data);
+  for (i = 0; i < obj.length; i++) {
+    var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
+    var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
+    genr(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
+  }
+  app.preloader.hide();
+  },
+  error:function(data){
+    app.preloader.hide();
+    app.request({method:'GET'});
+    errornet.open();
+  },
+})
+app.request({method:'GET'});
+}
 function fcreateitem(img,name,title,id,state,starts) {
   var content = document.getElementById("favoritelist");
+  //info
+  var lid = document.createElement("li");
+  
+  lid.style.display = "inherit";
+  
+  var infos = document.createElement("a");
+  
+  infos.className = "popup-open";
+  infos.onclick = function() {clears()};
+  infos.href = "#";
+  infos.setAttribute("data-popup",".popup-about")
+  //Div
+  var div1 = document.createElement("div");
+  div1.style = 'style="height: 160;"';
+  div1.className = "card popup-close";
+  div1.onclick = function() {load(id,name,img,state,starts)};
+  var div2 = document.createElement("div");
+  div2.className = "card-content"
+  var div3 = document.createElement("div");
+  div3.className = "list media-list no-ios-edges"
+  var div4 = document.createElement("div");
+  div4.className = "item-media"
+  var div5 = document.createElement("div");
+  div5.className = "item-inner";
+  var div7 = document.createElement("div");
+  div7.className = "item-subtitle";
+  div7.innerText = name;
+  var div8 = document.createElement("div");
+  div8.className = "item-subtitle";
+  div8.innerText = title;
+
+  //Div
+  //UL And Li
+  var ul = document.createElement("ul");
+  var li = document.createElement("li");
+  li.className = "item-content"
+  //UL And Li
+  //Image
+   var image = document.createElement("img");
+   image.setAttribute("data-src",img);
+   image.setAttribute("src",img);
+   image.onerror = function() {this.src = img; console.log('This Image Is Reloader :> '+this.src)};
+   image.width = "125";
+   image.height = "160";
+  //Image
+  //Append
+  div4.appendChild(image);
+  div5.appendChild(div7);
+  div5.appendChild(div8);
+  li.appendChild(div4);
+  li.appendChild(div5);
+  ul.appendChild(li);
+  div3.appendChild(ul);
+  div2.appendChild(div3);
+  infos.appendChild(div2)
+  lid.appendChild(infos);
+  div1.appendChild(lid);
+  content.appendChild(div1);
+  console.log("Loaded Anime To SnoAnime By ibrahim khaled");
+}
+
+function genr(img,name,title,id,state,starts) {
+  var content = document.getElementById("generelist");
   //info
   var lid = document.createElement("li");
   
