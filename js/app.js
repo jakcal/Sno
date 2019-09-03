@@ -487,30 +487,6 @@ app.request.setup({
   //epName
   var idgs = localStorage.getItem("id");
   idgs = idgs.replace("https://snoanime.com/api/new/info.php/?url=", "");
-  var n = data["main"].relatedID.includes("0");
-  if (n == true) {
-
-  } else {
-    var urlsmlr = "https://snoanime.com/api/new/smlr.php/?anime="+idgs+"&root="+data["main"].relatedID;
-    app.request.setup({
-      url:urlsmlr,
-      success:function(data){
-        obj = JSON.parse(data);
-        document.getElementById("mrtbta").innerText = ""+obj.length;
-        for (i = 0; i < obj.length; i++) {
-          var oimg = "https://snoanime.com/image.php/?name="+obj[i].image;
-          var id = 'https://snoanime.com/api/new/info.php/?url='+obj[i].id;
-          infosmlrs(oimg,obj[i].name,obj[i].status,id,obj[i].status,obj[i].year);
-      }
-      },
-      error:function(data){
-        app.request({method:'GET'});
-        errornet.open();
-      },
-    })
-    app.request({method:'GET'});
-  }
-
   document.getElementById("titles").innerHTML = localStorage.getItem("name");
   var story = document.getElementById("story");
   document.getElementById("images").src = localStorage.getItem("img");
