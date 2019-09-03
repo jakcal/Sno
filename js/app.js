@@ -525,7 +525,7 @@ app.request({method:'GET'});
 function shows(id) {
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
-	   sendDataToAndroid(localStorage.getItem("id"),id,"ca-app-pub-9372585201524216/1486370747","ca-app-pub-9372585201524216/3420175615","ca-app-pub-9372585201524216~1132923622");
+	   sendDataToAndroid(id,id,"ca-app-pub-9372585201524216/1486370747","ca-app-pub-9372585201524216/3420175615","ca-app-pub-9372585201524216~1132923622");
       } else {
             var n = navigator.userAgent.includes("SevenZero");
             if (n == true) {
