@@ -478,10 +478,9 @@ app.request.setup({
          btn.innerText = data["ep"][i].name;
          btn.setAttribute("class","col button button-large button-raised");
          btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
-   
-		var datag = data["ep"][i].id;
-    btn.setAttribute("onclick","shows('"+datag+"')");
-    document.getElementById("list-ep").appendChild(btn);
+         var datag = data["ep"][i].id;
+         btn.setAttribute("onclick","shows('"+datag+"')");
+         document.getElementById("list-ep").appendChild(btn);
       }
       showallcom(usl);
   //epName
@@ -1117,6 +1116,19 @@ function openf() {
     }
     }
     console.log("يتم تحميل المفضلة")
+}
+function opengenere() {
+  obj = JSON.parse('[{"data":"genre0","name":"أكشن"},{"data":"genre1","name":"مغامرات"},{"data":"genre2","name":"رسوم متحركة"},{"data":"genre3","name":"سيارات"},{"data":"genre4","name":"كوميدي"},{"data":"genre5","name":"عته"},{"data":"genre6","name":"شياطين"},{"data":"genre7","name":"دراما"},{"data":"genre8","name":"أتشي"},{"data":"genre9","name":"عائلة"},{"data":"genre10","name":"خيال"},{"data":"genre11","name":"لعبة"},{"data":"genre12","name":"حريم"},{"data":"genre13","name":"تاريخي"},{"data":"genre14","name":"رعب"},{"data":"genre15","name":"فتيات"},{"data":"genre16","name":"اطفال"},{"data":"genre17","name":"سحر"},{"data":"genre18","name":"فنون قتال"},{"data":"genre19","name":"آلي"},{"data":"genre20","name":"عسكري"},{"data":"genre21","name":"موسيقى"},{"data":"genre22","name":"الغموض"},{"data":"genre23","name":"باروديا"},{"data":"genre24","name":"شرطة"},{"data":"genre25","name":"نفسي"},{"data":"genre26","name":"رومانسية"},{"data":"genre27","name":"الساموراي"},{"data":"genre28","name":"مدرسي"},{"data":"genre29","name":"الخيال العلمي"},{"data":"genre30","name":"روايات الخيال العلمي"},{"data":"genre31","name":"أولاد"},{"data":"genre32","name":"شوجو"},{"data":"genre33","name":"شوجو آي"},{"data":"genre34","name":"شونين"},{"data":"genre35","name":"شونين آي"},{"data":"genre36","name":"شريحة من الحياة"},{"data":"genre37","name":"الفضاء"},{"data":"genre38","name":"الرياضة"},{"data":"genre39","name":"قوة خارقة"},{"data":"genre40","name":"خارق"},{"data":"genre41","name":"الاثارة"},{"data":"genre42","name":"مأساة"},{"data":"genre43","name":"مصاص دماء"},{"data":"genre44","name":"يوي"},{"data":"genre45","name":"يوري"}]');
+    for (i = 0; i < obj.length; i++) {
+        var btn = document.createElement("button");
+        btn.innerText = data[i].name;
+        btn.setAttribute("class","col button button-large button-raised");
+        btn.setAttribute("style","width: 100%;margin: 5px; color: black;");
+        var datag = data[i].data;
+        btn.setAttribute("onclick","alert('"+datag+"')");
+        document.getElementById("list-ep").appendChild(btn);
+  }
+  console.log("يتم تحميل التصنيفات")
 }
 function fcreateitem(img,name,title,id,state,starts) {
   var content = document.getElementById("favoritelist");

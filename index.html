@@ -77,6 +77,13 @@
 									</div>
 								  </a>
                 </li>
+                <li style=""><a onclick="opengenre();" data-popup=".popup-genre" class="item-link item-content popup-open" style="padding: 4px;">
+									<div class="item-media"><i class="icon material-icons">flash_on</i></div>
+									<div class="item-inner" style="margin-top: 0px; margin-left: 0px; ">
+									  <div class="item-title">التصنيفات</div>
+									</div>
+								  </a>
+                </li>
 							  </ul>
 							</div>
 						</div>
@@ -385,6 +392,27 @@
       </div>
       <div class="page-content">
         <div style="display: block; background-color: white; padding-top: 0px;" id="favoritelist" class="page-content">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="popup popup-genre">
+    <div class="page">
+      <div class="navbar">
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a onclick="document.getElementById('favoritelist').innerHTML = '';" href="#" class="link popup-close">
+              <i class="icon icon-back"></i>
+              <span class="ios-only">Back</span>
+            </a>
+          </div>
+          <div class="title">التصنيفات</div>
+        </div>
+      </div>
+      <div class="page-content">
+        <div style="display: block; background-color: white; padding-top: 0px;" id="generelist" class="page-content">
 
         </div>
       </div>
