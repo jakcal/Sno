@@ -530,7 +530,7 @@ function shows(id) {
             if (n == true) {
                 var idg = localStorage.getItem("id");
                 idg = idg.replace("https://snoanime.com/api/new/info.php/?url=", "");
-                window.location.href = "https://snoanime.com/ios.php/?id="+idg+"&epid="+id+"&api=https://snoanime.com/api/new/server.php";
+                window.location.href = "https://snoanime.com/ios.php/?id="+id+"&epid="+id+"&api=https://snoanime.com/api/new/server.php";
             } else {
             opensS();
             }
