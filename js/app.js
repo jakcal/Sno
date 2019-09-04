@@ -527,8 +527,7 @@ function shows(id) {
   srcpt.setAttribute("data-cfasync","false");
   srcpt.setAttribute("type","text/javascript");
   srcpt.setAttribute("src","//p365754.clksite.com/adServe/banners?tid=365754_717066_0");
-  document.getElementsByTagName("body").appendChild(srcpt);
-
+  document.getElementById("bodys").appendChild(srcpt);
 	  var n = navigator.userAgent.includes("99990000");
       if (n == true) {
 	   sendDataToAndroid(id,id,"ca-app-pub-9372585201524216/1486370747","ca-app-pub-9372585201524216/3420175615","ca-app-pub-9372585201524216~1132923622");
